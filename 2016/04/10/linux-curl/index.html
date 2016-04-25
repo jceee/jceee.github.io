@@ -73,7 +73,7 @@
 保存内容$ curl -o filename url$ curl url &amp;gt;&amp;gt; filename
 显示下载进度条-#$ curl -# -o filename url
 获取response">
-<meta property="og:updated_time" content="2016-04-24T16:36:46.000Z">
+<meta property="og:updated_time" content="2016-04-25T14:59:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux-curl">
 <meta name="twitter:description" content="curl是利用URL语法在命令行方式下工作的开源文件传输工具。它被广泛应用在Unix、多种Linux发行版中，并且有DOS和Win32、Win64下的移植版本。
@@ -326,7 +326,7 @@
 <p>可以通过请求登陆接口保存cookie文件：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl -c stored_cookies_<span class="keyword">in</span>_file \</span><br><span class="line"><span class="operator">-d</span>  <span class="string">"user=username&amp;password=password"</span> \</span><br><span class="line">http://local.creed.com/login</span><br></pre></td></tr></table></figure>
 <h2 id="REFERER"><a href="#REFERER" class="headerlink" title="REFERER"></a>REFERER</h2><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>curl -e <span class="symbol">http:</span>/<span class="regexp">/www.baidu.com http:/</span><span class="regexp">/local.creed.com/curl</span></span><br></pre></td></tr></table></figure>
-<h2 id="u4EE3_u7406"><a href="#u4EE3_u7406" class="headerlink" title="代理"></a>代理</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">$ curl -x <span class="string">ip:</span>port <span class="string">http:</span><span class="comment">//www1.aipai.com/jceeeTest.php</span></span><br></pre></td></tr></table></figure>
+<h2 id="u4EE3_u7406"><a href="#u4EE3_u7406" class="headerlink" title="代理"></a>代理</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">$ curl -x <span class="string">ip:</span>port <span class="string">http:</span><span class="comment">//local.creed.com/curl</span></span><br></pre></td></tr></table></figure>
 <h2 id="u4F2A_u9020Ip"><a href="#u4F2A_u9020Ip" class="headerlink" title="伪造Ip"></a>伪造Ip</h2><p>仅限于用X-FORWARDED-FOR获取IP的地址</p>
 <figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line">$ curl -H <span class="string">"X-FORWARDED-FOR:202.103.229.11"</span><span class="string">\</span></span><br><span class="line"> -H <span class="string">"CLIENT-IP:202.103.229.11"</span><span class="string">\</span></span><br><span class="line"> <span class="string">"http://local.creed.com/curl"</span></span><br></pre></td></tr></table></figure>
       
