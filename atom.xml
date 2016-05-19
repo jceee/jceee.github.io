@@ -1,0 +1,1239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>This way up</title>
+  <subtitle>I am not perfect but I keep trying</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.jcsama.com/"/>
+  <updated>2016-04-25T14:59:10.000Z</updated>
+  <id>http://www.jcsama.com/</id>
+  
+  <author>
+    <name>jceee</name>
+    <email>jceee@foxmail.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux-curl</title>
+    <link href="http://www.jcsama.com/2016/04/10/linux-curl/"/>
+    <id>http://www.jcsama.com/2016/04/10/linux-curl/</id>
+    <published>2016-04-10T14:26:50.000Z</published>
+    <updated>2016-04-25T14:59:10.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;curl是利用URL语法在命令行方式下工作的开源文件传输工具。它被广泛应用在Unix、多种Linux发行版中，并且有DOS和Win32、Win64下的移植版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;u83B7_u53D6url_u5185_u5BB9&quot;&gt;&lt;a href=&quot;#u83B7_u53D6url_u5185_u5BB9&quot; class=&quot;headerlink&quot; title=&quot;获取url内容&quot;&gt;&lt;/a&gt;获取url内容&lt;/h2&gt;&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;curl url&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u4FDD_u5B58_u5185_u5BB9&quot;&gt;&lt;a href=&quot;#u4FDD_u5B58_u5185_u5BB9&quot; class=&quot;headerlink&quot; title=&quot;保存内容&quot;&gt;&lt;/a&gt;保存内容&lt;/h2&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;curl -o filename url&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;curl url &lt;span class=&quot;prompt&quot;&gt;&amp;gt;&amp;gt; &lt;/span&gt;filename&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u663E_u793A_u4E0B_u8F7D_u8FDB_u5EA6_u6761-_23&quot;&gt;&lt;a href=&quot;#u663E_u793A_u4E0B_u8F7D_u8FDB_u5EA6_u6761-_23&quot; class=&quot;headerlink&quot; title=&quot;显示下载进度条-#&quot;&gt;&lt;/a&gt;显示下载进度条&lt;code&gt;-#&lt;/code&gt;&lt;/h2&gt;&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;curl -&lt;span class=&quot;comment&quot;&gt;# -o filename url&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u83B7_u53D6response_header&quot;&gt;&lt;a href=&quot;#u83B7_u53D6response_header&quot; class=&quot;headerlink&quot; title=&quot;获取response header&quot;&gt;&lt;/a&gt;获取response header&lt;/h2&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ curl -&lt;span class=&quot;tag&quot;&gt;i&lt;/span&gt; url&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;POST_u6570_u636E&quot;&gt;&lt;a href=&quot;#POST_u6570_u636E&quot; class=&quot;headerlink&quot; title=&quot;POST数据&quot;&gt;&lt;/a&gt;POST数据&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ curl &lt;span class=&quot;operator&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;key1=val1&amp;amp;key2=val2&quot;&lt;/span&gt; url&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;PUT_u6587_u4EF6&quot;&gt;&lt;a href=&quot;#PUT_u6587_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;PUT文件&quot;&gt;&lt;/a&gt;PUT文件&lt;/h2&gt;&lt;figure class=&quot;highlight elixir&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;curl -&lt;span class=&quot;constant&quot;&gt;F &lt;/span&gt;&lt;span class=&quot;string&quot;&gt;&quot;fileUpload=@/Users/jceee/Pictures/default_avatar.jpeg&quot;&lt;/span&gt; \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;symbol&quot;&gt;http:&lt;/span&gt;/&lt;span class=&quot;regexp&quot;&gt;/local.creed.com/curl&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;UserAgent&quot;&gt;&lt;a href=&quot;#UserAgent&quot; class=&quot;headerlink&quot; title=&quot;UserAgent&quot;&gt;&lt;/a&gt;UserAgent&lt;/h2&gt;&lt;figure class=&quot;highlight autohotkey&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ curl -&lt;span class=&quot;literal&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;USER AGENT&quot;&lt;/span&gt; URL&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;COOKIE&quot;&gt;&lt;a href=&quot;#COOKIE&quot; class=&quot;headerlink&quot; title=&quot;COOKIE&quot;&gt;&lt;/a&gt;COOKIE&lt;/h2&gt;&lt;p&gt;Cookie是服务器经常使用的一种记忆客户信息的方法。如果cookie被记录在了文件中，那么使用命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ curl -&lt;span class=&quot;tag&quot;&gt;b&lt;/span&gt; stored_cookies_in_file \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http:&lt;span class=&quot;comment&quot;&gt;//local.creed.com&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;可以通过请求登陆接口保存cookie文件：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ curl -c stored_cookies_&lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;_file \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;-d&lt;/span&gt;  &lt;span class=&quot;string&quot;&gt;&quot;user=username&amp;amp;password=password&quot;&lt;/span&gt; \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http://local.creed.com/login&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;REFERER&quot;&gt;&lt;a href=&quot;#REFERER&quot; class=&quot;headerlink&quot; title=&quot;REFERER&quot;&gt;&lt;/a&gt;REFERER&lt;/h2&gt;&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;curl -e &lt;span class=&quot;symbol&quot;&gt;http:&lt;/span&gt;/&lt;span class=&quot;regexp&quot;&gt;/www.baidu.com http:/&lt;/span&gt;&lt;span class=&quot;regexp&quot;&gt;/local.creed.com/curl&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u4EE3_u7406&quot;&gt;&lt;a href=&quot;#u4EE3_u7406&quot; class=&quot;headerlink&quot; title=&quot;代理&quot;&gt;&lt;/a&gt;代理&lt;/h2&gt;&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ curl -x &lt;span class=&quot;string&quot;&gt;ip:&lt;/span&gt;port &lt;span class=&quot;string&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;//local.creed.com/curl&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u4F2A_u9020Ip&quot;&gt;&lt;a href=&quot;#u4F2A_u9020Ip&quot; class=&quot;headerlink&quot; title=&quot;伪造Ip&quot;&gt;&lt;/a&gt;伪造Ip&lt;/h2&gt;&lt;p&gt;仅限于用X-FORWARDED-FOR获取IP的地址&lt;/p&gt;
+&lt;figure class=&quot;highlight livescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ curl -H &lt;span class=&quot;string&quot;&gt;&quot;X-FORWARDED-FOR:202.103.229.11&quot;&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;\&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; -H &lt;span class=&quot;string&quot;&gt;&quot;CLIENT-IP:202.103.229.11&quot;&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;\&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;string&quot;&gt;&quot;http://local.creed.com/curl&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;curl是利用URL语法在命令行方式下工作的开源文件传输工具。它被广泛应用在Unix、多种Linux发行版中，并且有DOS和Win32、Win64下的移植版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;u83B7_u53D6url_u5
+    
+    </summary>
+    
+      <category term="linux" scheme="http://www.jcsama.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.jcsama.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>订阅发布者模式</title>
+    <link href="http://www.jcsama.com/2016/04/04/pattern-pub-sub/"/>
+    <id>http://www.jcsama.com/2016/04/04/pattern-pub-sub/</id>
+    <published>2016-04-04T09:21:45.000Z</published>
+    <updated>2016-04-04T09:26:01.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;发布/ 订阅者模式（Publish/Subscribe）有两个参与者：发布者和订阅者。发布者创建某个信息，订阅者绑定这个信道，当发布者有消息发布至该信道时，订阅者就会接收到一个通知。最重要的一点是，发布者和订阅者是完全解耦的，彼此并不知晓对方的存在一种消息模式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;u8BA2_u9605_u53D1_u5E03_u8005&quot;&gt;&lt;a href=&quot;#u8BA2_u9605_u53D1_u5E03_u8005&quot; class=&quot;headerlink&quot; title=&quot;订阅发布者&quot;&gt;&lt;/a&gt;订阅发布者&lt;/h2&gt;&lt;p&gt;我们创建一个简单的订阅发布者，基本的4个方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;registerSubscriber 注册订阅者&lt;/li&gt;
+&lt;li&gt;removeSubscriber   订阅的取消&lt;/li&gt;
+&lt;li&gt;publish            消息推送&lt;/li&gt;
+&lt;li&gt;sortList           消息推送排序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;class DispatcherPattern&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    protected &lt;span class=&quot;variable&quot;&gt;$subList&lt;/span&gt; = array();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public function registerSubscriber(&lt;span class=&quot;variable&quot;&gt;$name&lt;/span&gt;, &lt;span class=&quot;variable&quot;&gt;$callback&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable&quot;&gt;$this-&lt;/span&gt;&amp;gt;subList[&lt;span class=&quot;variable&quot;&gt;$name&lt;/span&gt;] = &lt;span class=&quot;variable&quot;&gt;$callback&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public function removeSubscriber(&lt;span class=&quot;variable&quot;&gt;$name&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if (isset(&lt;span class=&quot;variable&quot;&gt;$this-&lt;/span&gt;&amp;gt;subList[&lt;span class=&quot;variable&quot;&gt;$name&lt;/span&gt;])) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            unset(&lt;span class=&quot;variable&quot;&gt;$this-&lt;/span&gt;&amp;gt;subList[&lt;span class=&quot;variable&quot;&gt;$name&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public function publish(&lt;span class=&quot;variable&quot;&gt;$params&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if (empty(&lt;span class=&quot;variable&quot;&gt;$this-&lt;/span&gt;&amp;gt;subList) || !is_array(&lt;span class=&quot;variable&quot;&gt;$this-&lt;/span&gt;&amp;gt;subList)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            return &lt;span class=&quot;string&quot;&gt;&#39;null&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        foreach (&lt;span class=&quot;variable&quot;&gt;$this-&lt;/span&gt;&amp;gt;subList as &lt;span class=&quot;variable&quot;&gt;$callback&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            call_user_func_array(&lt;span class=&quot;variable&quot;&gt;$callback&lt;/span&gt;, &lt;span class=&quot;variable&quot;&gt;$params&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public function sortList()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ksort(&lt;span class=&quot;variable&quot;&gt;$this-&lt;/span&gt;&amp;gt;subList);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u8BA2_u9605_u4F53&quot;&gt;&lt;a href=&quot;#u8BA2_u9605_u4F53&quot; class=&quot;headerlink&quot; title=&quot;订阅体&quot;&gt;&lt;/a&gt;订阅体&lt;/h2&gt;&lt;p&gt;接着我们创建一个用户对象,用户对象有增加积分的功能&lt;/p&gt;
+&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class User&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    protected &lt;span class=&quot;variable&quot;&gt;$name&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public function __construct(&lt;span class=&quot;variable&quot;&gt;$name&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable&quot;&gt;$this-&lt;/span&gt;&amp;gt;name = &lt;span class=&quot;variable&quot;&gt;$name&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public function addScore(&lt;span class=&quot;variable&quot;&gt;$score&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        printf( &lt;span class=&quot;variable&quot;&gt;$this-&lt;/span&gt;&amp;gt;name . &lt;span class=&quot;string&quot;&gt;&#39; add Score :&#39;&lt;/span&gt; . &lt;span class=&quot;variable&quot;&gt;$score&lt;/span&gt; . &lt;span class=&quot;string&quot;&gt;&quot;\r\n&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u901A_u8FC7_u8BA2_u9605_u53D1_u5E03_u8005_u6A21_u5F0F_u4E3A_u7528_u6237_u589E_u52A0_u79EF_u5206&quot;&gt;&lt;a href=&quot;#u901A_u8FC7_u8BA2_u9605_u53D1_u5E03_u8005_u6A21_u5F0F_u4E3A_u7528_u6237_u589E_u52A0_u79EF_u5206&quot; class=&quot;headerlink&quot; title=&quot;通过订阅发布者模式为用户增加积分&quot;&gt;&lt;/a&gt;通过订阅发布者模式为用户增加积分&lt;/h2&gt;&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$score&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$dispatcher&lt;/span&gt; = new DispatcherPattern();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$dispatcher-&lt;/span&gt;&amp;gt;registerSubscriber(&lt;span class=&quot;string&quot;&gt;&#39;0&#39;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    printf( &lt;span class=&quot;string&quot;&gt;&quot;this is first handle \r\n&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$dispatcher-&lt;/span&gt;&amp;gt;registerSubscriber(&lt;span class=&quot;string&quot;&gt;&#39;3&#39;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(new User(&lt;span class=&quot;string&quot;&gt;&#39;user3&#39;&lt;/span&gt;), &lt;span class=&quot;string&quot;&gt;&#39;addScore&#39;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$dispatcher-&lt;/span&gt;&amp;gt;registerSubscriber(&lt;span class=&quot;string&quot;&gt;&#39;1&#39;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(new User(&lt;span class=&quot;string&quot;&gt;&#39;user1&#39;&lt;/span&gt;), &lt;span class=&quot;string&quot;&gt;&#39;addScore&#39;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$dispatcher-&lt;/span&gt;&amp;gt;registerSubscriber(&lt;span class=&quot;string&quot;&gt;&#39;2&#39;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(new User(&lt;span class=&quot;string&quot;&gt;&#39;user2&#39;&lt;/span&gt;), &lt;span class=&quot;string&quot;&gt;&#39;addScore&#39;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$dispatcher-&lt;/span&gt;&amp;gt;removeSubscriber(&lt;span class=&quot;string&quot;&gt;&#39;2&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$dispatcher-&lt;/span&gt;&amp;gt;sortList();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$dispatcher-&lt;/span&gt;&amp;gt;publish(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$score&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;result:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt; is first handle &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;user1 add Score :&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;user3 add Score :&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;发布/ 订阅者模式（Publish/Subscribe）有两个参与者：发布者和订阅者。发布者创建某个信息，订阅者绑定这个信道，当发布者有消息发布至该信道时，订阅者就会接收到一个通知。最重要的一点是，发布者和订阅者是完全解耦的，彼此并不知晓对方的存在
+    
+    </summary>
+    
+      <category term="pattern" scheme="http://www.jcsama.com/categories/pattern/"/>
+    
+    
+      <category term="pattern" scheme="http://www.jcsama.com/tags/pattern/"/>
+    
+      <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>stream_context_create</title>
+    <link href="http://www.jcsama.com/2016/02/29/php-stream/"/>
+    <id>http://www.jcsama.com/2016/02/29/php-stream/</id>
+    <published>2016-02-29T13:06:35.000Z</published>
+    <updated>2016-02-29T14:36:27.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;u6D41&quot;&gt;&lt;a href=&quot;#u6D41&quot; class=&quot;headerlink&quot; title=&quot;流&quot;&gt;&lt;/a&gt;流&lt;/h2&gt;&lt;p&gt;流是PHP4.3.0中引入的特性，作用是使用统一方式处理文件、网络和数据压缩等共同一套函数和用法的操作。&lt;/p&gt;
+&lt;p&gt;每一个流都有一个协议和一个目标。指定协议和目标的方法是使用流标识符：&lt;/p&gt;
+&lt;figure class=&quot;highlight elixir&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;scheme&amp;gt;&lt;span class=&quot;symbol&quot;&gt;://&amp;lt;target&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;scheme&gt;是流的封装协议，&lt;target&gt;是流的数据源&lt;/target&gt;&lt;/scheme&gt;&lt;/p&gt;
+&lt;p&gt;如：&lt;/p&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;//api.jceee.com/services/api.php?action=test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;php:&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;//stdout&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;file:&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;///etc/data.txt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;stream_context_create&quot;&gt;&lt;a href=&quot;#stream_context_create&quot; class=&quot;headerlink&quot; title=&quot;stream_context_create&quot;&gt;&lt;/a&gt;&lt;code&gt;stream_context_create&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;stream_context_create用于创建流的上下文，也就是php流能接受的一系列可选参数，通过这些参数来定义流的行为，不同流的封装协议使用的上下文参数有所不同。&lt;/p&gt;
+&lt;h3 id=&quot;file_get_content&quot;&gt;&lt;a href=&quot;#file_get_content&quot; class=&quot;headerlink&quot; title=&quot;file_get_content&quot;&gt;&lt;/a&gt;file_get_content&lt;/h3&gt;&lt;p&gt;我们定义一个流的参数对象，使&lt;code&gt;file_get_content&lt;/code&gt;发送&lt;code&gt;HTTP&lt;/code&gt;的&lt;code&gt;POST&lt;/code&gt;请求。&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$requestBody&lt;/span&gt; = json_encode(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;user&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;string&quot;&gt;&#39;jceee&#39;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$context&lt;/span&gt; = stream_context_create(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;http&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&#39;method&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;POST&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&#39;header&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&quot;Content-Type: application/json;charset=utf-8;\r\n&quot;&lt;/span&gt; . &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &lt;span class=&quot;string&quot;&gt;&quot;Content-Length: &quot;&lt;/span&gt; . mb_strlen(&lt;span class=&quot;variable&quot;&gt;$requestBody&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&#39;content&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;variable&quot;&gt;$requestBody&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$response&lt;/span&gt; = file_get_contents(&lt;span class=&quot;string&quot;&gt;&#39;http://api.jceee.com/api.php&#39;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;, &lt;span class=&quot;variable&quot;&gt;$context&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;最外层的键&lt;code&gt;http&lt;/code&gt;定义了流封装协议，值是协议的具体内容。通过定义&lt;code&gt;http&lt;/code&gt;协议，我们就创建了一个&lt;code&gt;file_get_content&lt;/code&gt;可接收的流上下文对象。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;u6D41&quot;&gt;&lt;a href=&quot;#u6D41&quot; class=&quot;headerlink&quot; title=&quot;流&quot;&gt;&lt;/a&gt;流&lt;/h2&gt;&lt;p&gt;流是PHP4.3.0中引入的特性，作用是使用统一方式处理文件、网络和数据压缩等共同一套函数和用法的操作。&lt;/p&gt;
+&lt;p&gt;每一个流都有
+    
+    </summary>
+    
+      <category term="php" scheme="http://www.jcsama.com/categories/php/"/>
+    
+    
+      <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php高精确度数值比较-bccomp</title>
+    <link href="http://www.jcsama.com/2016/02/16/php-bccomp/"/>
+    <id>http://www.jcsama.com/2016/02/16/php-bccomp/</id>
+    <published>2016-02-16T15:26:30.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;bccomp&quot;&gt;&lt;a href=&quot;#bccomp&quot; class=&quot;headerlink&quot; title=&quot;bccomp&quot;&gt;&lt;/a&gt;bccomp&lt;/h2&gt;&lt;p&gt;bccomp是php的bcmath库中的方法，使用前先用phpinfo()确认一下有没有开启bcmatch库,没有则需要进行对应的编译操作。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bccomp($left_operand, $right_operand [, $scale = 0]);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;参数&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;参数描述&lt;/th&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;$left_operand&lt;/td&gt;
+&lt;td&gt;左边字符串&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$right_operand&lt;/td&gt;
+&lt;td&gt;右边字符串&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$scale(可不填，默认0)&lt;/td&gt;
+&lt;td&gt;返回值小数点后所需的位数&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;bccomp&lt;/code&gt;函数用于比较二个高精确度的数字。输入二个字符串，若二个字符串一样大则返回 0；若左边的数字字符串 (left operand) 比右边 (right operand) 的大则返回 +1；若左边的数字字符串比右边的小则返回 -1。scale 是一个可有可无的选项，表示返回值小数点后所需的位数:&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;pre&amp;gt;&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(bccomp(&lt;span class=&quot;string&quot;&gt;&#39;1&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;2&#39;&lt;/span&gt;));   &lt;span class=&quot;comment&quot;&gt;// int(-1)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(bccomp(&lt;span class=&quot;string&quot;&gt;&#39;1.00001&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;1&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;)); &lt;span class=&quot;comment&quot;&gt;// int(0)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(bccomp(&lt;span class=&quot;string&quot;&gt;&#39;1.00001&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;1&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;)); &lt;span class=&quot;comment&quot;&gt;// int(1)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u6574_u6570_u4E0E_u6D6E_u70B9_u6570_u5BF9_u6BD4&quot;&gt;&lt;a href=&quot;#u6574_u6570_u4E0E_u6D6E_u70B9_u6570_u5BF9_u6BD4&quot; class=&quot;headerlink&quot; title=&quot;整数与浮点数对比&quot;&gt;&lt;/a&gt;整数与浮点数对比&lt;/h2&gt;&lt;p&gt;举个例子：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;pre&amp;gt;&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;number&quot;&gt;8160&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&#39;81.6&#39;&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;);          //&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;string&quot;&gt;&#39;81.6&#39;&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;);                  //&lt;span class=&quot;built_in&quot;&gt;float&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;8160&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;string&quot;&gt;&#39;81.6&#39;&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; - &lt;span class=&quot;number&quot;&gt;8160&lt;/span&gt;);           //&lt;span class=&quot;built_in&quot;&gt;float&lt;/span&gt;(-&lt;span class=&quot;number&quot;&gt;9.0949470177293&lt;/span&gt;E-&lt;span class=&quot;number&quot;&gt;13&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第一个值是整数8160，第二个值是浮点81.6 跟 100相乘，虽然都是8160，但并不相等，减下来有差。这时，我们可以用bccomp来做判断：&lt;/p&gt;
+&lt;figure class=&quot;highlight elixir&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var_dump(bccomp(&lt;span class=&quot;number&quot;&gt;8160&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;81.60&#39;&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;) === &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);  &lt;span class=&quot;regexp&quot;&gt;//bool&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果没有bcmath库，也可以把第一个整数除以100，得到浮点数再进行对比&lt;/p&gt;
+&lt;figure class=&quot;highlight elixir&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;number&quot;&gt;8160&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; == &lt;span class=&quot;string&quot;&gt;&#39;81.6&#39;&lt;/span&gt;);               &lt;span class=&quot;regexp&quot;&gt;//bool&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;bccomp&quot;&gt;&lt;a href=&quot;#bccomp&quot; class=&quot;headerlink&quot; title=&quot;bccomp&quot;&gt;&lt;/a&gt;bccomp&lt;/h2&gt;&lt;p&gt;bccomp是php的bcmath库中的方法，使用前先用phpinfo()确认一下有没有开启bcmatch库
+    
+    </summary>
+    
+      <category term="php" scheme="http://www.jcsama.com/categories/php/"/>
+    
+    
+      <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux-man</title>
+    <link href="http://www.jcsama.com/2016/02/13/linux-man/"/>
+    <id>http://www.jcsama.com/2016/02/13/linux-man/</id>
+    <published>2016-02-13T14:18:58.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;man是manual的缩写，是系统中提供相关条目参考信息的命令。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果需要参考命令的用法，只需要在man后加上命令名就可以得到详细说明,如&lt;/p&gt;
+&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;man&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ls&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;会得到下面结果：&lt;/p&gt;
+&lt;figure class=&quot;highlight livecodeserver&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;LS(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)                     BSD General Commands Manual                    LS(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NAME&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     ls &lt;span class=&quot;comment&quot;&gt;-- list directory contents&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SYNOPSIS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     ls [-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1] [&lt;span class=&quot;built_in&quot;&gt;file&lt;/span&gt; ...]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;DESCRIPTION&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     For &lt;span class=&quot;keyword&quot;&gt;each&lt;/span&gt; operand that names &lt;span class=&quot;operator&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;a&lt;/span&gt; type other than &lt;span class=&quot;built_in&quot;&gt;directory&lt;/span&gt;, ls displays its name &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; well &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;any&lt;/span&gt; requested, associated information.  For &lt;span class=&quot;keyword&quot;&gt;each&lt;/span&gt; operand that names &lt;span class=&quot;operator&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;of&lt;/span&gt; type &lt;span class=&quot;built_in&quot;&gt;directory&lt;/span&gt;, ls displays &lt;span class=&quot;operator&quot;&gt;the&lt;/span&gt; names &lt;span class=&quot;operator&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;files&lt;/span&gt; con-&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     tained &lt;span class=&quot;operator&quot;&gt;within&lt;/span&gt; that &lt;span class=&quot;built_in&quot;&gt;directory&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; well &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;any&lt;/span&gt; requested, associated information.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     If no operands are given, &lt;span class=&quot;operator&quot;&gt;the&lt;/span&gt; contents &lt;span class=&quot;operator&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;the&lt;/span&gt; current &lt;span class=&quot;built_in&quot;&gt;directory&lt;/span&gt; are displayed.  If more than &lt;span class=&quot;constant&quot;&gt;one&lt;/span&gt; operand is given, non-&lt;span class=&quot;built_in&quot;&gt;directory&lt;/span&gt; operands are displayed &lt;span class=&quot;keyword&quot;&gt;first&lt;/span&gt;; &lt;span class=&quot;built_in&quot;&gt;directory&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;and&lt;/span&gt; non-&lt;span class=&quot;built_in&quot;&gt;directory&lt;/span&gt; operands are sorted separately &lt;span class=&quot;operator&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;in&lt;/span&gt; lexi-&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     cographical order.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     The following options are available:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     -@      Display extended attribute &lt;span class=&quot;built_in&quot;&gt;keys&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;and&lt;/span&gt; sizes &lt;span class=&quot;operator&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; (-l) output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     -&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;      (The &lt;span class=&quot;keyword&quot;&gt;numeric&lt;/span&gt; digit ``&lt;span class=&quot;constant&quot;&gt;one&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;.)  Force output &lt;span class=&quot;built_in&quot;&gt;to&lt;/span&gt; be &lt;span class=&quot;constant&quot;&gt;one&lt;/span&gt; entry per &lt;span class=&quot;built_in&quot;&gt;line&lt;/span&gt;.  This is &lt;span class=&quot;operator&quot;&gt;the&lt;/span&gt; default when output is &lt;span class=&quot;operator&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;a&lt;/span&gt; terminal.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     -A      List all entries except &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; . &lt;span class=&quot;operator&quot;&gt;and&lt;/span&gt; ...  Always &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;the&lt;/span&gt; super-user.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们可以看到结果中显示了LS(1),(1)代表的是&lt;code&gt;一般用户可使用的命令&lt;/code&gt;。在查询数据后面的数字是有意义的，它可以帮助我们了解或者直接查询相关的资料。每个数字具体含义如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;数字&lt;/th&gt;
+&lt;th&gt;意义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;用户在shell环境中可以操作的命令或可执行文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;系统内核可调用的函数与工具等&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;一些常用的函数（function）与函数库（library），大部分为C的函数库（libc）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;设备文件的说明，通常是在/dev下的文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;配置文件或者是某些文件的格式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;游戏（games）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;惯例与协议等，例如Linux文件系统、网络协议、ASCII code等说明&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;系统管理员可用的管理命令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;跟kernel有关的文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;如&lt;/p&gt;
+&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ man &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;command&quot;&gt;write&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight autoit&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;WRITE(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)                    BSD System Calls Manual                   WRITE(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NAME&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     pwrite, write, writev -- write output&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LIBRARY&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     Standard C Library (libc, -lc)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SYNOPSIS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;preprocessor&quot;&gt;#&lt;span class=&quot;keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     ssize_t&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     pwrite(&lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt; fildes, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; void *buf, size_t nbyte, off_t offset)&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     ssize_t&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     write(&lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt; fildes, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; void *buf, size_t nbyte)&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;preprocessor&quot;&gt;#&lt;span class=&quot;keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;lt;sys/uio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     ssize_t&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     writev(&lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt; fildes, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; struct iovec *iov, &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt; iovcnt)&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;man是manual的缩写，是系统中提供相关条目参考信息的命令。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果需要参考命令的用法，只需要在man后加上命令名就可以得到详细说明,如&lt;/p&gt;
+&lt;figure class=&quot;highlight stat
+    
+    </summary>
+    
+      <category term="linux" scheme="http://www.jcsama.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.jcsama.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php性状(trait)</title>
+    <link href="http://www.jcsama.com/2016/02/12/php-trait/"/>
+    <id>http://www.jcsama.com/2016/02/12/php-trait/</id>
+    <published>2016-02-12T11:30:48.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Trait是php5.4.0引入的新概念，是类的部分实现，可以混入一个或多个现有的php类中。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;性状有两个作用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;表明类可以做什么（接口）；&lt;/li&gt;
+&lt;li&gt;提供模块化实现（类）；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;u521B_u5EFA_u6027_u72B6&quot;&gt;&lt;a href=&quot;#u521B_u5EFA_u6027_u72B6&quot; class=&quot;headerlink&quot; title=&quot;创建性状&quot;&gt;&lt;/a&gt;创建性状&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;trait&lt;/span&gt; TestTrait&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getSomething&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$this&lt;/span&gt;-&amp;gt;something;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u4F7F_u7528_u6027_u72B6&quot;&gt;&lt;a href=&quot;#u4F7F_u7528_u6027_u72B6&quot; class=&quot;headerlink&quot; title=&quot;使用性状&quot;&gt;&lt;/a&gt;使用性状&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;TestTrait&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$something&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&#39;something&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Test();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt;-&amp;gt;getSomething());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * result: something&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u62BD_u8C61_u65B9_u6CD5_2C_u9759_u6001_u65B9_u6CD5_u4E0E_u9759_u6001_u5C5E_u6027&quot;&gt;&lt;a href=&quot;#u62BD_u8C61_u65B9_u6CD5_2C_u9759_u6001_u65B9_u6CD5_u4E0E_u9759_u6001_u5C5E_u6027&quot; class=&quot;headerlink&quot; title=&quot;抽象方法,静态方法与静态属性&quot;&gt;&lt;/a&gt;抽象方法,静态方法与静态属性&lt;/h2&gt;&lt;p&gt;Trait跟类一样，也支持抽象方法的定义，还有静态方法，静态属性&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;trait&lt;/span&gt; TestTrait&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$num&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getSomething&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$this&lt;/span&gt;-&amp;gt;something;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showHelloWorld&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getNew&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; date(&lt;span class=&quot;string&quot;&gt;&#39;Y-m-d H:i:s&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;addNum&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;::&lt;span class=&quot;variable&quot;&gt;$num&lt;/span&gt; ++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;::&lt;span class=&quot;variable&quot;&gt;$num&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;TestTrait&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$something&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&#39;something&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showHelloWorld&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var_dump(&lt;span class=&quot;string&quot;&gt;&#39;hello world&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Test();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt;-&amp;gt;showHelloWorld();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(Test::getNew());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt;-&amp;gt;addNum());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt;-&amp;gt;addNum());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt;-&amp;gt;addNum());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt;-&amp;gt;addNum());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; *result:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * string(11) &quot;hello world&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * string(19) &quot;2016-02-12 21:11:27&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * int(1)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * int(2)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * int(3)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * int(4)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Trait_u65B9_u6CD5_u4F18_u5148_u7EA7&quot;&gt;&lt;a href=&quot;#Trait_u65B9_u6CD5_u4F18_u5148_u7EA7&quot; class=&quot;headerlink&quot; title=&quot;Trait方法优先级&quot;&gt;&lt;/a&gt;Trait方法优先级&lt;/h2&gt;&lt;p&gt;性状定义的方法的优先级是：&lt;/p&gt;
+&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;当前类中的方法 &amp;gt; &lt;span class=&quot;keyword&quot;&gt;Trait&lt;/span&gt;的方法 &amp;gt; 基类中的方法&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u4F7F_u7528_u591A_u4E2ATrait&quot;&gt;&lt;a href=&quot;#u4F7F_u7528_u591A_u4E2ATrait&quot; class=&quot;headerlink&quot; title=&quot;使用多个Trait&quot;&gt;&lt;/a&gt;使用多个Trait&lt;/h2&gt;&lt;p&gt;使用多个trait时，需要用&lt;code&gt;,&lt;/code&gt;分隔开不同的性状&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;TestTrait&lt;/span&gt;,&lt;span class=&quot;title&quot;&gt;OtherTrait&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$something&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&#39;something&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;insteadof&quot;&gt;&lt;a href=&quot;#insteadof&quot; class=&quot;headerlink&quot; title=&quot;insteadof&quot;&gt;&lt;/a&gt;insteadof&lt;/h2&gt;&lt;p&gt;两个Trait在同一个类中命名冲突，可以使用insteadof来指定方法名的使用来源&lt;/p&gt;
+&lt;p&gt;Trait1::method insteadof Trait2&lt;/p&gt;
+&lt;p&gt;insteadof是将trait2中的方法method代替成trait1中的method&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;trait&lt;/span&gt; OtherTrait&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getSomething&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$this&lt;/span&gt;-&amp;gt;something . &lt;span class=&quot;string&quot;&gt;&#39; from other&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showOther&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;this is other&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;TestTrait&lt;/span&gt;, &lt;span class=&quot;title&quot;&gt;OtherTrait&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;title&quot;&gt;OtherTrait&lt;/span&gt;::&lt;span class=&quot;title&quot;&gt;getSomething&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;insteadof&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;TestTrait&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$something&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&#39;something&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Test();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt;-&amp;gt;getSomething());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * result: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * something from other&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;as&quot;&gt;&lt;a href=&quot;#as&quot; class=&quot;headerlink&quot; title=&quot;as&quot;&gt;&lt;/a&gt;as&lt;/h2&gt;&lt;p&gt;trait::method as public|protected|private otherMethodName&lt;/p&gt;
+&lt;p&gt;as 是给方法取一个别名,同时还可以声明方法的访问控制&lt;/p&gt;
+&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class Test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    use TestTrait &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        TestTrait::getSomething as public getSomethingPart2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    protected &lt;span class=&quot;variable&quot;&gt;$something&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&#39;something&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$test&lt;/span&gt; = new Test();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;variable&quot;&gt;$test-&lt;/span&gt;&amp;gt;getSomething());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;variable&quot;&gt;$test-&lt;/span&gt;&amp;gt;getSomethingPart2());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * result: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * something  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * something&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u7EC4_u5408&quot;&gt;&lt;a href=&quot;#u7EC4_u5408&quot; class=&quot;headerlink&quot; title=&quot;组合&quot;&gt;&lt;/a&gt;组合&lt;/h2&gt;&lt;p&gt;trait同样可以引用其他trait,用法跟类一致.&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;trait&lt;/span&gt; ThreeTrait&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;OtherTrait&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Trait是php5.4.0引入的新概念，是类的部分实现，可以混入一个或多个现有的php类中。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;性状有两个作用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;表明类可以做什么（接口）；&lt;/li&gt;
+&lt;li&gt;提供模块化实现（类）
+    
+    </summary>
+    
+      <category term="php" scheme="http://www.jcsama.com/categories/php/"/>
+    
+    
+      <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux-ps</title>
+    <link href="http://www.jcsama.com/2016/02/06/linux-ps/"/>
+    <id>http://www.jcsama.com/2016/02/06/linux-ps/</id>
+    <published>2016-02-06T14:32:53.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;ps(Process Status)，顾名思义，是在Linux中是查看进程状态的命令。ps查看正处于Running的进程，ps aux查看所有的进程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;ps_u8FDB_u7A0B_u72B6_u6001_u7801&quot;&gt;&lt;a href=&quot;#ps_u8FDB_u7A0B_u72B6_u6001_u7801&quot; class=&quot;headerlink&quot; title=&quot;ps进程状态码&quot;&gt;&lt;/a&gt;ps进程状态码&lt;/h2&gt;&lt;p&gt;ps几种主要的状态码是:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;D 不可中断 uninterruptible sleep (usually IO) &lt;/li&gt;
+&lt;li&gt;R 运行 runnable (on run queue) &lt;/li&gt;
+&lt;li&gt;S 睡眠 sleeping &lt;/li&gt;
+&lt;li&gt;T 停止 traced or stopped &lt;/li&gt;
+&lt;li&gt;Z 僵死 a defunct (”zombie”) process&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;ps_u5217_u540D_u8BF4_u660E&quot;&gt;&lt;a href=&quot;#ps_u5217_u540D_u8BF4_u660E&quot; class=&quot;headerlink&quot; title=&quot;ps列名说明&quot;&gt;&lt;/a&gt;ps列名说明&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;列名&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;USER&lt;/td&gt;
+&lt;td&gt;该 process 属于那个使用者账号的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PID&lt;/td&gt;
+&lt;td&gt;该 process 的号码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%CPU&lt;/td&gt;
+&lt;td&gt;该 process 使用掉的 CPU 资源百分比&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%MEM&lt;/td&gt;
+&lt;td&gt;该 process 所占用的物理内存百分比&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSZ&lt;/td&gt;
+&lt;td&gt;该 process 使用掉的虚拟内存量 (Kbytes)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RSS&lt;/td&gt;
+&lt;td&gt;该 process 占用的固定的内存量 (Kbytes)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TTY&lt;/td&gt;
+&lt;td&gt;该 process 是在那个终端机上面运作，若与终端机无关，则显示 ?，另外， tty1-tty6 是本机上面的登入者程序，若为 pts/0 等等的，则表示为由网络连接进主机的程序。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;STAT&lt;/td&gt;
+&lt;td&gt;该程序目前的状态，主要的状态可以参照上面提到的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;START&lt;/td&gt;
+&lt;td&gt;该 process 被触发启动的时间&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TIME&lt;/td&gt;
+&lt;td&gt;该 process 实际使用 CPU 运作的时间&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;COMMAND&lt;/td&gt;
+&lt;td&gt;该程序的实际指令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;px_u53C2_u6570&quot;&gt;&lt;a href=&quot;#px_u53C2_u6570&quot; class=&quot;headerlink&quot; title=&quot;px参数&quot;&gt;&lt;/a&gt;px参数&lt;/h2&gt;&lt;p&gt;ps常用参数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-e 显示所有进程&lt;/li&gt;
+&lt;li&gt;-A 所有进程均显示，与-e具有同样效果&lt;/li&gt;
+&lt;li&gt;-a 显示当前终端上所有进程，包括其他用户的进程&lt;/li&gt;
+&lt;li&gt;-u 以用户来筛选进程&lt;/li&gt;
+&lt;li&gt;x 显示没有控制终端的进程&lt;/li&gt;
+&lt;li&gt;r 显示正在运行的进程&lt;/li&gt;
+&lt;li&gt;-f 全格式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还有更多参数可以参考&lt;/p&gt;
+&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;man ps&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;ps_u4F7F_u7528_u793A_u4F8B&quot;&gt;&lt;a href=&quot;#ps_u4F7F_u7528_u793A_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;ps使用示例&quot;&gt;&lt;/a&gt;ps使用示例&lt;/h2&gt;&lt;h3 id=&quot;u67E5_u770B_u7279_u5B9A_u7528_u6237_u8FDB_u7A0B_3A&quot;&gt;&lt;a href=&quot;#u67E5_u770B_u7279_u5B9A_u7528_u6237_u8FDB_u7A0B_3A&quot; class=&quot;headerlink&quot; title=&quot;查看特定用户进程:&quot;&gt;&lt;/a&gt;查看特定用户进程:&lt;/h3&gt;&lt;p&gt;&lt;code&gt;ps -u &amp;lt;用户名&amp;gt;&lt;/code&gt;，如查看root用户的进程&lt;/p&gt;
+&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;ps -u root&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;result:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;UID   PID TTY           TIME CMD&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;     &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; ??        &lt;span class=&quot;number&quot;&gt;28&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;43.94&lt;/span&gt; /sbin/launchd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u67E5_u770B_u6240_u6709_u8FDB_u7A0B&quot;&gt;&lt;a href=&quot;#u67E5_u770B_u6240_u6709_u8FDB_u7A0B&quot; class=&quot;headerlink&quot; title=&quot;查看所有进程&quot;&gt;&lt;/a&gt;查看所有进程&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ps &lt;span class=&quot;operator&quot;&gt;-e&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;result:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;PID TTY           TIME CMD&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; ??        &lt;span class=&quot;number&quot;&gt;28&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;43.16&lt;/span&gt; /sbin/launchd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u67E5_u770B_u5168_u683C_u5F0F_u7684_u5168_u8FDB_u7A0B&quot;&gt;&lt;a href=&quot;#u67E5_u770B_u5168_u683C_u5F0F_u7684_u5168_u8FDB_u7A0B&quot; class=&quot;headerlink&quot; title=&quot;查看全格式的全进程&quot;&gt;&lt;/a&gt;查看全格式的全进程&lt;/h3&gt;&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;ps -ef&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;result:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;UID   PID  PPID   C STIME   TTY           TIME CMD&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;     &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;     &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;24&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;116&lt;/span&gt;  ??        &lt;span class=&quot;number&quot;&gt;28&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;42.63&lt;/span&gt; /sbin/launchd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u67E5_u770B_u5F53_u524D_u6240_u6709_u8FDB_u7A0Bcpu_u5360_u7528_u60C5_u51B5&quot;&gt;&lt;a href=&quot;#u67E5_u770B_u5F53_u524D_u6240_u6709_u8FDB_u7A0Bcpu_u5360_u7528_u60C5_u51B5&quot; class=&quot;headerlink&quot; title=&quot;查看当前所有进程cpu占用情况&quot;&gt;&lt;/a&gt;查看当前所有进程cpu占用情况&lt;/h3&gt;&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;ps aux&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;result:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;USER      PID   %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jceee    &lt;span class=&quot;number&quot;&gt;51422&lt;/span&gt;   &lt;span class=&quot;number&quot;&gt;0.1&lt;/span&gt;  &lt;span class=&quot;number&quot;&gt;0.6&lt;/span&gt;  &lt;span class=&quot;number&quot;&gt;3367032&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;107344&lt;/span&gt;   ??  S    四&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;下午   &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;36.91&lt;/span&gt; /Applications/Robomongo.app/Contents/MacOS/Robomongo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u6839_u636E_u5173_u952E_u5B57_u67E5_u627E_u76F8_u5173_u8FDB_u7A0B&quot;&gt;&lt;a href=&quot;#u6839_u636E_u5173_u952E_u5B57_u67E5_u627E_u76F8_u5173_u8FDB_u7A0B&quot; class=&quot;headerlink&quot; title=&quot;根据关键字查找相关进程&quot;&gt;&lt;/a&gt;根据关键字查找相关进程&lt;/h3&gt;&lt;p&gt;&lt;code&gt;ps aux | grep &amp;lt;进程名&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight vim&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;ps&lt;/span&gt; aux | &lt;span class=&quot;keyword&quot;&gt;grep&lt;/span&gt; php-fpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;result:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;jceee      &lt;span class=&quot;number&quot;&gt;53756&lt;/span&gt;   &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;  &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;  &lt;span class=&quot;number&quot;&gt;2493396&lt;/span&gt;   &lt;span class=&quot;number&quot;&gt;3460&lt;/span&gt;   ??  S     &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;53&lt;/span&gt;下午   &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;00.02&lt;/span&gt; /usr/local/opt/php56/sbin/php-fpm --fpm-config /usr/local/etc/php/&lt;span class=&quot;number&quot;&gt;5.6&lt;/span&gt;/php-fpm.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;ps(Process Status)，顾名思义，是在Linux中是查看进程状态的命令。ps查看正处于Running的进程，ps aux查看所有的进程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;ps_u8FDB_u7A0B_u72B6_u
+    
+    </summary>
+    
+      <category term="linux" scheme="http://www.jcsama.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.jcsama.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux-lsof</title>
+    <link href="http://www.jcsama.com/2016/02/04/linux-lsof/"/>
+    <id>http://www.jcsama.com/2016/02/04/linux-lsof/</id>
+    <published>2016-02-04T14:18:46.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;lsof_u663E_u793A_u793A_u4F8B&quot;&gt;&lt;a href=&quot;#lsof_u663E_u793A_u793A_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;lsof显示示例&quot;&gt;&lt;/a&gt;lsof显示示例&lt;/h2&gt;&lt;p&gt;example:以查看mongod进程为例子&lt;/p&gt;
+&lt;figure class=&quot;highlight gradle&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ lsof &lt;span class=&quot;regexp&quot;&gt;/usr/&lt;/span&gt;local&lt;span class=&quot;regexp&quot;&gt;/bin/m&lt;/span&gt;ongod&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;结果：&lt;/p&gt;
+&lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;COMMAND   PID       &lt;span class=&quot;keyword&quot;&gt;USER&lt;/span&gt;   &lt;span class=&quot;title&quot;&gt;FD&lt;/span&gt;   &lt;span class=&quot;operator&quot;&gt;TYPE&lt;/span&gt; DEVICE SIZE/OFF     &lt;span class=&quot;keyword&quot;&gt;NODE&lt;/span&gt;&lt;span class=&quot;identifier&quot;&gt; &lt;/span&gt;&lt;span class=&quot;title&quot;&gt;NAME&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mongod  &lt;span class=&quot;number&quot;&gt;50995&lt;/span&gt; jceee  txt    REG    &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;27409336&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17133981&lt;/span&gt; /usr/local/bin/../Cellar/mongodb/&lt;span class=&quot;number&quot;&gt;3.0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;/bin/mongod&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;COMMAND&lt;/th&gt;
+&lt;th&gt;PID&lt;/th&gt;
+&lt;th&gt;USER&lt;/th&gt;
+&lt;th&gt;FD&lt;/th&gt;
+&lt;th&gt;TYPE&lt;/th&gt;
+&lt;th&gt;DEVICE&lt;/th&gt;
+&lt;th&gt;SIZE&lt;/th&gt;
+&lt;th&gt;NODE&lt;/th&gt;
+&lt;th&gt;NAME&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;进程名称&lt;/td&gt;
+&lt;td&gt;进程标识符&lt;/td&gt;
+&lt;td&gt;进程所有者&lt;/td&gt;
+&lt;td&gt;文件描述符&lt;/td&gt;
+&lt;td&gt;文件类型&lt;/td&gt;
+&lt;td&gt;指定磁盘名&lt;/td&gt;
+&lt;td&gt;文件大小&lt;/td&gt;
+&lt;td&gt;索引节点&lt;/td&gt;
+&lt;td&gt;打开文件的确切名称&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;mongod&lt;/td&gt;
+&lt;td&gt;50995&lt;/td&gt;
+&lt;td&gt;jceee&lt;/td&gt;
+&lt;td&gt;txt&lt;/td&gt;
+&lt;td&gt;REG&lt;/td&gt;
+&lt;td&gt;1,4&lt;/td&gt;
+&lt;td&gt;27409336&lt;/td&gt;
+&lt;td&gt;17133981&lt;/td&gt;
+&lt;td&gt;/usr/local/bin/../Cellar/mongodb/3.0.7/bin/mongod&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;lsof_u53C2_u6570&quot;&gt;&lt;a href=&quot;#lsof_u53C2_u6570&quot; class=&quot;headerlink&quot; title=&quot;lsof参数&quot;&gt;&lt;/a&gt;lsof参数&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof filename&lt;/td&gt;
+&lt;td&gt;显示打开指定文件的所有进程&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof -a&lt;/td&gt;
+&lt;td&gt;表示两个参数都必须满足时才显示结果&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof -c string&lt;/td&gt;
+&lt;td&gt;显示COMMAND列中包含指定字符的进程所有打开的文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof -u username&lt;/td&gt;
+&lt;td&gt;显示所属user进程打开的文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof -g gid&lt;/td&gt;
+&lt;td&gt;显示归属gid的进程情况&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof +d /DIR/&lt;/td&gt;
+&lt;td&gt;显示目录下被进程打开的文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof +D /DIR/&lt;/td&gt;
+&lt;td&gt;同上，但是会搜索目录下的所有目录，时间相对较长&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof -d FD&lt;/td&gt;
+&lt;td&gt;显示指定文件描述符的进程&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof -n&lt;/td&gt;
+&lt;td&gt;不将IP转换为hostname，缺省是不加上-n参数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof -i&lt;/td&gt;
+&lt;td&gt;用以显示符合条件的进程情况&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lsof -i[46] [protocol][@hostname / hostaddr][:service / port]&lt;/td&gt;
+&lt;td&gt;参数功能在下面&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;46 –&amp;gt; IPv4 or IPv6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;protocol –&amp;gt; TCP or UDP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;hostname –&amp;gt; Internet host name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;hostaddr –&amp;gt; IPv4地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;service –&amp;gt; /etc/service中的 service name (可以不只一个)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;port –&amp;gt; 端口号 (可以不只一个)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;lsof_u
+    
+    </summary>
+    
+      <category term="linux" scheme="http://www.jcsama.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.jcsama.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>brew安装mongodb</title>
+    <link href="http://www.jcsama.com/2016/01/27/brew-mongodb/"/>
+    <id>http://www.jcsama.com/2016/01/27/brew-mongodb/</id>
+    <published>2016-01-27T14:51:27.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;u7528brew_u5B89_u88C5mongodb&quot;&gt;&lt;a href=&quot;#u7528brew_u5B89_u88C5mongodb&quot; class=&quot;headerlink&quot; title=&quot;用brew安装mongodb&quot;&gt;&lt;/a&gt;用brew安装mongodb&lt;/h2&gt;&lt;h3 id=&quot;mongodb_install&quot;&gt;&lt;a href=&quot;#mongodb_install&quot; class=&quot;headerlink&quot; title=&quot;mongodb install&quot;&gt;&lt;/a&gt;mongodb install&lt;/h3&gt;&lt;p&gt;安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;install mongodb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;安装好会出现以下内容:&lt;/p&gt;
+&lt;figure class=&quot;highlight coffeescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;=&lt;span class=&quot;function&quot;&gt;=&amp;gt;&lt;/span&gt; Downloading &lt;span class=&quot;attribute&quot;&gt;https&lt;/span&gt;:&lt;span class=&quot;regexp&quot;&gt;//&lt;/span&gt;homebrew.bintray.com/bottles/mongodb-&lt;span class=&quot;number&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.7&lt;/span&gt;.el_capitan.bottle.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;######&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;100.0&lt;/span&gt;%&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;=&lt;span class=&quot;function&quot;&gt;=&amp;gt;&lt;/span&gt; Pouring mongodb-&lt;span class=&quot;number&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.7&lt;/span&gt;.el_capitan.bottle.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;=&lt;span class=&quot;function&quot;&gt;=&amp;gt;&lt;/span&gt; Caveats&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;To have launchd start mongodb at &lt;span class=&quot;attribute&quot;&gt;login&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ln -sfv &lt;span class=&quot;regexp&quot;&gt;/usr/local/opt/mongodb/&lt;/span&gt;*.plist ~/Library/LaunchAgents&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Then to load mongodb &lt;span class=&quot;attribute&quot;&gt;now&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Or, &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; you don&lt;span class=&quot;string&quot;&gt;&#39;t want/need launchctl, you can just run:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  mongod --config /usr/local/etc/mongod.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;==&amp;gt; Summary&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;🍺  /usr/local/Cellar/mongodb/3.0.7: 17 files, 158M&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;最后提示了如何启动mongodb：&lt;/p&gt;
+&lt;figure class=&quot;highlight gradle&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mongod --config &lt;span class=&quot;regexp&quot;&gt;/usr/&lt;/span&gt;local&lt;span class=&quot;regexp&quot;&gt;/etc/m&lt;/span&gt;ongod.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;–config后面的参数是启动时加载的配置文件，如果有什么想自己配置的可以复制一份备份，然后修改自定义的配置:&lt;/p&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;systemLog:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;label&quot;&gt;  destination:&lt;/span&gt; file&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;label&quot;&gt;  path:&lt;/span&gt; &lt;span class=&quot;regexp&quot;&gt;/usr/&lt;/span&gt;local&lt;span class=&quot;regexp&quot;&gt;/var/&lt;/span&gt;log&lt;span class=&quot;regexp&quot;&gt;/mongodb/&lt;/span&gt;mongo.log&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;label&quot;&gt;  logAppend:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;storage:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;label&quot;&gt;  dbPath:&lt;/span&gt; &lt;span class=&quot;regexp&quot;&gt;/usr/&lt;/span&gt;local&lt;span class=&quot;regexp&quot;&gt;/var/&lt;/span&gt;mongodb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;net:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;label&quot;&gt;  bindIp:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u8FDE_u63A5mongodb&quot;&gt;&lt;a href=&quot;#u8FDE_u63A5mongodb&quot; class=&quot;headerlink&quot; title=&quot;连接mongodb&quot;&gt;&lt;/a&gt;连接mongodb&lt;/h3&gt;&lt;p&gt;mongod启动后，在命令行输入&lt;code&gt;mongo&lt;/code&gt;命令可以连接到数据库:&lt;/p&gt;
+&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ mongo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;MongoDB &lt;span class=&quot;keyword&quot;&gt;shell&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;version&lt;/span&gt;: 3.0.7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;connecting to: &lt;span class=&quot;keyword&quot;&gt;test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt; blog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;switched to &lt;span class=&quot;keyword&quot;&gt;db&lt;/span&gt; blog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;接下来就可以创表，增删查改等操作了&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;u7528brew_u5B89_u88C5mongodb&quot;&gt;&lt;a href=&quot;#u7528brew_u5B89_u88C5mongodb&quot; class=&quot;headerlink&quot; title=&quot;用brew安装mongodb&quot;&gt;&lt;/a&gt;用brew安装mongodb&lt;/
+    
+    </summary>
+    
+      <category term="mongodb" scheme="http://www.jcsama.com/categories/mongodb/"/>
+    
+    
+      <category term="brew" scheme="http://www.jcsama.com/tags/brew/"/>
+    
+      <category term="mongodb" scheme="http://www.jcsama.com/tags/mongodb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php内置http服务器</title>
+    <link href="http://www.jcsama.com/2016/01/26/php-webserver/"/>
+    <id>http://www.jcsama.com/2016/01/26/php-webserver/</id>
+    <published>2016-01-26T13:52:27.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;p&gt;php5.4开始内置了web服务器，虽然并不建议在生产环境中使用，但就本地调试来说这是个不错的工具。&lt;/p&gt;
+&lt;p&gt;启动服务器很简单，打开终端，进入到项目根目录，执行以下命令:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;php -S localhost:&lt;span class=&quot;number&quot;&gt;8000&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在浏览器中输入&lt;code&gt;localhost:8000/index.php&lt;/code&gt;就可以访问到当前目录下的index.php文件了。&lt;/p&gt;
+&lt;p&gt;上面命令会启动一个php Web Server,端口是4000，端口可以根据自己需要换，但注意不要跟其他服务常用端口重复了。&lt;/p&gt;
+&lt;p&gt;如果需要对指向的php服务器指向非默认的php配置文件，可以用&lt;code&gt;-c&lt;/code&gt;选项去指定对应的ini文件：&lt;/p&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;php -S &lt;span class=&quot;string&quot;&gt;localhost:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;8000&lt;/span&gt; -c app&lt;span class=&quot;regexp&quot;&gt;/config/&lt;/span&gt;php.ini&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;php5.4开始内置了web服务器，虽然并不建议在生产环境中使用，但就本地调试来说这是个不错的工具。&lt;/p&gt;
+&lt;p&gt;启动服务器很简单，打开终端，进入到项目根目录，执行以下命令:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+    
+    </summary>
+    
+      <category term="php" scheme="http://www.jcsama.com/categories/php/"/>
+    
+    
+      <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo添加百度统计</title>
+    <link href="http://www.jcsama.com/2016/01/25/hexo-baido-analytics/"/>
+    <id>http://www.jcsama.com/2016/01/25/hexo-baido-analytics/</id>
+    <published>2016-01-25T13:52:27.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;p&gt;想为hexo添加百度统计可以分为以下几步&lt;/p&gt;
+&lt;h2 id=&quot;u6CE8_u518C_u767E_u5EA6_u7EDF_u8BA1&quot;&gt;&lt;a href=&quot;#u6CE8_u518C_u767E_u5EA6_u7EDF_u8BA1&quot; class=&quot;headerlink&quot; title=&quot;注册百度统计&quot;&gt;&lt;/a&gt;注册百度统计&lt;/h2&gt;&lt;h3 id=&quot;u6CE8_u518C&quot;&gt;&lt;a href=&quot;#u6CE8_u518C&quot; class=&quot;headerlink&quot; title=&quot;注册&quot;&gt;&lt;/a&gt;注册&lt;/h3&gt;&lt;p&gt;如果已经有了账号可以跳过注册这步，&lt;br&gt;注册账号的地址是&lt;br&gt;&lt;a href=&quot;http://tongji.baidu.com/web/welcome/login&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度统计&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;u83B7_u53D6_u767E_u5EA6_u7EDF_u8BA1_u4EE3_u7801&quot;&gt;&lt;a href=&quot;#u83B7_u53D6_u767E_u5EA6_u7EDF_u8BA1_u4EE3_u7801&quot; class=&quot;headerlink&quot; title=&quot;获取百度统计代码&quot;&gt;&lt;/a&gt;获取百度统计代码&lt;/h2&gt;&lt;p&gt;登陆站长后台，点击网站中心，左侧有个代码获取。基本代码都是一样的:&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; _hmt = _hmt || [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; hm = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&quot;script&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  hm.src = &lt;span class=&quot;string&quot;&gt;&quot;//hm.baidu.com/hm.js?xxxxxxxxxxxxxxxxxxx&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; s = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&quot;script&quot;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.parentNode.insertBefore(hm, s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;统计代码的作用都是一样的，在页面插入一段js请求百度的统计接口。重点在于每个人得到的&lt;code&gt;//hm.baidu.com/hm.js?&lt;/code&gt;后面的key值不同。&lt;/p&gt;
+&lt;h2 id=&quot;u5728_u9875_u9762_u6DFB_u52A0_u767E_u5EA6_u7EDF_u8BA1_u4EE3_u7801&quot;&gt;&lt;a href=&quot;#u5728_u9875_u9762_u6DFB_u52A0_u767E_u5EA6_u7EDF_u8BA1_u4EE3_u7801&quot; class=&quot;headerlink&quot; title=&quot;在页面添加百度统计代码&quot;&gt;&lt;/a&gt;在页面添加百度统计代码&lt;/h2&gt;&lt;h3 id=&quot;u81EA_u5E26_u7EDF_u8BA1_u6A21_u677F&quot;&gt;&lt;a href=&quot;#u81EA_u5E26_u7EDF_u8BA1_u6A21_u677F&quot; class=&quot;headerlink&quot; title=&quot;自带统计模板&quot;&gt;&lt;/a&gt;自带统计模板&lt;/h3&gt;&lt;p&gt;大部分主题已经对百度统计功能进行了配置化抽取。以Next主题为例,在主题目录下的&lt;code&gt;layout&lt;/code&gt;/&lt;code&gt;_scripts&lt;/code&gt;/&lt;code&gt;analytics&lt;/code&gt;统计模板文件夹下已经有了&lt;code&gt;baidu-analytics.swig&lt;/code&gt;文件:&lt;/p&gt;
+&lt;figure class=&quot;highlight django&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;span class=&quot;template_tag&quot;&gt;&amp;#123;% &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; theme.baidu_analytics %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; _hmt = _hmt || [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    (&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; hm = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&quot;script&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      hm.src = &lt;span class=&quot;string&quot;&gt;&quot;//hm.baidu.com/hm.js?&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;variable&quot;&gt;&amp;#123;&amp;#123; theme.baidu_analytics &amp;#125;&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;undefined&quot;&gt;&quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      var s = document.getElementsByTagName(&quot;script&quot;)[0];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      s.parentNode.insertBefore(hm, s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;)();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;template_tag&quot;&gt;&amp;#123;% &lt;span class=&quot;keyword&quot;&gt;endif&lt;/span&gt; %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;只要条件满足：&lt;code&gt;theme.baidu_analytics&lt;/code&gt;为true便插入这段代码。统计代码的key值已经被抽取到主题&lt;code&gt;_config.yml&lt;/code&gt;中的&lt;code&gt;baidu_analytics&lt;/code&gt;属性了。&lt;/p&gt;
+&lt;p&gt;接下来，在主题的&lt;code&gt;_config.yml&lt;/code&gt;中添加上百度统计的key就行了&lt;/p&gt;
+&lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# &lt;span class=&quot;keyword&quot;&gt;Baidu &lt;/span&gt;Analytics ID&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;baidu_analytics: &lt;/span&gt;your key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u624B_u52A8_u6DFB_u52A0_u7EDF_u8BA1_u6A21_u677F&quot;&gt;&lt;a href=&quot;#u624B_u52A8_u6DFB_u52A0_u7EDF_u8BA1_u6A21_u677F&quot; class=&quot;headerlink&quot; title=&quot;手动添加统计模板&quot;&gt;&lt;/a&gt;手动添加统计模板&lt;/h3&gt;&lt;p&gt;若主题中没有内置百度统计模板的，可以手动添加，像上面自带统计模板一样，建立一个统计模板文件夹&lt;code&gt;layout&lt;/code&gt;/&lt;code&gt;_scripts&lt;/code&gt;/&lt;code&gt;analytics&lt;/code&gt;，新建&lt;code&gt;baidu-analytics.swig&lt;/code&gt;文件并加入上面那段代码。接着，在想添加的模板上引入这文件就行了。&lt;/p&gt;
+&lt;figure class=&quot;highlight ocaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;% &lt;span class=&quot;keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;symbol&quot;&gt;&#39;analytics&lt;/span&gt;/baidu-analytics.swig&#39; %&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想为hexo添加百度统计可以分为以下几步&lt;/p&gt;
+&lt;h2 id=&quot;u6CE8_u518C_u767E_u5EA6_u7EDF_u8BA1&quot;&gt;&lt;a href=&quot;#u6CE8_u518C_u767E_u5EA6_u7EDF_u8BA1&quot; class=&quot;headerlink&quot; t
+    
+    </summary>
+    
+      <category term="node" scheme="http://www.jcsama.com/categories/node/"/>
+    
+    
+      <category term="hexo" scheme="http://www.jcsama.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>http重定向状态码</title>
+    <link href="http://www.jcsama.com/2016/01/20/http-redirect/"/>
+    <id>http://www.jcsama.com/2016/01/20/http-redirect/</id>
+    <published>2016-01-20T14:48:38.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;每个http请求都会返回状态码，如果这个请求被重定向到别的地址，那返回的状态码是3xx&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;301 已移动 – 永久性地重定向到这地址，搜索引擎蜘蛛会将旧的地址替换成新的地址&lt;/li&gt;
+&lt;li&gt;302 临时移动 – 服务器临时从别的地址响应请求，当请求者请求旧地址时，会自动将请求转到不同的位置&lt;/li&gt;
+&lt;li&gt;303 请参阅其他 – 可以另一地址找到对应请求的响应，并应使用Get方法检索此响应&lt;/li&gt;
+&lt;li&gt;304 目标未修改 – 请求目标未发生改变，用于通知浏览器直接用本地数据而不用请求新数据&lt;/li&gt;
+&lt;li&gt;305 使用代理 – 请求者只能使用代码访问请求的网页&lt;/li&gt;
+&lt;li&gt;306 不再使用 – 新版规范中，306已经不再被使用&lt;/li&gt;
+&lt;li&gt;307 临时重定向 – 请求的资源临时从不同的URL响应请求&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;每个http请求都会返回状态码，如果这个请求被重定向到别的地址，那返回的状态码是3xx&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;301 已移动 – 永久性地重定向到这地址，搜索引擎蜘蛛会将旧的地址替换成新的地址&lt;/li&gt;
+&lt;li&gt;30
+    
+    </summary>
+    
+      <category term="http" scheme="http://www.jcsama.com/categories/http/"/>
+    
+    
+      <category term="http" scheme="http://www.jcsama.com/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://www.jcsama.com/2016/01/20/hello-world/"/>
+    <id>http://www.jcsama.com/2016/01/20/hello-world/</id>
+    <published>2016-01-20T14:38:27.000Z</published>
+    <updated>2016-01-20T14:38:27.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;http://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick_Start&quot;&gt;&lt;a href=&quot;#Quick_Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create_a_new_post&quot;&gt;&lt;a href=&quot;#Create_a_new_post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run_server&quot;&gt;&lt;a href=&quot;#Run_server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate_static_files&quot;&gt;&lt;a href=&quot;#Generate_static_files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy_to_remote_sites&quot;&gt;&lt;a href=&quot;#Deploy_to_remote_sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Redis有序集合做订阅列表</title>
+    <link href="http://www.jcsama.com/2016/01/18/redis-sortedSet/"/>
+    <id>http://www.jcsama.com/2016/01/18/redis-sortedSet/</id>
+    <published>2016-01-18T14:33:00.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Redis 的有序集合和集合一样，成员(member)的值是string类型，而且成员是唯一的，并不重复,重复地保存同一个成员只会重置成员的分数，以最后一次保存为主。每一个成员有对应的分数(score)，分数可相同，通过分数来对成员进行排序。&lt;/p&gt;
+&lt;p&gt;以有序集合的特性，可以用来做订阅列表的存储&lt;/p&gt;
+&lt;h2 id=&quot;u8BA2_u9605_u529F_u80FD&quot;&gt;&lt;a href=&quot;#u8BA2_u9605_u529F_u80FD&quot; class=&quot;headerlink&quot; title=&quot;订阅功能&quot;&gt;&lt;/a&gt;订阅功能&lt;/h2&gt;&lt;p&gt;订阅的基本数据我存储在mysql中，redis用于缓存读取，当然直接用redis存储数据也是可以的。  &lt;/p&gt;
+&lt;p&gt;设计订阅表subscriber,以mysql为例 &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;field&lt;/th&gt;
+&lt;th&gt;type&lt;/th&gt;
+&lt;th&gt;comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;uid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;用户id&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rUid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;订阅目标id&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;createTime&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;创建时间&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;updateTime&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;修改时间&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;状态 枚举:&lt;code&gt;-1&lt;/code&gt;删除&lt;code&gt;0&lt;/code&gt;正常&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;订阅表的基本功能需要满足：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过&lt;code&gt;uid&lt;/code&gt;查出所有已经订阅的&lt;code&gt;rUid&lt;/code&gt;的信息，并按&lt;code&gt;createTime&lt;/code&gt;排序&lt;/li&gt;
+&lt;li&gt;通过订阅目标&lt;code&gt;rUid&lt;/code&gt;查出所有&lt;code&gt;uid&lt;/code&gt;，并按&lt;code&gt;createTime&lt;/code&gt;排序&lt;/li&gt;
+&lt;li&gt;查找是否已经订阅&lt;/li&gt;
+&lt;li&gt;取消订阅&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;u6DFB_u52A0_u8BA2_u9605&quot;&gt;&lt;a href=&quot;#u6DFB_u52A0_u8BA2_u9605&quot; class=&quot;headerlink&quot; title=&quot;添加订阅&quot;&gt;&lt;/a&gt;添加订阅&lt;/h2&gt;&lt;p&gt;按照基本功能的1和2，我们需要保持2个集合&lt;br&gt;一个集合以用户为中心:&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;以用户为中心的key统一一个前缀，后面加上用户的uid:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;exampleKey&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(uid为&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;: subscriberUid1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;一个集合以订阅目标为中心:&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;以订阅目录为中心的key统一一个前缀，后面加上目标用户的rUid:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;exampleKey&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(rUid为&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;: subscriberRUid100&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;添加的命令是&lt;/p&gt;
+&lt;figure class=&quot;highlight vala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# 增加1条数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ZADD score member&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# 增加多条数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ZADD score1 member1 [score2 member2]...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;为了以时间排序，我们可以以时间戳为分数，保存订阅信息&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt;ZADD subscriberUid1 &lt;span class=&quot;number&quot;&gt;1453129638&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt;ZADD subscriberRUid100 &lt;span class=&quot;number&quot;&gt;1453129638&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZADD subscriberUid1 &lt;span class=&quot;number&quot;&gt;1453129639&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129640&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129640&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;400&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129641&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;500&lt;/span&gt;	&lt;span class=&quot;number&quot;&gt;1453129638&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;10000&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZADD subscriberRUid100 &lt;span class=&quot;number&quot;&gt;1453129639&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129640&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129640&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129641&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129611&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u83B7_u53D6_u8BA2_u9605_u5217_u8868&quot;&gt;&lt;a href=&quot;#u83B7_u53D6_u8BA2_u9605_u5217_u8868&quot; class=&quot;headerlink&quot; title=&quot;获取订阅列表&quot;&gt;&lt;/a&gt;获取订阅列表&lt;/h2&gt;&lt;p&gt;获取集合的命令是&lt;/p&gt;
+&lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 按分数正序排列 withscore 是指附带分数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ZRANGE key &lt;span class=&quot;literal&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;stop&lt;/span&gt; [WITHSCORE]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 按分数倒序排列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ZREVRANGE key &lt;span class=&quot;literal&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;stop&lt;/span&gt; [WITHSCORE]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们现在来获取用户1的订阅列表：&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;preprocessor&quot;&gt;# 正序获取，从&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;开始，-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;指取到尽头，相当于limit&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZRANGE subscriberUid1 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; -&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; WITHSCORES&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;preprocessor&quot;&gt;# 结果如下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;100&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129638&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;10000&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129638&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129639&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;300&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129640&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;400&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129640&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;500&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129641&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这正是对应了分数的顺序，接下来试试倒序，并隐藏分数输出:&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# 倒序获取，从&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;开始，-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;指取到尽头&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZREVRANGE subscriberUid1 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; -&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;preprocessor&quot;&gt;# 结果如下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;500&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;400&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;300&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;10000&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;100&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u67E5_u627E_u662F_u5426_u5DF2_u8BA2_u9605&quot;&gt;&lt;a href=&quot;#u67E5_u627E_u662F_u5426_u5DF2_u8BA2_u9605&quot; class=&quot;headerlink&quot; title=&quot;查找是否已订阅&quot;&gt;&lt;/a&gt;查找是否已订阅&lt;/h2&gt;&lt;p&gt;查找可以用一个方法来确认，查找对应成员的分数：&lt;/p&gt;
+&lt;figure class=&quot;highlight fsharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ZSCORE key &lt;span class=&quot;keyword&quot;&gt;member&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZSCORE subscriberUid1 &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;1453129638&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZSCORE subscriberUid1 &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(nil)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;每个成员我们都会分配对应的分数，通过获取分数，判断是否有分数，我们就可以判断这成员是否在集合中。&lt;/p&gt;
+&lt;h2 id=&quot;u53D6_u6D88_u8BA2_u9605&quot;&gt;&lt;a href=&quot;#u53D6_u6D88_u8BA2_u9605&quot; class=&quot;headerlink&quot; title=&quot;取消订阅&quot;&gt;&lt;/a&gt;取消订阅&lt;/h2&gt;&lt;p&gt;删除成员操作&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 删除&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;个成员&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Z&lt;span class=&quot;comment&quot;&gt;REM key member&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 删除&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;个或多个成员&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Z&lt;span class=&quot;comment&quot;&gt;REM key member [member ...]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;因为我们的订阅数据需要同时维护2个集合，所以我们的删除是同时删除2个集合中的对应数据：&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# 删除用户为中心的集合&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZREM subscriberUid1 &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(integer) &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZRANGE subscriberUid1 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; -&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;10000&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;300&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;400&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;500&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# 删除订阅目录为中心的集合&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt;  ZREM subscriberRUid100 &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(integer) &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt;  ZRANGE subscriberRUid100 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; -&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;6&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;3&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;4&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;到此，我们的订阅功能就完成了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Redis 的有序集合和集合一样，成员(member)的值是string类型，而且成员是唯一的，并不重复,重复地保存同一个成员只会重置成员的分数，以最后一次保存为主。每一个成员有对应的分数(score)，分数可相同，通过分数来对成员进行排序。&lt;/p&gt;
+&lt;p&gt;以有序集合的特性
+    
+    </summary>
+    
+      <category term="redis" scheme="http://www.jcsama.com/categories/redis/"/>
+    
+    
+      <category term="redis" scheme="http://www.jcsama.com/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql case的用法</title>
+    <link href="http://www.jcsama.com/2016/01/14/mysql-case/"/>
+    <id>http://www.jcsama.com/2016/01/14/mysql-case/</id>
+    <published>2016-01-14T15:15:47.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;mysql中的case是类似于if的功能，通过这功能我们的统计结果更灵活 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在我们先建一个公司职员表来试一下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;id&lt;/th&gt;
+&lt;th&gt;department&lt;/th&gt;
+&lt;th&gt;name&lt;/th&gt;
+&lt;th&gt;wages&lt;/th&gt;
+&lt;th&gt;sex&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;人事部&lt;/td&gt;
+&lt;td&gt;aimer&lt;/td&gt;
+&lt;td&gt;8500&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;人事部&lt;/td&gt;
+&lt;td&gt;jack&lt;/td&gt;
+&lt;td&gt;6000&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;销售部&lt;/td&gt;
+&lt;td&gt;tom&lt;/td&gt;
+&lt;td&gt;15000&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;销售部&lt;/td&gt;
+&lt;td&gt;tony&lt;/td&gt;
+&lt;td&gt;9000&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;人事部&lt;/td&gt;
+&lt;td&gt;supercell&lt;/td&gt;
+&lt;td&gt;8500&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;销售部&lt;/td&gt;
+&lt;td&gt;lisa&lt;/td&gt;
+&lt;td&gt;18000&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;u5728_u67E5_u8BE2_u7ED3_u679C_u4E2D_u7528case&quot;&gt;&lt;a href=&quot;#u5728_u67E5_u8BE2_u7ED3_u679C_u4E2D_u7528case&quot; class=&quot;headerlink&quot; title=&quot;在查询结果中用case&quot;&gt;&lt;/a&gt;在查询结果中用case&lt;/h2&gt;&lt;p&gt;sex字段中，1是女士，2是男士&lt;br&gt;wages字段中，薪酬的级别分布是这样：&lt;br&gt;t10: 5000 &amp;lt; wages &amp;lt;= 6500&lt;br&gt;t9: 6500 &amp;lt; wages &amp;lt;= 8500&lt;br&gt;t8: 8500 &amp;lt; wages &amp;lt;= 11000&lt;br&gt;t7: 11000 &amp;lt; wages &amp;lt;= 14000&lt;br&gt;t6: 14000 &amp;lt; wages &amp;lt;= 17500&lt;br&gt;t5: 17500 &amp;lt; wages &amp;lt;= 22000&lt;br&gt;t4: 22000 &amp;lt; wages &amp;lt;= 27000&lt;/p&gt;
+&lt;p&gt;如果我们要在查询结果中清析地表现出来可以这样：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;SELECT&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	department,&lt;span class=&quot;keyword&quot;&gt;name&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt;&amp;lt;wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages&amp;lt;=&lt;span class=&quot;number&quot;&gt;6500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t10&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;6500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;8500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t9&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;8500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;11000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t8&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;11000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;14000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t7&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;14000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;17500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t6&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;22000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t5&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;22000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;27000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t6&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;未定义级别&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; wages&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; sex = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;女&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; sex = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;男&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;未知性别&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; sex&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;FROM&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;`cdb_member`&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;结果如下:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;department&lt;/th&gt;
+&lt;th&gt;name&lt;/th&gt;
+&lt;th&gt;wages&lt;/th&gt;
+&lt;th&gt;sex&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;人事部&lt;/td&gt;
+&lt;td&gt;aimer&lt;/td&gt;
+&lt;td&gt;t9&lt;/td&gt;
+&lt;td&gt;女&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;人事部&lt;/td&gt;
+&lt;td&gt;jack&lt;/td&gt;
+&lt;td&gt;t10&lt;/td&gt;
+&lt;td&gt;男&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;销售部&lt;/td&gt;
+&lt;td&gt;tom&lt;/td&gt;
+&lt;td&gt;t6&lt;/td&gt;
+&lt;td&gt;女&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;销售部&lt;/td&gt;
+&lt;td&gt;tony&lt;/td&gt;
+&lt;td&gt;t8&lt;/td&gt;
+&lt;td&gt;女&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;人事部&lt;/td&gt;
+&lt;td&gt;supercell&lt;/td&gt;
+&lt;td&gt;t9&lt;/td&gt;
+&lt;td&gt;男&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;销售部&lt;/td&gt;
+&lt;td&gt;lisa&lt;/td&gt;
+&lt;td&gt;t5&lt;/td&gt;
+&lt;td&gt;男&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;u5728_u7EDF_u8BA1_u7ED3_u679C_u4E2D_u7528case&quot;&gt;&lt;a href=&quot;#u5728_u7EDF_u8BA1_u7ED3_u679C_u4E2D_u7528case&quot; class=&quot;headerlink&quot; title=&quot;在统计结果中用case&quot;&gt;&lt;/a&gt;在统计结果中用case&lt;/h2&gt;&lt;p&gt;如果我们要统计每个部门的男女分布情况，薪酬级别人数可以这么来写：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;SELECT&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	department,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; sex = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;man&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; sex = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;woman&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;6500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t10&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;6500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;8500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t9&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;8500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;11000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t8&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;11000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;14000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t7&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;14000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;17500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t6&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;22000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t5&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;22000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;27000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t4&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;FROM&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;`cdb_member`&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   department&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;department&lt;/th&gt;
+&lt;th&gt;man&lt;/th&gt;
+&lt;th&gt;woman&lt;/th&gt;
+&lt;th&gt;t10&lt;/th&gt;
+&lt;th&gt;t9&lt;/th&gt;
+&lt;th&gt;t8&lt;/th&gt;
+&lt;th&gt;t7&lt;/th&gt;
+&lt;th&gt;t6&lt;/th&gt;
+&lt;th&gt;t5&lt;/th&gt;
+&lt;th&gt;t4&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;人事部&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;销售部&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;mysql中的case是类似于if的功能，通过这功能我们的统计结果更灵活 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在我们先建一个公司职员表来试一下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;id&lt;/th&gt;
+&lt;th&gt;depar
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://www.jcsama.com/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://www.jcsama.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>修改用brew安装的mysql配置</title>
+    <link href="http://www.jcsama.com/2015/10/18/brew-mysql/"/>
+    <id>http://www.jcsama.com/2015/10/18/brew-mysql/</id>
+    <published>2015-10-18T07:35:33.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;u7528brew_u5B89_u88C5mysql&quot;&gt;&lt;a href=&quot;#u7528brew_u5B89_u88C5mysql&quot; class=&quot;headerlink&quot; title=&quot;用brew安装mysql&quot;&gt;&lt;/a&gt;用brew安装mysql&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://brew.sh/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;brew&lt;/a&gt;是OS X上的包管理工具，类型linux上的apt-get, yum等&lt;/p&gt;
+&lt;h3 id=&quot;u9996_u5148_uFF0C_u9700_u8981_u5148_u88C5_u597Dbrew&quot;&gt;&lt;a href=&quot;#u9996_u5148_uFF0C_u9700_u8981_u5148_u88C5_u597Dbrew&quot; class=&quot;headerlink&quot; title=&quot;首先，需要先装好brew&quot;&gt;&lt;/a&gt;首先，需要先装好brew&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ruby &lt;span class=&quot;operator&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;mysql_install&quot;&gt;&lt;a href=&quot;#mysql_install&quot; class=&quot;headerlink&quot; title=&quot;mysql install&quot;&gt;&lt;/a&gt;mysql install&lt;/h3&gt;&lt;p&gt;安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;install mysql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;设置开机启动:&lt;/p&gt;
+&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;ln -sfv /usr/local/opt/mysql/*.plist ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;&lt;span class=&quot;constant&quot;&gt;LaunchAgents&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;launchctl load ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;&lt;span class=&quot;constant&quot;&gt;LaunchAgents&lt;/span&gt;/homebrew.mxcl.mysql.plist&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u4FEE_u6539mysql_u914D_u7F6E&quot;&gt;&lt;a href=&quot;#u4FEE_u6539mysql_u914D_u7F6E&quot; class=&quot;headerlink&quot; title=&quot;修改mysql配置&quot;&gt;&lt;/a&gt;修改mysql配置&lt;/h2&gt;&lt;h3 id=&quot;u67E5_u770B_u914D_u7F6E_u6587_u4EF6_u5F15_u7528_u7684_u8DEF_u5F84&quot;&gt;&lt;a href=&quot;#u67E5_u770B_u914D_u7F6E_u6587_u4EF6_u5F15_u7528_u7684_u8DEF_u5F84&quot; class=&quot;headerlink&quot; title=&quot;查看配置文件引用的路径&quot;&gt;&lt;/a&gt;查看配置文件引用的路径&lt;/h3&gt;&lt;figure class=&quot;highlight brainfuck&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;mysqld&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;help&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;verbose&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;more&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;通过这命令，可以看出mysql默认调用的配置文件路径：&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Default options are read from the following files &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the given &lt;span class=&quot;attribute&quot;&gt;order&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/my&lt;span class=&quot;class&quot;&gt;.cnf&lt;/span&gt; /etc/mysql/my&lt;span class=&quot;class&quot;&gt;.cnf&lt;/span&gt; /usr/local/etc/my&lt;span class=&quot;class&quot;&gt;.cnf&lt;/span&gt; ~/&lt;span class=&quot;class&quot;&gt;.my&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.cnf&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u521B_u5EFA_u914D_u7F6E_u6587_u4EF6&quot;&gt;&lt;a href=&quot;#u521B_u5EFA_u914D_u7F6E_u6587_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;创建配置文件&quot;&gt;&lt;/a&gt;创建配置文件&lt;/h3&gt;&lt;p&gt;brew安装的mysql，通常这几个路径都是没有创建配置文件的，我们自己创建一下。&lt;br&gt;先找出我们安装的mysql的配置样例文件,在安装文件中的support-files文件夹中：  &lt;/p&gt;
+&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;ls &lt;span class=&quot;variable&quot;&gt;$(&lt;/span&gt;brew --prefix mysql)/support-files/my-*&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;复制到引用目录：&lt;/p&gt;
+&lt;figure class=&quot;highlight gradle&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ cp &lt;span class=&quot;regexp&quot;&gt;/usr/&lt;/span&gt;local&lt;span class=&quot;regexp&quot;&gt;/opt/my&lt;/span&gt;sql&lt;span class=&quot;regexp&quot;&gt;/support-files/my&lt;/span&gt;-&lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt;.cnf &lt;span class=&quot;regexp&quot;&gt;/etc/my&lt;/span&gt;.cnf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后就可以按自己需求修改配置了&lt;/p&gt;
+&lt;h2 id=&quot;mysql_u542F_u52A8_u547D_u4EE4&quot;&gt;&lt;a href=&quot;#mysql_u542F_u52A8_u547D_u4EE4&quot; class=&quot;headerlink&quot; title=&quot;mysql启动命令&quot;&gt;&lt;/a&gt;mysql启动命令&lt;/h2&gt;&lt;p&gt;重启mysql,  unload 是关闭， load是启动&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ launchctl unload -w ~/Library/LaunchAgents/homebrew&lt;span class=&quot;class&quot;&gt;.mxcl&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.mysql&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.plist&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ launchctl load -w ~/Library/LaunchAgents/homebrew&lt;span class=&quot;class&quot;&gt;.mxcl&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.mysql&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.plist&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;为了文件管理可以把命令alias下：&lt;/p&gt;
+&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;vim ~&lt;span class=&quot;regexp&quot;&gt;/.bash_aliases&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;输入以下内容，保存&lt;/p&gt;
+&lt;figure class=&quot;highlight livecodeserver&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;alias&lt;/span&gt; mysql.&lt;span class=&quot;built_in&quot;&gt;start&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;alias&lt;/span&gt; mysql.&lt;span class=&quot;built_in&quot;&gt;stop&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;alias&lt;/span&gt; mysql.restart=&lt;span class=&quot;string&quot;&gt;&#39;mysql.stop &amp;amp;&amp;amp; mysql.start&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;保存后添加到.bash_profile文件中&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;[[ -f ~/.bash_aliases ]] &amp;amp;&amp;amp; . ~/.bash_aliases&quot;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; ~/.bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样，bash_aliases就生效了，通过以下命令就可以控制mysql开启，关闭和重启了&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ mysql&lt;span class=&quot;class&quot;&gt;.start&lt;/span&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ mysql&lt;span class=&quot;class&quot;&gt;.stop&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ mysql.restart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;u7528brew_u5B89_u88C5mysql&quot;&gt;&lt;a href=&quot;#u7528brew_u5B89_u88C5mysql&quot; class=&quot;headerlink&quot; title=&quot;用brew安装mysql&quot;&gt;&lt;/a&gt;用brew安装mysql&lt;/h2&gt;&lt;p&gt;&lt;a
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://www.jcsama.com/categories/mysql/"/>
+    
+    
+      <category term="brew" scheme="http://www.jcsama.com/tags/brew/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sublime text中文乱码解决</title>
+    <link href="http://www.jcsama.com/2015/10/14/sublime-Encode/"/>
+    <id>http://www.jcsama.com/2015/10/14/sublime-Encode/</id>
+    <published>2015-10-14T15:08:00.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;p&gt;编辑器打开代码时乱码基本都是字符编码不一致所造成的。&lt;/p&gt;
+&lt;p&gt;sublime Text编辑器可以通过安装2个扩展来解决乱码问题：&lt;/p&gt;
+&lt;p&gt;【ConvertToUTF8】 和 【GBK Encoding Support】&lt;/p&gt;
+&lt;h2 id=&quot;u5B89_u88C5_u6269_u5C55_u5305_u7BA1_u7406_u5DE5_u5177_u3010Package_Control_u3011&quot;&gt;&lt;a href=&quot;#u5B89_u88C5_u6269_u5C55_u5305_u7BA1_u7406_u5DE5_u5177_u3010Package_Control_u3011&quot; class=&quot;headerlink&quot; title=&quot;安装扩展包管理工具【Package Control】&quot;&gt;&lt;/a&gt;安装扩展包管理工具【Package Control】&lt;/h2&gt;&lt;p&gt;使用快捷键【control + ~】 打开控制台，参考&lt;a href=&quot;https://packagecontrol.io/installation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;package control&lt;/a&gt;，根据版本不同选择输入以下代码：&lt;/p&gt;
+&lt;p&gt;sublime Text2:&lt;/p&gt;
+&lt;figure class=&quot;highlight livecodeserver&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import urllib2,os,hashlib; h = &lt;span class=&quot;string&quot;&gt;&#39;2915d1851351e5ee549c20394736b442&#39;&lt;/span&gt; + &lt;span class=&quot;string&quot;&gt;&#39;8bc59f460fa1548d1514676163dafc88&#39;&lt;/span&gt;; pf = &lt;span class=&quot;string&quot;&gt;&#39;Package Control.sublime-package&#39;&lt;/span&gt;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;not&lt;/span&gt; os.path.exists(ipp) &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); &lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt; = urllib2.urlopen( &lt;span class=&quot;string&quot;&gt;&#39;http://packagecontrol.io/&#39;&lt;/span&gt; + pf.&lt;span class=&quot;built_in&quot;&gt;replace&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39; &#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;%20&#39;&lt;/span&gt;)).&lt;span class=&quot;built_in&quot;&gt;read&lt;/span&gt;(); dh = hashlib.sha256(&lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt;).hexdigest(); &lt;span class=&quot;built_in&quot;&gt;open&lt;/span&gt;( os.path.join( ipp, pf), &lt;span class=&quot;string&quot;&gt;&#39;wb&#39;&lt;/span&gt; ).&lt;span class=&quot;built_in&quot;&gt;write&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; dh == h &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; None; print(&lt;span class=&quot;string&quot;&gt;&#39;Error validating download (got %s instead of %s), please try manual install&#39;&lt;/span&gt; % (dh, h) &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; dh != h &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Please restart Sublime Text to finish installation&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;sublime Text3:&lt;/p&gt;
+&lt;figure class=&quot;highlight livecodeserver&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import urllib.request,os,hashlib; h = &lt;span class=&quot;string&quot;&gt;&#39;2915d1851351e5ee549c20394736b442&#39;&lt;/span&gt; + &lt;span class=&quot;string&quot;&gt;&#39;8bc59f460fa1548d1514676163dafc88&#39;&lt;/span&gt;; pf = &lt;span class=&quot;string&quot;&gt;&#39;Package Control.sublime-package&#39;&lt;/span&gt;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); &lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt; = urllib.request.urlopen( &lt;span class=&quot;string&quot;&gt;&#39;http://packagecontrol.io/&#39;&lt;/span&gt; + pf.&lt;span class=&quot;built_in&quot;&gt;replace&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39; &#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;%20&#39;&lt;/span&gt;)).&lt;span class=&quot;built_in&quot;&gt;read&lt;/span&gt;(); dh = hashlib.sha256(&lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt;).hexdigest(); print(&lt;span class=&quot;string&quot;&gt;&#39;Error validating download (got %s instead of %s), please try manual install&#39;&lt;/span&gt; % (dh, h)) &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; dh != h &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;open&lt;/span&gt;(os.path.join( ipp, pf), &lt;span class=&quot;string&quot;&gt;&#39;wb&#39;&lt;/span&gt; ).&lt;span class=&quot;built_in&quot;&gt;write&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u5B89_u88C5_u6269_u5C55_u5305&quot;&gt;&lt;a href=&quot;#u5B89_u88C5_u6269_u5C55_u5305&quot; class=&quot;headerlink&quot; title=&quot;安装扩展包&quot;&gt;&lt;/a&gt;安装扩展包&lt;/h2&gt;&lt;p&gt; 扩展包控制安装好了之后就可以开始安装扩展了：&lt;/p&gt;
+&lt;p&gt; 使用【control + shift + p】 打开扩展控制窗口，输入Install Package后回车，等待扩展窗口重新打开，分别输入包名【ConvertToUTF8】 和 【GBK Encoding Support】，然后选择对应的扩展，回车就可以开始安装了,包名一次输入一个。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;编辑器打开代码时乱码基本都是字符编码不一致所造成的。&lt;/p&gt;
+&lt;p&gt;sublime Text编辑器可以通过安装2个扩展来解决乱码问题：&lt;/p&gt;
+&lt;p&gt;【ConvertToUTF8】 和 【GBK Encoding Support】&lt;/p&gt;
+&lt;h2 id=&quot;u5B89_u88
+    
+    </summary>
+    
+      <category term="工作记录" scheme="http://www.jcsama.com/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="sublime" scheme="http://www.jcsama.com/tags/sublime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用hexo搭建个人博客 part2</title>
+    <link href="http://www.jcsama.com/2015/10/11/hexo-2-theme/"/>
+    <id>http://www.jcsama.com/2015/10/11/hexo-2-theme/</id>
+    <published>2015-10-11T13:06:35.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;u4E0B_u8F7D_u4E3B_u9898&quot;&gt;&lt;a href=&quot;#u4E0B_u8F7D_u4E3B_u9898&quot; class=&quot;headerlink&quot; title=&quot;下载主题&quot;&gt;&lt;/a&gt;下载主题&lt;/h2&gt;&lt;p&gt;我使用的模板主题是&lt;a href=&quot;https://github.com/iissnan/hexo-theme-next&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Next&lt;/a&gt;，首先进入你的hexo项目根目录，把模板下到hexo项目下的theme文件夹中，如：&lt;/p&gt;
+&lt;figure class=&quot;highlight vim&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git clone http&lt;span class=&quot;variable&quot;&gt;s:&lt;/span&gt;//github.&lt;span class=&quot;keyword&quot;&gt;com&lt;/span&gt;/iissnan/hexo-theme-&lt;span class=&quot;keyword&quot;&gt;next&lt;/span&gt; themes/&lt;span class=&quot;keyword&quot;&gt;next&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后，在根目录的配置文件_config.yml中把theme指定为next就行了(默认的主题是自带的landscape)&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# Extensions&amp;#10;## Plugins: http://hexo.io/plugins/&amp;#10;## Themes: http://hexo.io/themes/&amp;#10;theme: next&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u4FEE_u6539_u4E3B_u9898_u8BBE_u7F6E&quot;&gt;&lt;a href=&quot;#u4FEE_u6539_u4E3B_u9898_u8BBE_u7F6E&quot; class=&quot;headerlink&quot; title=&quot;修改主题设置&quot;&gt;&lt;/a&gt;修改主题设置&lt;/h2&gt;&lt;p&gt;指定了主题后，进入主题样式设置&lt;/p&gt;
+&lt;h3 id=&quot;u5185_u7F6E_u4E3B_u9898Mist&quot;&gt;&lt;a href=&quot;#u5185_u7F6E_u4E3B_u9898Mist&quot; class=&quot;headerlink&quot; title=&quot;内置主题Mist&quot;&gt;&lt;/a&gt;内置主题Mist&lt;/h3&gt;&lt;p&gt;有些主题会有题中题，也就是有2种布局可供选择，只要像下面一样，把sheme: Mist前的注释去掉就会加载另一种风格&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# Schemes&amp;#10;scheme: Mist&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u5BFC_u822A_u589E_u52A0_u6807_u9898_u3001_u5206_u7C7B_u548C_u5173_u4E8E_u81EA_u5DF1&quot;&gt;&lt;a href=&quot;#u5BFC_u822A_u589E_u52A0_u6807_u9898_u3001_u5206_u7C7B_u548C_u5173_u4E8E_u81EA_u5DF1&quot; class=&quot;headerlink&quot; title=&quot;导航增加标题、分类和关于自己&quot;&gt;&lt;/a&gt;导航增加标题、分类和关于自己&lt;/h3&gt;&lt;p&gt;在菜单中加多tags,categories,about，如下，后面的/tags是指访问的路由&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# &lt;span class=&quot;tag&quot;&gt;---------------------------------------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# &lt;span class=&quot;tag&quot;&gt;Menu&lt;/span&gt; &lt;span class=&quot;tag&quot;&gt;Settings&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# &lt;span class=&quot;tag&quot;&gt;---------------------------------------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# &lt;span class=&quot;keyword&quot;&gt;When&lt;/span&gt; running hexo in a subdirectory (e.g. domain.tld/blog)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# Remove leading slashes ( &lt;span class=&quot;string&quot;&gt;&quot;/archives&quot;&lt;/span&gt; -&amp;gt; &lt;span class=&quot;string&quot;&gt;&quot;archives&quot;&lt;/span&gt; )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;menu&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;home&lt;/span&gt;: /&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;categories&lt;/span&gt;: /categories&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;tags&lt;/span&gt;: /tags&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;archives&lt;/span&gt;: /archives&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;about&lt;/span&gt;: /about&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  #&lt;span class=&quot;attribute&quot;&gt;commonweal&lt;/span&gt;: /&lt;span class=&quot;number&quot;&gt;404&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样子增加后访问&lt;a href=&quot;http://yousite/tags&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://yousite/tags&lt;/a&gt;时 会报Cannot GET /tags/,那是因为我们没有设置标签页面,接下来创建标签主页面和分类主页&lt;/p&gt;
+&lt;h3 id=&quot;u521B_u5EFA_u6807_u7B7E_u9875_uFF0C_u5206_u7C7B_u9875_u53CA_u5173_u4E8E_u9875&quot;&gt;&lt;a href=&quot;#u521B_u5EFA_u6807_u7B7E_u9875_uFF0C_u5206_u7C7B_u9875_u53CA_u5173_u4E8E_u9875&quot; class=&quot;headerlink&quot; title=&quot;创建标签页，分类页及关于页&quot;&gt;&lt;/a&gt;创建标签页，分类页及关于页&lt;/h3&gt;&lt;p&gt;创建页面时，因为这种页面跟文章页面不一样，访问的地址是如/tags,那么对应的页面应该是/tags/index.md，直接用命令创建：&lt;/p&gt;
+&lt;figure class=&quot;highlight vim&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; page &lt;span class=&quot;keyword&quot;&gt;tags&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ hexo &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; page about&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ hexo &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; page categories&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改标签页面内容：&lt;/p&gt;
+&lt;figure class=&quot;highlight asciidoc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;title: tags&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;date: 2015-10-11 21:06:35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;header&quot;&gt;type: &quot;tags&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改分类页面内容：&lt;/p&gt;
+&lt;figure class=&quot;highlight asciidoc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;title: tags&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;date: 2015-10-11 21:06:35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;header&quot;&gt;type: &quot;categories&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;标签页和分类页的type要注意填好，其他就不需要填了，而about页面则和普通的文章一样，不需要设置什么&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;u4E0B_u8F7D_u4E3B_u9898&quot;&gt;&lt;a href=&quot;#u4E0B_u8F7D_u4E3B_u9898&quot; class=&quot;headerlink&quot; title=&quot;下载主题&quot;&gt;&lt;/a&gt;下载主题&lt;/h2&gt;&lt;p&gt;我使用的模板主题是&lt;a href=&quot;https:
+    
+    </summary>
+    
+      <category term="node" scheme="http://www.jcsama.com/categories/node/"/>
+    
+    
+      <category term="hexo" scheme="http://www.jcsama.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设置HOMEBREW_GITHUB_API_TOKEN</title>
+    <link href="http://www.jcsama.com/2015/10/01/brew-token/"/>
+    <id>http://www.jcsama.com/2015/10/01/brew-token/</id>
+    <published>2015-10-01T12:50:00.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;p&gt;在使用brew工具时，报了以下错误,github API 访问的权限限制:&lt;/p&gt;
+&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Error&lt;/span&gt;:GitHub API rate limit exceeded &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; [xxxx]. (But here&#39;s the good &lt;span class=&quot;keyword&quot;&gt;news&lt;/span&gt;: Authenticated requests get a higher rate limit. Check &lt;span class=&quot;keyword&quot;&gt;out&lt;/span&gt; the documentation &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;more&lt;/span&gt; details.)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Try again &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; 5 minutes 54 seconds, or create &lt;span class=&quot;keyword&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;personal&lt;/span&gt; access &lt;span class=&quot;keyword&quot;&gt;token&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  https:&lt;span class=&quot;comment&quot;&gt;//github.com/settings/tokens&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;and then &lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt; the &lt;span class=&quot;keyword&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;: HOMEBREW_GITHUB_API_TOKEN&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;解决：&lt;/p&gt;
+&lt;p&gt;按照报错说明&lt;/p&gt;
+&lt;p&gt;首先打开  &lt;a href=&quot;https://github.com/settings/tokens/new&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/settings/tokens/new&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;登陆后，输入Homebrew，生成token&lt;/p&gt;
+&lt;p&gt;设置环境变量HOMEBREW_GITHUB_API_TOKEN：&lt;/p&gt;
+&lt;p&gt;将HOMEBREW_GITHUB_API_TOKEN变量设置为获取到的token就可正常使用brew的api了:&lt;/p&gt;
+&lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;preprocessor&quot;&gt;export&lt;/span&gt; HOMEBREW_GITHUB_API_TOKEN&lt;span class=&quot;label&quot;&gt;=XXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在使用brew工具时，报了以下错误,github API 访问的权限限制:&lt;/p&gt;
+&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class
+    
+    </summary>
+    
+      <category term="工作记录" scheme="http://www.jcsama.com/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="homebrew" scheme="http://www.jcsama.com/tags/homebrew/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql修改表结构语句</title>
+    <link href="http://www.jcsama.com/2015/09/24/mysql-modifySql/"/>
+    <id>http://www.jcsama.com/2015/09/24/mysql-modifySql/</id>
+    <published>2015-09-24T15:02:00.000Z</published>
+    <updated>2016-02-28T14:48:40.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;u9996_u5148_uFF0C_u521B_u5EFA_u4E00_u4E2A_u6D4B_u8BD5_u8868_tableA&quot;&gt;&lt;a href=&quot;#u9996_u5148_uFF0C_u521B_u5EFA_u4E00_u4E2A_u6D4B_u8BD5_u8868_tableA&quot; class=&quot;headerlink&quot; title=&quot;首先，创建一个测试表 tableA&quot;&gt;&lt;/a&gt;首先，创建一个测试表 tableA&lt;/h2&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`tableA`&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;string&quot;&gt;`createTime`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;createTime&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;) &lt;span class=&quot;keyword&quot;&gt;ENGINE&lt;/span&gt;=MyISAM AUTO_INCREMENT=&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;CHARSET&lt;/span&gt;=utf8;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u589E_u52A0_u5B57_u6BB5&quot;&gt;&lt;a href=&quot;#u589E_u52A0_u5B57_u6BB5&quot; class=&quot;headerlink&quot; title=&quot;增加字段&quot;&gt;&lt;/a&gt;增加字段&lt;/h2&gt;&lt;p&gt;格式：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; tableName &lt;span class=&quot;keyword&quot;&gt;ADD&lt;/span&gt; newField &lt;span class=&quot;keyword&quot;&gt;TYPE&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;增加主键粟子:&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; tableA &lt;span class=&quot;keyword&quot;&gt;ADD&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;INT&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;UNSIGNED&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; AUTO_INCREMENT  &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt; ,&lt;span class=&quot;keyword&quot;&gt;ADD&lt;/span&gt; PRIMARY &lt;span class=&quot;keyword&quot;&gt;KEY&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;增加元素粟子:&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; tableA &lt;span class=&quot;keyword&quot;&gt;ADD&lt;/span&gt; nameStr &lt;span class=&quot;built_in&quot;&gt;VARCHAR&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;default&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;执行结果&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`tableA`&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`createTime`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;0&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;tmp&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; AUTO_INCREMENT &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`nameStr`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;default&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  PRIMARY &lt;span class=&quot;keyword&quot;&gt;KEY&lt;/span&gt; (&lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;) &lt;span class=&quot;keyword&quot;&gt;ENGINE&lt;/span&gt;=MyISAM AUTO_INCREMENT=&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;CHARSET&lt;/span&gt;=utf8;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u4FEE_u6539_u5B57_u6BB5&quot;&gt;&lt;a href=&quot;#u4FEE_u6539_u5B57_u6BB5&quot; class=&quot;headerlink&quot; title=&quot;修改字段&quot;&gt;&lt;/a&gt;修改字段&lt;/h2&gt;&lt;p&gt;格式：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; tableName &lt;span class=&quot;keyword&quot;&gt;CHANGE&lt;/span&gt; oldField newField &lt;span class=&quot;keyword&quot;&gt;TYPE&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;粟子：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; tableA &lt;span class=&quot;keyword&quot;&gt;CHANGE&lt;/span&gt; nameStr newNameStr &lt;span class=&quot;built_in&quot;&gt;VARCHAR&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;default&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;执行结果：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`tableA`&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`createTime`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;0&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;tmp&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; AUTO_INCREMENT &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`newNameStr`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;default&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  PRIMARY &lt;span class=&quot;keyword&quot;&gt;KEY&lt;/span&gt; (&lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;) &lt;span class=&quot;keyword&quot;&gt;ENGINE&lt;/span&gt;=MyISAM AUTO_INCREMENT=&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;CHARSET&lt;/span&gt;=utf8;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u5220_u9664_u5B57_u6BB5&quot;&gt;&lt;a href=&quot;#u5220_u9664_u5B57_u6BB5&quot; class=&quot;headerlink&quot; title=&quot;删除字段&quot;&gt;&lt;/a&gt;删除字段&lt;/h2&gt;&lt;p&gt;格式：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; tableName &lt;span class=&quot;keyword&quot;&gt;DROP&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COLUMN&lt;/span&gt; removeField;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;粟子：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; tableA &lt;span class=&quot;keyword&quot;&gt;DROP&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COLUMN&lt;/span&gt; createTime;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;执行结果：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`tableA`&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; AUTO_INCREMENT &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`newNameStr`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;default&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  PRIMARY &lt;span class=&quot;keyword&quot;&gt;KEY&lt;/span&gt; (&lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;) &lt;span class=&quot;keyword&quot;&gt;ENGINE&lt;/span&gt;=MyISAM AUTO_INCREMENT=&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;CHARSET&lt;/span&gt;=utf8;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u521B_u5EFA_u7D22_u5F15&quot;&gt;&lt;a href=&quot;#u521B_u5EFA_u7D22_u5F15&quot; class=&quot;headerlink&quot; title=&quot;创建索引&quot;&gt;&lt;/a&gt;创建索引&lt;/h2&gt;&lt;p&gt;格式：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;INDEX&lt;/span&gt; KeyName &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; tableName(fieldOneName,fieldTwoName);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;粟子：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;INDEX&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`newNameStr`&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`tableA`&lt;/span&gt;(newNameStr);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;执行结果：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`tableA`&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; AUTO_INCREMENT &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`newNameStr`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;default&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;COMMENT&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  PRIMARY &lt;span class=&quot;keyword&quot;&gt;KEY&lt;/span&gt; (&lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`newNameStr`&lt;/span&gt; (&lt;span class=&quot;string&quot;&gt;`newNameStr`&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;) &lt;span class=&quot;keyword&quot;&gt;ENGINE&lt;/span&gt;=MyISAM AUTO_INCREMENT=&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;CHARSET&lt;/span&gt;=utf8;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;u9996_u5148_uFF0C_u521B_u5EFA_u4E00_u4E2A_u6D4B_u8BD5_u8868_tableA&quot;&gt;&lt;a href=&quot;#u9996_u5148_uFF0C_u521B_u5EFA_u4E00_u4E2A_u6D4B_u8BD5_
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://www.jcsama.com/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://www.jcsama.com/tags/mysql/"/>
+    
+  </entry>
+  
+</feed>
