@@ -59,88 +59,22 @@
 
 
 
-<meta name="description" content="表a君Article内容如下：
-
-
-
-key
-value
-
-
-
-
-id
-int
-
-
-name
-string
-
-
-title
-strit
-
-
-
-现在，我们有一批数据需要插入表A,那么来了，按照我们普通的方式，排队1条1条来：
-INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos;);INSERT INTO `Article`(`na">
+<meta name="description" content="ON DUPLICE KEY UPDATE[ON DUPLICE KEY UPDATE] 用于INSERT语句后面，作用是在执行INSERT时，若UNIQUE索引或者PRIMARY KEY出现重复时，则在出现重复值的行执行UPDATE，否则按正常INSERT语句执行.
+测试表表结构：
+CREATE TABLE `news` (  `id` int(11) NOT NULL AUTO_INCREME">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多条insert语句合并">
-<meta property="og:url" content="http://www.jcsama.com/2014/09/14/mysql-insertMoreThanOne/index.html">
+<meta property="og:title" content="mysql[ON DUPLICE KEY UPDATE]">
+<meta property="og:url" content="http://www.jcsama.com/2016/06/10/mysql-on-duplice-key-update/index.html">
 <meta property="og:site_name" content="This way up">
-<meta property="og:description" content="表a君Article内容如下：
-
-
-
-key
-value
-
-
-
-
-id
-int
-
-
-name
-string
-
-
-title
-strit
-
-
-
-现在，我们有一批数据需要插入表A,那么来了，按照我们普通的方式，排队1条1条来：
-INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos;);INSERT INTO `Article`(`na">
-<meta property="og:updated_time" content="2016-02-28T14:48:40.000Z">
+<meta property="og:description" content="ON DUPLICE KEY UPDATE[ON DUPLICE KEY UPDATE] 用于INSERT语句后面，作用是在执行INSERT时，若UNIQUE索引或者PRIMARY KEY出现重复时，则在出现重复值的行执行UPDATE，否则按正常INSERT语句执行.
+测试表表结构：
+CREATE TABLE `news` (  `id` int(11) NOT NULL AUTO_INCREME">
+<meta property="og:updated_time" content="2016-06-11T08:11:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多条insert语句合并">
-<meta name="twitter:description" content="表a君Article内容如下：
-
-
-
-key
-value
-
-
-
-
-id
-int
-
-
-name
-string
-
-
-title
-strit
-
-
-
-现在，我们有一批数据需要插入表A,那么来了，按照我们普通的方式，排队1条1条来：
-INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos;);INSERT INTO `Article`(`na">
+<meta name="twitter:title" content="mysql[ON DUPLICE KEY UPDATE]">
+<meta name="twitter:description" content="ON DUPLICE KEY UPDATE[ON DUPLICE KEY UPDATE] 用于INSERT语句后面，作用是在执行INSERT时，若UNIQUE索引或者PRIMARY KEY出现重复时，则在出现重复值的行执行UPDATE，否则按正常INSERT语句执行.
+测试表表结构：
+CREATE TABLE `news` (  `id` int(11) NOT NULL AUTO_INCREME">
 
 
 
@@ -158,7 +92,7 @@ INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos
   };
 </script>
 
-  <title> 多条insert语句合并 | This way up </title>
+  <title> mysql[ON DUPLICE KEY UPDATE] | This way up </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -306,7 +240,7 @@ INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos
             
             
               
-                多条insert语句合并
+                mysql[ON DUPLICE KEY UPDATE]
               
             
           </h1>
@@ -318,8 +252,8 @@ INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-09-14T22:37:00+08:00" content="2014-09-14">
-              2014-09-14
+            <time itemprop="dateCreated" datetime="2016-06-10T17:37:51+08:00" content="2016-06-10">
+              2016-06-10
             </time>
           </span>
 
@@ -348,8 +282,8 @@ INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2014/09/14/mysql-insertMoreThanOne/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/14/mysql-insertMoreThanOne/" itemprop="commentsCount"></span>
+                <a href="/2016/06/10/mysql-on-duplice-key-update/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/10/mysql-on-duplice-key-update/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -370,35 +304,18 @@ INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos
       
 
       
-        <p>表a君Article内容如下：</p>
-<table>
-<thead>
-<tr>
-<th>key</th>
-<th>value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>int</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-</tr>
-<tr>
-<td>title</td>
-<td>strit</td>
-</tr>
-</tbody>
-</table>
-<p>现在，我们有一批数据需要插入表A,那么来了，按照我们普通的方式，排队1条1条来：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Article`</span>(<span class="string">`name`</span>,<span class="string">`title`</span>)<span class="keyword">VALUES</span> (<span class="string">'name1'</span>,<span class="string">'title1'</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Article`</span>(<span class="string">`name`</span>,<span class="string">`title`</span>)<span class="keyword">VALUES</span> (<span class="string">'name2'</span>,<span class="string">'title2'</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Article`</span>(<span class="string">`name`</span>,<span class="string">`title`</span>)<span class="keyword">VALUES</span> (<span class="string">'name3'</span>,<span class="string">'title3'</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Article`</span>(<span class="string">`name`</span>,<span class="string">`title`</span>)<span class="keyword">VALUES</span> (<span class="string">'name4'</span>,<span class="string">'title4'</span>);</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>之后发现了sql的insert语句可以含多个参数:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Article`</span>(<span class="string">`name`</span>,<span class="string">`title`</span>)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">'name1'</span>,<span class="string">'title1'</span>),</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">'name2'</span>,<span class="string">'title2'</span>),</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">'name3'</span>,<span class="string">'title3'</span>),</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">'name4'</span>,<span class="string">'title4'</span>),</span><br><span class="line">...;</span></span><br></pre></td></tr></table></figure>
-<p>这样一变，我们的多条语句变成了一个，好处是调用mysql的api次数减少了，开销降低，提高了性能和速度。</p>
-<p>所以，在多条语句插入同个表时，我们尽量地用一条语句插入，提高性能，速度。</p>
+        <h2 id="ON_DUPLICE_KEY_UPDATE"><a href="#ON_DUPLICE_KEY_UPDATE" class="headerlink" title="ON DUPLICE KEY UPDATE"></a>ON DUPLICE KEY UPDATE</h2><p>[ON DUPLICE KEY UPDATE] 用于INSERT语句后面，作用是在执行INSERT时，若UNIQUE索引或者PRIMARY KEY出现重复时，则在出现重复值的行执行UPDATE，否则按正常INSERT语句执行.</p>
+<h2 id="u6D4B_u8BD5_u8868"><a href="#u6D4B_u8BD5_u8868" class="headerlink" title="测试表"></a>测试表</h2><p>表结构：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`news`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`title`</span> <span class="built_in">varchar</span>(<span class="number">70</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`body`</span> longtext <span class="keyword">COLLATE</span> utf8_unicode_ci,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci;</span></span><br></pre></td></tr></table></figure>
+<p>其中<code>id</code>为PRIMARY KEY<br>表数据：</p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="header">mysql&gt; SELECT * FROM news;</span><br><span class="line">+----+--------+-------+</span></span><br><span class="line"><span class="header">| id | title  | body  |</span><br><span class="line">+----+--------+-------+</span></span><br><span class="line">|  1 | title1 | NULL  |</span><br><span class="line">|  2 | title2 | body2 |</span><br><span class="line">| 12 | title1 | body3 |</span><br><span class="line">| 13 | title1 | body4 |</span><br><span class="line"><span class="header">| 14 | NULL   | body5 |</span><br><span class="line">+----+--------+-------+</span></span><br></pre></td></tr></table></figure>
+<h2 id="u63D2_u5165_u4E00_u6761_u91CD_u590D_u6570_u636E"><a href="#u63D2_u5165_u4E00_u6761_u91CD_u590D_u6570_u636E" class="headerlink" title="插入一条重复数据"></a>插入一条重复数据</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line">mysql&gt; INSERT INTO <span class="escape">`n</span>ews<span class="escape">` </span>(<span class="escape">`i</span>d<span class="escape">`,</span><span class="escape">`t</span>itle<span class="escape">`,</span><span class="escape">`b</span>ody<span class="escape">`)</span> VALUES ('<span class="number">1</span>','titleTest','bodyTest') ON DUPLICATE KEY UPDATE <span class="escape">`t</span>itle<span class="escape">`=</span> VALUES(<span class="escape">`t</span>itle<span class="escape">`)</span>,<span class="escape">`b</span>ody<span class="escape">`=</span>VALUES(<span class="escape">`b</span>ody<span class="escape">`)</span><span class="comment">;</span></span><br><span class="line">Query OK, <span class="number">2</span> rows affected (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+<p>show data:</p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="header">mysql&gt; SELECT * FROM news;</span><br><span class="line">+----+-----------+----------+</span></span><br><span class="line"><span class="header">| id | title     | body     |</span><br><span class="line">+----+-----------+----------+</span></span><br><span class="line">|  1 | titleTest | bodyTest |</span><br><span class="line">|  2 | title2    | body2    |</span><br><span class="line">| 12 | title1    | body3    |</span><br><span class="line">| 13 | title1    | body4    |</span><br><span class="line"><span class="header">| 14 | NULL      | body5    |</span><br><span class="line">+----+-----------+----------+</span></span><br></pre></td></tr></table></figure>
+<h2 id="u63D2_u5165_u591A_u6761_u91CD_u590D_u6570_u636E"><a href="#u63D2_u5165_u591A_u6761_u91CD_u590D_u6570_u636E" class="headerlink" title="插入多条重复数据"></a>插入多条重复数据</h2><figure class="highlight lasso"><table><tr><td class="code"><pre><span class="line">mysql&gt; INSERT <span class="keyword">INTO</span> <span class="string">`news`</span> (<span class="string">`id`</span>,<span class="string">`title`</span>,<span class="string">`body`</span>) VALUES (<span class="string">'1'</span>,<span class="string">'titleTest'</span>,<span class="string">'bodyTest'</span>),(<span class="string">'2'</span>,<span class="string">'titleTest2'</span>,<span class="string">'bodyTest2'</span>),(<span class="string">'3'</span>,<span class="string">'titleTest3'</span>,<span class="string">'bodyTest3'</span>) <span class="keyword">ON</span> DUPLICATE KEY UPDATE <span class="string">`title`</span>= VALUES(<span class="string">`title`</span>),<span class="string">`body`</span>=VALUES(<span class="string">`body`</span>);</span><br><span class="line">Query OK, <span class="number">3</span> <span class="keyword">rows</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"><span class="keyword">Records</span>: <span class="number">3</span>  Duplicates: <span class="number">1</span>  Warnings: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>show data:</p>
+<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT <span class="keyword">*</span> FROM news;                                                                                                                                                           +----+------------+-----------+</span><br><span class="line">|<span class="string"> id </span>|<span class="string"> title      </span>|<span class="string"> body      </span>|</span><br><span class="line">+----+------------+-----------+</span><br><span class="line">|<span class="string">  1 </span>|<span class="string"> titleTest  </span>|<span class="string"> bodyTest  </span>|</span><br><span class="line">|<span class="string">  2 </span>|<span class="string"> titleTest2 </span>|<span class="string"> bodyTest2 </span>|</span><br><span class="line">|<span class="string">  3 </span>|<span class="string"> titleTest3 </span>|<span class="string"> bodyTest3 </span>|</span><br><span class="line">|<span class="string"> 12 </span>|<span class="string"> title1     </span>|<span class="string"> body3     </span>|</span><br><span class="line">|<span class="string"> 13 </span>|<span class="string"> title1     </span>|<span class="string"> body4     </span>|</span><br><span class="line">|<span class="string"> 14 </span>|<span class="string"> NULL       </span>|<span class="string"> body5     </span>|</span><br><span class="line">+----+------------+-----------+</span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p>因为id3不存在，所以正常INSERT了1条数据，UPDATE了2条数据</p>
 
       
     </div>
@@ -416,17 +333,13 @@ INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/09/06/js-qrcode/" rel="next" title="通过二维码开放平台的API快速生成二维码">
-                <i class="fa fa-chevron-left"></i> 通过二维码开放平台的API快速生成二维码
+              <a href="/2016/05/22/mysql-strimg/" rel="next" title="mysql 字符串函数">
+                <i class="fa fa-chevron-left"></i> mysql 字符串函数
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2014/09/25/php-filePath/" rel="prev" title="PHP文件操作part1[文件路径]">
-                PHP文件操作part1[文件路径] <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,10 +354,10 @@ INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2014/09/14/mysql-insertMoreThanOne/"
-     data-title="多条insert语句合并"
+        <div class="ds-share flat" data-thread-key="2016/06/10/mysql-on-duplice-key-update/"
+     data-title="mysql[ON DUPLICE KEY UPDATE]"
      data-content=""
-     data-url="http://www.jcsama.com/2014/09/14/mysql-insertMoreThanOne/">
+     data-url="http://www.jcsama.com/2016/06/10/mysql-on-duplice-key-update/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -471,8 +384,8 @@ INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2014/09/14/mysql-insertMoreThanOne/"
-           data-title="多条insert语句合并" data-url="http://www.jcsama.com/2014/09/14/mysql-insertMoreThanOne/">
+      <div class="ds-thread" data-thread-key="2016/06/10/mysql-on-duplice-key-update/"
+           data-title="mysql[ON DUPLICE KEY UPDATE]" data-url="http://www.jcsama.com/2016/06/10/mysql-on-duplice-key-update/">
       </div>
     
   </div>
@@ -570,7 +483,7 @@ INSERT INTO `Article`(`name`,`title`)VALUES (&apos;name1&apos;,&apos;title1&apos
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ON_DUPLICE_KEY_UPDATE"><span class="nav-number">1.</span> <span class="nav-text">ON DUPLICE KEY UPDATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6D4B_u8BD5_u8868"><span class="nav-number">2.</span> <span class="nav-text">测试表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u63D2_u5165_u4E00_u6761_u91CD_u590D_u6570_u636E"><span class="nav-number">3.</span> <span class="nav-text">插入一条重复数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u63D2_u5165_u591A_u6761_u91CD_u590D_u6570_u636E"><span class="nav-number">4.</span> <span class="nav-text">插入多条重复数据</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jcsama.com/"/>
-  <updated>2016-05-22T16:00:18.000Z</updated>
+  <updated>2016-06-11T08:11:30.000Z</updated>
   <id>http://www.jcsama.com/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql[ON DUPLICE KEY UPDATE]</title>
+    <link href="http://www.jcsama.com/2016/06/10/mysql-on-duplice-key-update/"/>
+    <id>http://www.jcsama.com/2016/06/10/mysql-on-duplice-key-update/</id>
+    <published>2016-06-10T09:37:51.000Z</published>
+    <updated>2016-06-11T08:11:30.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;ON_DUPLICE_KEY_UPDATE&quot;&gt;&lt;a href=&quot;#ON_DUPLICE_KEY_UPDATE&quot; class=&quot;headerlink&quot; title=&quot;ON DUPLICE KEY UPDATE&quot;&gt;&lt;/a&gt;ON DUPLICE KEY UPDATE&lt;/h2&gt;&lt;p&gt;[ON DUPLICE KEY UPDATE] 用于INSERT语句后面，作用是在执行INSERT时，若UNIQUE索引或者PRIMARY KEY出现重复时，则在出现重复值的行执行UPDATE，否则按正常INSERT语句执行.&lt;/p&gt;
+&lt;h2 id=&quot;u6D4B_u8BD5_u8868&quot;&gt;&lt;a href=&quot;#u6D4B_u8BD5_u8868&quot; class=&quot;headerlink&quot; title=&quot;测试表&quot;&gt;&lt;/a&gt;测试表&lt;/h2&gt;&lt;p&gt;表结构：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`news`&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; AUTO_INCREMENT,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`title`&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;70&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;COLLATE&lt;/span&gt; utf8_unicode_ci &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;`body`&lt;/span&gt; longtext &lt;span class=&quot;keyword&quot;&gt;COLLATE&lt;/span&gt; utf8_unicode_ci,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  PRIMARY &lt;span class=&quot;keyword&quot;&gt;KEY&lt;/span&gt; (&lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;) &lt;span class=&quot;keyword&quot;&gt;ENGINE&lt;/span&gt;=&lt;span class=&quot;keyword&quot;&gt;InnoDB&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;CHARSET&lt;/span&gt;=utf8 &lt;span class=&quot;keyword&quot;&gt;COLLATE&lt;/span&gt;=utf8_unicode_ci;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其中&lt;code&gt;id&lt;/code&gt;为PRIMARY KEY&lt;br&gt;表数据：&lt;/p&gt;
+&lt;figure class=&quot;highlight asciidoc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;header&quot;&gt;mysql&amp;gt; SELECT * FROM news;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+----+--------+-------+&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;header&quot;&gt;| id | title  | body  |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+----+--------+-------+&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|  1 | title1 | NULL  |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|  2 | title2 | body2 |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| 12 | title1 | body3 |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| 13 | title1 | body4 |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;header&quot;&gt;| 14 | NULL   | body5 |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+----+--------+-------+&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u63D2_u5165_u4E00_u6761_u91CD_u590D_u6570_u636E&quot;&gt;&lt;a href=&quot;#u63D2_u5165_u4E00_u6761_u91CD_u590D_u6570_u636E&quot; class=&quot;headerlink&quot; title=&quot;插入一条重复数据&quot;&gt;&lt;/a&gt;插入一条重复数据&lt;/h2&gt;&lt;figure class=&quot;highlight autohotkey&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;gt; INSERT INTO &lt;span class=&quot;escape&quot;&gt;`n&lt;/span&gt;ews&lt;span class=&quot;escape&quot;&gt;` &lt;/span&gt;(&lt;span class=&quot;escape&quot;&gt;`i&lt;/span&gt;d&lt;span class=&quot;escape&quot;&gt;`,&lt;/span&gt;&lt;span class=&quot;escape&quot;&gt;`t&lt;/span&gt;itle&lt;span class=&quot;escape&quot;&gt;`,&lt;/span&gt;&lt;span class=&quot;escape&quot;&gt;`b&lt;/span&gt;ody&lt;span class=&quot;escape&quot;&gt;`)&lt;/span&gt; VALUES (&#39;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&#39;,&#39;titleTest&#39;,&#39;bodyTest&#39;) ON DUPLICATE KEY UPDATE &lt;span class=&quot;escape&quot;&gt;`t&lt;/span&gt;itle&lt;span class=&quot;escape&quot;&gt;`=&lt;/span&gt; VALUES(&lt;span class=&quot;escape&quot;&gt;`t&lt;/span&gt;itle&lt;span class=&quot;escape&quot;&gt;`)&lt;/span&gt;,&lt;span class=&quot;escape&quot;&gt;`b&lt;/span&gt;ody&lt;span class=&quot;escape&quot;&gt;`=&lt;/span&gt;VALUES(&lt;span class=&quot;escape&quot;&gt;`b&lt;/span&gt;ody&lt;span class=&quot;escape&quot;&gt;`)&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Query OK, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; rows affected (&lt;span class=&quot;number&quot;&gt;0.00&lt;/span&gt; sec)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;show data:&lt;/p&gt;
+&lt;figure class=&quot;highlight asciidoc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;header&quot;&gt;mysql&amp;gt; SELECT * FROM news;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+----+-----------+----------+&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;header&quot;&gt;| id | title     | body     |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+----+-----------+----------+&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|  1 | titleTest | bodyTest |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|  2 | title2    | body2    |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| 12 | title1    | body3    |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| 13 | title1    | body4    |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;header&quot;&gt;| 14 | NULL      | body5    |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+----+-----------+----------+&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u63D2_u5165_u591A_u6761_u91CD_u590D_u6570_u636E&quot;&gt;&lt;a href=&quot;#u63D2_u5165_u591A_u6761_u91CD_u590D_u6570_u636E&quot; class=&quot;headerlink&quot; title=&quot;插入多条重复数据&quot;&gt;&lt;/a&gt;插入多条重复数据&lt;/h2&gt;&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;gt; INSERT &lt;span class=&quot;keyword&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;`news`&lt;/span&gt; (&lt;span class=&quot;string&quot;&gt;`id`&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;`title`&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;`body`&lt;/span&gt;) VALUES (&lt;span class=&quot;string&quot;&gt;&#39;1&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;titleTest&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;bodyTest&#39;&lt;/span&gt;),(&lt;span class=&quot;string&quot;&gt;&#39;2&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;titleTest2&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;bodyTest2&#39;&lt;/span&gt;),(&lt;span class=&quot;string&quot;&gt;&#39;3&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;titleTest3&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;bodyTest3&#39;&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;ON&lt;/span&gt; DUPLICATE KEY UPDATE &lt;span class=&quot;string&quot;&gt;`title`&lt;/span&gt;= VALUES(&lt;span class=&quot;string&quot;&gt;`title`&lt;/span&gt;),&lt;span class=&quot;string&quot;&gt;`body`&lt;/span&gt;=VALUES(&lt;span class=&quot;string&quot;&gt;`body`&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Query OK, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;rows&lt;/span&gt; affected (&lt;span class=&quot;number&quot;&gt;0.00&lt;/span&gt; sec)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Records&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;  Duplicates: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;  Warnings: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;show data:&lt;/p&gt;
+&lt;figure class=&quot;highlight gherkin&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;gt; SELECT &lt;span class=&quot;keyword&quot;&gt;*&lt;/span&gt; FROM news;                                                                                                                                                           +----+------------+-----------+&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|&lt;span class=&quot;string&quot;&gt; id &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; title      &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; body      &lt;/span&gt;|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+----+------------+-----------+&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|&lt;span class=&quot;string&quot;&gt;  1 &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; titleTest  &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; bodyTest  &lt;/span&gt;|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|&lt;span class=&quot;string&quot;&gt;  2 &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; titleTest2 &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; bodyTest2 &lt;/span&gt;|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|&lt;span class=&quot;string&quot;&gt;  3 &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; titleTest3 &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; bodyTest3 &lt;/span&gt;|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|&lt;span class=&quot;string&quot;&gt; 12 &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; title1     &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; body3     &lt;/span&gt;|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|&lt;span class=&quot;string&quot;&gt; 13 &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; title1     &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; body4     &lt;/span&gt;|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|&lt;span class=&quot;string&quot;&gt; 14 &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; NULL       &lt;/span&gt;|&lt;span class=&quot;string&quot;&gt; body5     &lt;/span&gt;|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+----+------------+-----------+&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6 rows in set (0.00 sec)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;因为id3不存在，所以正常INSERT了1条数据，UPDATE了2条数据&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;ON_DUPLICE_KEY_UPDATE&quot;&gt;&lt;a href=&quot;#ON_DUPLICE_KEY_UPDATE&quot; class=&quot;headerlink&quot; title=&quot;ON DUPLICE KEY UPDATE&quot;&gt;&lt;/a&gt;ON DUPLICE KEY UPDATE&lt;/
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://www.jcsama.com/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://www.jcsama.com/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql 字符串函数</title>
@@ -1201,37 +1235,6 @@
     
     
       <category term="hexo" scheme="http://www.jcsama.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设置HOMEBREW_GITHUB_API_TOKEN</title>
-    <link href="http://www.jcsama.com/2015/10/01/brew-token/"/>
-    <id>http://www.jcsama.com/2015/10/01/brew-token/</id>
-    <published>2015-10-01T12:50:00.000Z</published>
-    <updated>2016-02-28T14:48:40.000Z</updated>
-    
-    <content type="html">&lt;p&gt;在使用brew工具时，报了以下错误,github API 访问的权限限制:&lt;/p&gt;
-&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Error&lt;/span&gt;:GitHub API rate limit exceeded &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; [xxxx]. (But here&#39;s the good &lt;span class=&quot;keyword&quot;&gt;news&lt;/span&gt;: Authenticated requests get a higher rate limit. Check &lt;span class=&quot;keyword&quot;&gt;out&lt;/span&gt; the documentation &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;more&lt;/span&gt; details.)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Try again &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; 5 minutes 54 seconds, or create &lt;span class=&quot;keyword&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;personal&lt;/span&gt; access &lt;span class=&quot;keyword&quot;&gt;token&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  https:&lt;span class=&quot;comment&quot;&gt;//github.com/settings/tokens&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;and then &lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt; the &lt;span class=&quot;keyword&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;: HOMEBREW_GITHUB_API_TOKEN&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;解决：&lt;/p&gt;
-&lt;p&gt;按照报错说明&lt;/p&gt;
-&lt;p&gt;首先打开  &lt;a href=&quot;https://github.com/settings/tokens/new&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/settings/tokens/new&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;登陆后，输入Homebrew，生成token&lt;/p&gt;
-&lt;p&gt;设置环境变量HOMEBREW_GITHUB_API_TOKEN：&lt;/p&gt;
-&lt;p&gt;将HOMEBREW_GITHUB_API_TOKEN变量设置为获取到的token就可正常使用brew的api了:&lt;/p&gt;
-&lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;preprocessor&quot;&gt;export&lt;/span&gt; HOMEBREW_GITHUB_API_TOKEN&lt;span class=&quot;label&quot;&gt;=XXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在使用brew工具时，报了以下错误,github API 访问的权限限制:&lt;/p&gt;
-&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class
-    
-    </summary>
-    
-      <category term="工作记录" scheme="http://www.jcsama.com/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
-    
-    
-      <category term="homebrew" scheme="http://www.jcsama.com/tags/homebrew/"/>
     
   </entry>
   
