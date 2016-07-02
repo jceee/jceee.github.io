@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jcsama.com/"/>
-  <updated>2016-06-20T02:56:29.000Z</updated>
+  <updated>2016-07-02T16:49:46.000Z</updated>
   <id>http://www.jcsama.com/</id>
   
   <author>
@@ -16,11 +16,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>linux-nohup</title>
+    <link href="http://www.jcsama.com/2016/07/02/linux-nohup/"/>
+    <id>http://www.jcsama.com/2016/07/02/linux-nohup/</id>
+    <published>2016-07-02T09:33:25.000Z</published>
+    <updated>2016-07-02T16:49:46.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;nohup(no hang up) 即不挂机，在关闭终端或退出账户时，仍不关闭进程&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;u529F_u80FD&quot;&gt;&lt;a href=&quot;#u529F_u80FD&quot; class=&quot;headerlink&quot; title=&quot;功能&quot;&gt;&lt;/a&gt;功能&lt;/h2&gt;&lt;p&gt;nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp;amp; （ 表示“and”的符号）到命令的尾部。&lt;br&gt;如果不将 nohup 命令的输出重定向，输出将附加到当前目录的 &lt;code&gt;nohup.out&lt;/code&gt; 文件中。如果当前目录的 nohup.out 文件不可写，输出重定向到 &lt;code&gt;$HOME/nohup.out&lt;/code&gt; 文件中。如果没有文件能创建或打开以用于追加，那么 Command 参数指定的命令不可调用。如果标准错误是一个终端，那么把指定的命令写给标准错误的所有输出作为标准输出重定向到相同的文件描述符。&lt;/p&gt;
+&lt;h2 id=&quot;u8BED_u6CD5&quot;&gt;&lt;a href=&quot;#u8BED_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h2&gt;&lt;figure class=&quot;highlight accesslog&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ nohup Command &lt;span class=&quot;string&quot;&gt;[ Arg ... ]&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;[　&amp;amp; ]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;example:&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ nohup php test&lt;span class=&quot;class&quot;&gt;.php&lt;/span&gt; &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ nohup php test&lt;span class=&quot;class&quot;&gt;.php&lt;/span&gt; &amp;gt;~/outFile&lt;span class=&quot;class&quot;&gt;.out&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&amp;gt;&amp;amp;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;0 – stdin (standard input)&lt;/li&gt;
+&lt;li&gt;1 – stdout (standard output)&lt;/li&gt;
+&lt;li&gt;2 – stderr (standard error)  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2&amp;gt;&amp;amp;1是将标准错误（2）重定向到标准输出（&amp;amp;1），标准输出（&amp;amp;1）再被重定向输入到myout.file文件中。&lt;/p&gt;
+&lt;h2 id=&quot;u67E5_u770B_u4EFB_u52A1_u5217_u8868&quot;&gt;&lt;a href=&quot;#u67E5_u770B_u4EFB_u52A1_u5217_u8868&quot; class=&quot;headerlink&quot; title=&quot;查看任务列表&quot;&gt;&lt;/a&gt;查看任务列表&lt;/h2&gt;&lt;p&gt;用&lt;code&gt;jobs&lt;/code&gt;可以看到正在运行的任务&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;	$ jobs                                                                                                                   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]  + running    nohup php test&lt;span class=&quot;class&quot;&gt;.php&lt;/span&gt; &amp;gt; ~/outFile&lt;span class=&quot;class&quot;&gt;.out&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&amp;gt;&amp;amp;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u5173_u95ED_u4EFB_u52A1&quot;&gt;&lt;a href=&quot;#u5173_u95ED_u4EFB_u52A1&quot; class=&quot;headerlink&quot; title=&quot;关闭任务&quot;&gt;&lt;/a&gt;关闭任务&lt;/h2&gt;&lt;p&gt;n为任务号&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;fg&lt;/span&gt; %n&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;nohup(no hang up) 即不挂机，在关闭终端或退出账户时，仍不关闭进程&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;u529F_u80FD&quot;&gt;&lt;a href=&quot;#u529F_u80FD&quot; class=&quot;headerlink&quot; t
+    
+    </summary>
+    
+      <category term="linux" scheme="http://www.jcsama.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.jcsama.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu下配置lnmp</title>
     <link href="http://www.jcsama.com/2016/06/19/linux-lnmp/"/>
     <id>http://www.jcsama.com/2016/06/19/linux-lnmp/</id>
     <published>2016-06-19T14:10:25.000Z</published>
-    <updated>2016-06-20T02:56:29.000Z</updated>
+    <updated>2016-07-02T16:58:34.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;环境：Ubuntu Linux 14.04&lt;/p&gt;
@@ -44,7 +86,11 @@
 &lt;h2 id=&quot;u4E0B_u8F7Dwordpress&quot;&gt;&lt;a href=&quot;#u4E0B_u8F7Dwordpress&quot; class=&quot;headerlink&quot; title=&quot;下载wordpress&quot;&gt;&lt;/a&gt;下载wordpress&lt;/h2&gt;&lt;figure class=&quot;highlight vim&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo git clone http&lt;span class=&quot;variable&quot;&gt;s:&lt;/span&gt;//github.&lt;span class=&quot;keyword&quot;&gt;com&lt;/span&gt;/WordPress/WordPress /&lt;span class=&quot;keyword&quot;&gt;opt&lt;/span&gt;/htdocs/wordpress&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ sudo chown -R www-data /&lt;span class=&quot;keyword&quot;&gt;opt&lt;/span&gt;/htdocs&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;u589E_u52A0Nginx_u914D_u7F6E&quot;&gt;&lt;a href=&quot;#u589E_u52A0Nginx_u914D_u7F6E&quot; class=&quot;headerlink&quot; title=&quot;增加Nginx配置&quot;&gt;&lt;/a&gt;增加Nginx配置&lt;/h2&gt;&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo vi /etc/nginx/&lt;span class=&quot;keyword&quot;&gt;conf&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;d&lt;/span&gt;/wordpress.&lt;span class=&quot;keyword&quot;&gt;conf&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;写入以下内容，保存并重载Nginx配置&lt;/p&gt;
-&lt;figure class=&quot;highlight nginx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title&quot;&gt;server&lt;/span&gt; &amp;#123;    &lt;span class=&quot;title&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;;    &lt;span class=&quot;title&quot;&gt;server_name&lt;/span&gt; www.wordpress.com;    &lt;span class=&quot;title&quot;&gt;root&lt;/span&gt; /opt/htdocs/wordpress;    &lt;span class=&quot;title&quot;&gt;index&lt;/span&gt; index.html index.php;    &lt;span class=&quot;title&quot;&gt;location&lt;/span&gt; / &amp;#123;        &lt;span class=&quot;title&quot;&gt;index&lt;/span&gt; index.html index.php;    &amp;#125;    &lt;span class=&quot;title&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;regexp&quot;&gt;~ \.php$&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;title&quot;&gt;include&lt;/span&gt; fastcgi.conf;            &lt;span class=&quot;title&quot;&gt;fastcgi_pass&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;127.0.0.1:9000&lt;/span&gt;;    &amp;#125;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight nginx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title&quot;&gt;server&lt;/span&gt; &amp;#123;    &lt;span class=&quot;title&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;;    &lt;span class=&quot;title&quot;&gt;server_name&lt;/span&gt; www.wordpress.com;    &lt;span class=&quot;title&quot;&gt;root&lt;/span&gt; /opt/htdocs/wordpress;    &lt;span class=&quot;title&quot;&gt;index&lt;/span&gt; index.html index.php;    &lt;span class=&quot;title&quot;&gt;location&lt;/span&gt; / &amp;#123;        &lt;span class=&quot;title&quot;&gt;index&lt;/span&gt; index.html index.php;    &amp;#125;    &lt;span class=&quot;title&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;regexp&quot;&gt;~ \.php$&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;title&quot;&gt;include&lt;/span&gt; fastcgi.conf;                  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;title&quot;&gt;fastcgi_pass&lt;/span&gt; &lt;span class=&quot;url&quot;&gt;unix:/var/run/php5-fpm.sock&lt;/span&gt;;    &amp;#125;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果php-fpm是以TPC/IP    方式监听,如127.0.0.1:9000，则把上方&lt;/p&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;fastcgi_pass &lt;span class=&quot;string&quot;&gt;unix:&lt;/span&gt;&lt;span class=&quot;regexp&quot;&gt;/var/&lt;/span&gt;run/php5-fpm.sock;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;改为&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;fastcgi_pass &lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;9000&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;u4FEE_u6539hosts&quot;&gt;&lt;a href=&quot;#u4FEE_u6539hosts&quot; class=&quot;headerlink&quot; title=&quot;修改hosts&quot;&gt;&lt;/a&gt;修改hosts&lt;/h2&gt;&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;sudo vi /etc/hosts&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;增加以下内容并保存退出&lt;/p&gt;
 &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;127&lt;span class=&quot;class&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.1&lt;/span&gt; &lt;span class=&quot;tag&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.wordpress&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.com&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -61,6 +107,8 @@
 &lt;h1 id=&quot;u5B89_u88C5_u8F6F_u4EF6_u4ED3_u5E93_u7BA1_u7406_u5668&quot;&gt;&lt;a href=&quot;#u5B89_u88C5
     
     </summary>
+    
+      <category term="linux" scheme="http://www.jcsama.com/categories/linux/"/>
     
     
       <category term="linux" scheme="http://www.jcsama.com/tags/linux/"/>
@@ -1213,41 +1261,6 @@
     
     
       <category term="brew" scheme="http://www.jcsama.com/tags/brew/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sublime text中文乱码解决</title>
-    <link href="http://www.jcsama.com/2015/10/14/sublime-Encode/"/>
-    <id>http://www.jcsama.com/2015/10/14/sublime-Encode/</id>
-    <published>2015-10-14T15:08:00.000Z</published>
-    <updated>2016-02-28T14:48:40.000Z</updated>
-    
-    <content type="html">&lt;p&gt;编辑器打开代码时乱码基本都是字符编码不一致所造成的。&lt;/p&gt;
-&lt;p&gt;sublime Text编辑器可以通过安装2个扩展来解决乱码问题：&lt;/p&gt;
-&lt;p&gt;【ConvertToUTF8】 和 【GBK Encoding Support】&lt;/p&gt;
-&lt;h2 id=&quot;u5B89_u88C5_u6269_u5C55_u5305_u7BA1_u7406_u5DE5_u5177_u3010Package_Control_u3011&quot;&gt;&lt;a href=&quot;#u5B89_u88C5_u6269_u5C55_u5305_u7BA1_u7406_u5DE5_u5177_u3010Package_Control_u3011&quot; class=&quot;headerlink&quot; title=&quot;安装扩展包管理工具【Package Control】&quot;&gt;&lt;/a&gt;安装扩展包管理工具【Package Control】&lt;/h2&gt;&lt;p&gt;使用快捷键【control + ~】 打开控制台，参考&lt;a href=&quot;https://packagecontrol.io/installation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;package control&lt;/a&gt;，根据版本不同选择输入以下代码：&lt;/p&gt;
-&lt;p&gt;sublime Text2:&lt;/p&gt;
-&lt;figure class=&quot;highlight livecodeserver&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import urllib2,os,hashlib; h = &lt;span class=&quot;string&quot;&gt;&#39;2915d1851351e5ee549c20394736b442&#39;&lt;/span&gt; + &lt;span class=&quot;string&quot;&gt;&#39;8bc59f460fa1548d1514676163dafc88&#39;&lt;/span&gt;; pf = &lt;span class=&quot;string&quot;&gt;&#39;Package Control.sublime-package&#39;&lt;/span&gt;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;not&lt;/span&gt; os.path.exists(ipp) &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); &lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt; = urllib2.urlopen( &lt;span class=&quot;string&quot;&gt;&#39;http://packagecontrol.io/&#39;&lt;/span&gt; + pf.&lt;span class=&quot;built_in&quot;&gt;replace&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39; &#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;%20&#39;&lt;/span&gt;)).&lt;span class=&quot;built_in&quot;&gt;read&lt;/span&gt;(); dh = hashlib.sha256(&lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt;).hexdigest(); &lt;span class=&quot;built_in&quot;&gt;open&lt;/span&gt;( os.path.join( ipp, pf), &lt;span class=&quot;string&quot;&gt;&#39;wb&#39;&lt;/span&gt; ).&lt;span class=&quot;built_in&quot;&gt;write&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; dh == h &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; None; print(&lt;span class=&quot;string&quot;&gt;&#39;Error validating download (got %s instead of %s), please try manual install&#39;&lt;/span&gt; % (dh, h) &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; dh != h &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Please restart Sublime Text to finish installation&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;sublime Text3:&lt;/p&gt;
-&lt;figure class=&quot;highlight livecodeserver&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import urllib.request,os,hashlib; h = &lt;span class=&quot;string&quot;&gt;&#39;2915d1851351e5ee549c20394736b442&#39;&lt;/span&gt; + &lt;span class=&quot;string&quot;&gt;&#39;8bc59f460fa1548d1514676163dafc88&#39;&lt;/span&gt;; pf = &lt;span class=&quot;string&quot;&gt;&#39;Package Control.sublime-package&#39;&lt;/span&gt;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); &lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt; = urllib.request.urlopen( &lt;span class=&quot;string&quot;&gt;&#39;http://packagecontrol.io/&#39;&lt;/span&gt; + pf.&lt;span class=&quot;built_in&quot;&gt;replace&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39; &#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;%20&#39;&lt;/span&gt;)).&lt;span class=&quot;built_in&quot;&gt;read&lt;/span&gt;(); dh = hashlib.sha256(&lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt;).hexdigest(); print(&lt;span class=&quot;string&quot;&gt;&#39;Error validating download (got %s instead of %s), please try manual install&#39;&lt;/span&gt; % (dh, h)) &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; dh != h &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;open&lt;/span&gt;(os.path.join( ipp, pf), &lt;span class=&quot;string&quot;&gt;&#39;wb&#39;&lt;/span&gt; ).&lt;span class=&quot;built_in&quot;&gt;write&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;u5B89_u88C5_u6269_u5C55_u5305&quot;&gt;&lt;a href=&quot;#u5B89_u88C5_u6269_u5C55_u5305&quot; class=&quot;headerlink&quot; title=&quot;安装扩展包&quot;&gt;&lt;/a&gt;安装扩展包&lt;/h2&gt;&lt;p&gt; 扩展包控制安装好了之后就可以开始安装扩展了：&lt;/p&gt;
-&lt;p&gt; 使用【control + shift + p】 打开扩展控制窗口，输入Install Package后回车，等待扩展窗口重新打开，分别输入包名【ConvertToUTF8】 和 【GBK Encoding Support】，然后选择对应的扩展，回车就可以开始安装了,包名一次输入一个。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;编辑器打开代码时乱码基本都是字符编码不一致所造成的。&lt;/p&gt;
-&lt;p&gt;sublime Text编辑器可以通过安装2个扩展来解决乱码问题：&lt;/p&gt;
-&lt;p&gt;【ConvertToUTF8】 和 【GBK Encoding Support】&lt;/p&gt;
-&lt;h2 id=&quot;u5B89_u88
-    
-    </summary>
-    
-      <category term="工作记录" scheme="http://www.jcsama.com/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
-    
-    
-      <category term="sublime" scheme="http://www.jcsama.com/tags/sublime/"/>
     
   </entry>
   
