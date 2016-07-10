@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jcsama.com/"/>
-  <updated>2016-07-02T16:49:46.000Z</updated>
+  <updated>2016-07-10T10:41:14.000Z</updated>
   <id>http://www.jcsama.com/</id>
   
   <author>
@@ -14,6 +14,105 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux-find</title>
+    <link href="http://www.jcsama.com/2016/07/04/linux-find/"/>
+    <id>http://www.jcsama.com/2016/07/04/linux-find/</id>
+    <published>2016-07-04T07:02:12.000Z</published>
+    <updated>2016-07-10T10:41:14.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;find是linux 命令，它将档案系统内符合 expression 的档案列出来。你可以指要档案的名称、类别、时间、大小、权限等不同资讯的组合，只有完全相符的才会被列出来。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;u8BED_u6CD5&quot;&gt;&lt;a href=&quot;#u8BED_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h2&gt;&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -option [ -&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt; ] [ -exec -ok command ] &amp;#123;&amp;#125; \;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;下边列举常用的一些条件&lt;/p&gt;
+&lt;h2 id=&quot;path&quot;&gt;&lt;a href=&quot;#path&quot; class=&quot;headerlink&quot; title=&quot;path&quot;&gt;&lt;/a&gt;path&lt;/h2&gt;&lt;p&gt;查找单个目录：&lt;/p&gt;
+&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;find /tmp&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;查找多个目录:&lt;/p&gt;
+&lt;figure class=&quot;highlight gradle&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;regexp&quot;&gt;/tmp /&lt;/span&gt;opt &lt;span class=&quot;regexp&quot;&gt;/etc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;option&quot;&gt;&lt;a href=&quot;#option&quot; class=&quot;headerlink&quot; title=&quot;option&quot;&gt;&lt;/a&gt;option&lt;/h2&gt;&lt;h3 id=&quot;u6309_u6863_u6848_u540D&quot;&gt;&lt;a href=&quot;#u6309_u6863_u6848_u540D&quot; class=&quot;headerlink&quot; title=&quot;按档案名&quot;&gt;&lt;/a&gt;按档案名&lt;/h3&gt;&lt;p&gt;查找后缀为&lt;code&gt;.md&lt;/code&gt; 的档案&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -name &quot;*.&lt;span class=&quot;built_in&quot;&gt;md&lt;/span&gt;&quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;查找后缀为&lt;code&gt;.md&lt;/code&gt;的档案，并不区分大小写(可以是&lt;code&gt;.MD&lt;/code&gt;,&lt;code&gt;.Md&lt;/code&gt;,&lt;code&gt;.mD&lt;/code&gt;)&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -iname &quot;*.&lt;span class=&quot;built_in&quot;&gt;md&lt;/span&gt;&quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u6309_u6863_u6848_u7C7B_u578B&quot;&gt;&lt;a href=&quot;#u6309_u6863_u6848_u7C7B_u578B&quot; class=&quot;headerlink&quot; title=&quot;按档案类型&quot;&gt;&lt;/a&gt;按档案类型&lt;/h3&gt;&lt;p&gt;文件夹&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt; d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;符号连接&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt; l&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;一般档案&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt; f&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;字形装置&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt; c&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;区块装置&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt; b&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;具名贮列&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt; p&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;socket&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt; s&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u65F6_u95F4&quot;&gt;&lt;a href=&quot;#u65F6_u95F4&quot; class=&quot;headerlink&quot; title=&quot;时间&quot;&gt;&lt;/a&gt;时间&lt;/h3&gt;&lt;p&gt;类型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a (access) 访问时间&lt;/li&gt;
+&lt;li&gt;c (change) 状态改变时间(如修改,chmod,chown)&lt;/li&gt;
+&lt;li&gt;m (modification) 修改时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;单位&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;min 以分钟为单位  &lt;/li&gt;
+&lt;li&gt;time 以天为单位  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-n  在n单位时间内  &lt;/li&gt;
+&lt;li&gt;+n  在n单位时间前  &lt;/li&gt;
+&lt;li&gt;n   在n单位时间中  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在n分钟前被访问|修改|改变过的档案&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -amin +n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -mmin +n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -cmin +n&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在n分钟内被访问|修改|改变过的档案&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -amin -n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -mmin -n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -cmin -n&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在前n分钟被访问|修改|改变过的档案&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -amin n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -mmin n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -cmin n&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;最近[n天内|n天前|前n天]被访问|修改|改变过的档案&lt;/p&gt;
+&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ find path -atime [-&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt;|+&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt;|&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ find path -mtime [-&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt;|+&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt;|&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ find path -ctime [-&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt;|+&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt;|&lt;span class=&quot;keyword&quot;&gt;n&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;比file档案更晚被访问|修改|改变过的档案&lt;/p&gt;
+&lt;figure class=&quot;highlight vim&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;find&lt;/span&gt; path -anewer &lt;span class=&quot;keyword&quot;&gt;file&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;find&lt;/span&gt; path -mnewer &lt;span class=&quot;keyword&quot;&gt;file&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;find&lt;/span&gt; path -&lt;span class=&quot;keyword&quot;&gt;cnewer&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;file&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u8DEF_u5F84&quot;&gt;&lt;a href=&quot;#u8DEF_u5F84&quot; class=&quot;headerlink&quot; title=&quot;路径&quot;&gt;&lt;/a&gt;路径&lt;/h3&gt;&lt;p&gt;路径中含有path&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -&lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; &quot;*&lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt;*&quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;路径含有path并不区分大小写&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -ipath &quot;*&lt;span class=&quot;built_in&quot;&gt;PATH&lt;/span&gt;*&quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u5927_u5C0F&quot;&gt;&lt;a href=&quot;#u5927_u5C0F&quot; class=&quot;headerlink&quot; title=&quot;大小&quot;&gt;&lt;/a&gt;大小&lt;/h3&gt;&lt;p&gt;查找大于nk,小于nk的档案&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -size +nk&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -size -nk&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;空档案&lt;/p&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -empty&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u6743_u9650&quot;&gt;&lt;a href=&quot;#u6743_u9650&quot; class=&quot;headerlink&quot; title=&quot;权限&quot;&gt;&lt;/a&gt;权限&lt;/h3&gt;&lt;p&gt;mode的值 对应3种用户(所属用户，所属组，其他)的rwx权限 &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-mode 3种用户的权限都跟mode值对上，则成功（如644对444|644）&lt;/li&gt;
+&lt;li&gt;+mode 3种用户的权限只要有一个对上，则成功（如644能对622等）&lt;/li&gt;
+&lt;li&gt;mode 3种用户的权限都要跟mode准确对上才成功（如222对222）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -perm -&lt;span class=&quot;built_in&quot;&gt;mode&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -perm +&lt;span class=&quot;built_in&quot;&gt;mode&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;path&lt;/span&gt; -perm &lt;span class=&quot;built_in&quot;&gt;mode&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;exec&quot;&gt;&lt;a href=&quot;#exec&quot; class=&quot;headerlink&quot; title=&quot;exec&quot;&gt;&lt;/a&gt;exec&lt;/h2&gt;&lt;p&gt;需要对搜索结果执行shell命令则用&lt;code&gt;-exec&lt;/code&gt;,如&lt;/p&gt;
+&lt;figure class=&quot;highlight elm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ find / -&lt;span class=&quot;typedef&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; f -exec ls -lah &lt;span class=&quot;container&quot;&gt;&amp;#123;&amp;#125;&lt;/span&gt; \;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;example&quot;&gt;&lt;a href=&quot;#example&quot; class=&quot;headerlink&quot; title=&quot;example&quot;&gt;&lt;/a&gt;example&lt;/h2&gt;&lt;p&gt;把小于2k的文件搬到/tmp目录&lt;/p&gt;
+&lt;figure class=&quot;highlight sqf&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; path -&lt;span class=&quot;built_in&quot;&gt;size&lt;/span&gt; -&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;k -&lt;span class=&quot;built_in&quot;&gt;exec&lt;/span&gt; mv &amp;#123;&amp;#125; /tmp \;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;找出档案名含有’abc’ 的普通档案&lt;/p&gt;
+&lt;figure class=&quot;highlight vim&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;find&lt;/span&gt; path -name &lt;span class=&quot;string&quot;&gt;&#39;*abc*&#39;&lt;/span&gt; -&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;f&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;find&lt;/span&gt; -&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;f&lt;/span&gt; | &lt;span class=&quot;keyword&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;abc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;find是linux 命令，它将档案系统内符合 expression 的档案列出来。你可以指要档案的名称、类别、时间、大小、权限等不同资讯的组合，只有完全相符的才会被列出来。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;u8BED_u6CD
+    
+    </summary>
+    
+      <category term="linux" scheme="http://www.jcsama.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.jcsama.com/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>linux-nohup</title>
@@ -62,7 +161,7 @@
     <link href="http://www.jcsama.com/2016/06/19/linux-lnmp/"/>
     <id>http://www.jcsama.com/2016/06/19/linux-lnmp/</id>
     <published>2016-06-19T14:10:25.000Z</published>
-    <updated>2016-07-02T16:58:34.000Z</updated>
+    <updated>2016-07-02T16:58:35.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;环境：Ubuntu Linux 14.04&lt;/p&gt;
@@ -910,33 +1009,6 @@
     
     
       <category term="http" scheme="http://www.jcsama.com/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://www.jcsama.com/2016/01/20/hello-world/"/>
-    <id>http://www.jcsama.com/2016/01/20/hello-world/</id>
-    <published>2016-01-20T14:38:27.000Z</published>
-    <updated>2016-01-20T14:38:27.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;http://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick_Start&quot;&gt;&lt;a href=&quot;#Quick_Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create_a_new_post&quot;&gt;&lt;a href=&quot;#Create_a_new_post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run_server&quot;&gt;&lt;a href=&quot;#Run_server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate_static_files&quot;&gt;&lt;a href=&quot;#Generate_static_files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy_to_remote_sites&quot;&gt;&lt;a href=&quot;#Deploy_to_remote_sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io
-    
-    </summary>
-    
     
   </entry>
   
