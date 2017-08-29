@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jcsama.com/"/>
-  <updated>2016-07-10T10:41:14.000Z</updated>
+  <updated>2016-10-14T09:46:57.000Z</updated>
   <id>http://www.jcsama.com/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>php-config</title>
+    <link href="http://www.jcsama.com/2016/10/14/php-config/"/>
+    <id>http://www.jcsama.com/2016/10/14/php-config/</id>
+    <published>2016-10-14T09:39:00.000Z</published>
+    <updated>2016-10-14T09:46:57.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;php配置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;PHP_config&quot;&gt;&lt;a href=&quot;#PHP_config&quot; class=&quot;headerlink&quot; title=&quot;PHP config&quot;&gt;&lt;/a&gt;PHP config&lt;/h1&gt;&lt;h2 id=&quot;u9690_u85CFphp_u7248_u672C_u53F7&quot;&gt;&lt;a href=&quot;#u9690_u85CFphp_u7248_u672C_u53F7&quot; class=&quot;headerlink&quot; title=&quot;隐藏php版本号&quot;&gt;&lt;/a&gt;隐藏php版本号&lt;/h2&gt;&lt;p&gt;通常没经验修改配置的php服务，在请求结束时返回的Response头中会带有php的版本信息，如：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cache-&lt;span class=&quot;symbol&quot;&gt;control:&lt;/span&gt;no-cache&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;constant&quot;&gt;Connection&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:keep-alive&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;constant&quot;&gt;Content&lt;/span&gt;-&lt;span class=&quot;constant&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:text/html&lt;/span&gt;; charset=&lt;span class=&quot;constant&quot;&gt;UTF&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;date:&lt;/span&gt;&lt;span class=&quot;constant&quot;&gt;Fri&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;constant&quot;&gt;Oct&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2016&lt;/span&gt; 09&lt;span class=&quot;symbol&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;44&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;22&lt;/span&gt; &lt;span class=&quot;constant&quot;&gt;GMT&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;constant&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:nginx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;constant&quot;&gt;Transfer&lt;/span&gt;-&lt;span class=&quot;constant&quot;&gt;Encoding&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:chunked&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;constant&quot;&gt;X&lt;/span&gt;-&lt;span class=&quot;constant&quot;&gt;Powered&lt;/span&gt;-&lt;span class=&quot;constant&quot;&gt;By&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:PHP/&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;5.6&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;16&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们想隐藏掉&lt;code&gt;X-Powered-By:PHP/5.6.16&lt;/code&gt;只需修改一个地方：php.ini中的&lt;code&gt;expose_php&lt;/code&gt;,把&lt;code&gt;On&lt;/code&gt;改为&lt;code&gt;Off&lt;/code&gt;即可&lt;/p&gt;
+&lt;figure class=&quot;highlight ini&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;setting&quot;&gt;expose_php = &lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Off&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;效果如下&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;cache&lt;/span&gt;-control:&lt;span class=&quot;keyword&quot;&gt;no&lt;/span&gt;-&lt;span class=&quot;keyword&quot;&gt;cache&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Connection&lt;/span&gt;:&lt;span class=&quot;keyword&quot;&gt;keep&lt;/span&gt;-alive&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Content&lt;/span&gt;-&lt;span class=&quot;keyword&quot;&gt;Type&lt;/span&gt;:&lt;span class=&quot;built_in&quot;&gt;text&lt;/span&gt;/html;&lt;/span&gt; charset=UTF-8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;date:Fri, 14 Oct 2016 09:46:31 GMT&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Server:nginx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Transfer-Encoding:chunked&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;php配置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;PHP_config&quot;&gt;&lt;a href=&quot;#PHP_config&quot; class=&quot;headerlink&quot; title=&quot;PHP config&quot;&gt;&lt;/a&gt;PHP config&lt;/h1&gt;&lt;
+    
+    </summary>
+    
+      <category term="php" scheme="http://www.jcsama.com/categories/php/"/>
+    
+    
+      <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
+    
+  </entry>
   
   <entry>
     <title>linux-find</title>
@@ -1287,52 +1321,6 @@
     
     
       <category term="mysql" scheme="http://www.jcsama.com/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>修改用brew安装的mysql配置</title>
-    <link href="http://www.jcsama.com/2015/10/18/brew-mysql/"/>
-    <id>http://www.jcsama.com/2015/10/18/brew-mysql/</id>
-    <published>2015-10-18T07:35:33.000Z</published>
-    <updated>2016-02-28T14:48:40.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;u7528brew_u5B89_u88C5mysql&quot;&gt;&lt;a href=&quot;#u7528brew_u5B89_u88C5mysql&quot; class=&quot;headerlink&quot; title=&quot;用brew安装mysql&quot;&gt;&lt;/a&gt;用brew安装mysql&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://brew.sh/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;brew&lt;/a&gt;是OS X上的包管理工具，类型linux上的apt-get, yum等&lt;/p&gt;
-&lt;h3 id=&quot;u9996_u5148_uFF0C_u9700_u8981_u5148_u88C5_u597Dbrew&quot;&gt;&lt;a href=&quot;#u9996_u5148_uFF0C_u9700_u8981_u5148_u88C5_u597Dbrew&quot; class=&quot;headerlink&quot; title=&quot;首先，需要先装好brew&quot;&gt;&lt;/a&gt;首先，需要先装好brew&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ruby &lt;span class=&quot;operator&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;mysql_install&quot;&gt;&lt;a href=&quot;#mysql_install&quot; class=&quot;headerlink&quot; title=&quot;mysql install&quot;&gt;&lt;/a&gt;mysql install&lt;/h3&gt;&lt;p&gt;安装：&lt;/p&gt;
-&lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;brew &lt;/span&gt;install mysql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;设置开机启动:&lt;/p&gt;
-&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;ln -sfv /usr/local/opt/mysql/*.plist ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;&lt;span class=&quot;constant&quot;&gt;LaunchAgents&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;launchctl load ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;&lt;span class=&quot;constant&quot;&gt;LaunchAgents&lt;/span&gt;/homebrew.mxcl.mysql.plist&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;u4FEE_u6539mysql_u914D_u7F6E&quot;&gt;&lt;a href=&quot;#u4FEE_u6539mysql_u914D_u7F6E&quot; class=&quot;headerlink&quot; title=&quot;修改mysql配置&quot;&gt;&lt;/a&gt;修改mysql配置&lt;/h2&gt;&lt;h3 id=&quot;u67E5_u770B_u914D_u7F6E_u6587_u4EF6_u5F15_u7528_u7684_u8DEF_u5F84&quot;&gt;&lt;a href=&quot;#u67E5_u770B_u914D_u7F6E_u6587_u4EF6_u5F15_u7528_u7684_u8DEF_u5F84&quot; class=&quot;headerlink&quot; title=&quot;查看配置文件引用的路径&quot;&gt;&lt;/a&gt;查看配置文件引用的路径&lt;/h3&gt;&lt;figure class=&quot;highlight brainfuck&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;mysqld&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;help&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;literal&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;verbose&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;more&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;通过这命令，可以看出mysql默认调用的配置文件路径：&lt;/p&gt;
-&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Default options are read from the following files &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the given &lt;span class=&quot;attribute&quot;&gt;order&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/etc/my&lt;span class=&quot;class&quot;&gt;.cnf&lt;/span&gt; /etc/mysql/my&lt;span class=&quot;class&quot;&gt;.cnf&lt;/span&gt; /usr/local/etc/my&lt;span class=&quot;class&quot;&gt;.cnf&lt;/span&gt; ~/&lt;span class=&quot;class&quot;&gt;.my&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.cnf&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;u521B_u5EFA_u914D_u7F6E_u6587_u4EF6&quot;&gt;&lt;a href=&quot;#u521B_u5EFA_u914D_u7F6E_u6587_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;创建配置文件&quot;&gt;&lt;/a&gt;创建配置文件&lt;/h3&gt;&lt;p&gt;brew安装的mysql，通常这几个路径都是没有创建配置文件的，我们自己创建一下。&lt;br&gt;先找出我们安装的mysql的配置样例文件,在安装文件中的support-files文件夹中：  &lt;/p&gt;
-&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;ls &lt;span class=&quot;variable&quot;&gt;$(&lt;/span&gt;brew --prefix mysql)/support-files/my-*&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;复制到引用目录：&lt;/p&gt;
-&lt;figure class=&quot;highlight gradle&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ cp &lt;span class=&quot;regexp&quot;&gt;/usr/&lt;/span&gt;local&lt;span class=&quot;regexp&quot;&gt;/opt/my&lt;/span&gt;sql&lt;span class=&quot;regexp&quot;&gt;/support-files/my&lt;/span&gt;-&lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt;.cnf &lt;span class=&quot;regexp&quot;&gt;/etc/my&lt;/span&gt;.cnf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后就可以按自己需求修改配置了&lt;/p&gt;
-&lt;h2 id=&quot;mysql_u542F_u52A8_u547D_u4EE4&quot;&gt;&lt;a href=&quot;#mysql_u542F_u52A8_u547D_u4EE4&quot; class=&quot;headerlink&quot; title=&quot;mysql启动命令&quot;&gt;&lt;/a&gt;mysql启动命令&lt;/h2&gt;&lt;p&gt;重启mysql,  unload 是关闭， load是启动&lt;/p&gt;
-&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ launchctl unload -w ~/Library/LaunchAgents/homebrew&lt;span class=&quot;class&quot;&gt;.mxcl&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.mysql&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.plist&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ launchctl load -w ~/Library/LaunchAgents/homebrew&lt;span class=&quot;class&quot;&gt;.mxcl&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.mysql&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.plist&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;为了文件管理可以把命令alias下：&lt;/p&gt;
-&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;vim ~&lt;span class=&quot;regexp&quot;&gt;/.bash_aliases&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;输入以下内容，保存&lt;/p&gt;
-&lt;figure class=&quot;highlight livecodeserver&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;alias&lt;/span&gt; mysql.&lt;span class=&quot;built_in&quot;&gt;start&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;alias&lt;/span&gt; mysql.&lt;span class=&quot;built_in&quot;&gt;stop&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;alias&lt;/span&gt; mysql.restart=&lt;span class=&quot;string&quot;&gt;&#39;mysql.stop &amp;amp;&amp;amp; mysql.start&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;保存后添加到.bash_profile文件中&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;[[ -f ~/.bash_aliases ]] &amp;amp;&amp;amp; . ~/.bash_aliases&quot;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; ~/.bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这样，bash_aliases就生效了，通过以下命令就可以控制mysql开启，关闭和重启了&lt;/p&gt;
-&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ mysql&lt;span class=&quot;class&quot;&gt;.start&lt;/span&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ mysql&lt;span class=&quot;class&quot;&gt;.stop&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ mysql.restart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;u7528brew_u5B89_u88C5mysql&quot;&gt;&lt;a href=&quot;#u7528brew_u5B89_u88C5mysql&quot; class=&quot;headerlink&quot; title=&quot;用brew安装mysql&quot;&gt;&lt;/a&gt;用brew安装mysql&lt;/h2&gt;&lt;p&gt;&lt;a
-    
-    </summary>
-    
-      <category term="mysql" scheme="http://www.jcsama.com/categories/mysql/"/>
-    
-    
-      <category term="brew" scheme="http://www.jcsama.com/tags/brew/"/>
     
   </entry>
   

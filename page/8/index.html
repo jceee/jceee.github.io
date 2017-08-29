@@ -79,7 +79,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -247,6 +247,117 @@
             
               
                 
+                <a class="post-title-link" href="/2014/11/09/regex/" itemprop="url">
+                  正则表达式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-11-09T22:57:00+08:00" content="2014-11-09">
+              2014-11-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/regEx/" itemprop="url" rel="index">
+                    <span itemprop="name">regEx</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+正则表达式 是一种用来描述一定数量文本的模式，通过定义好的正则语句能匹配到目标文本集中所想要的文本。
+
+要在文本”phone number is 131-1111-1111”  中取到电话号码，首先分析电话的格式:第1个数字为1，第2个数字为3,5,8之中的一个,后面再加上9个数字组成。这些规则就可以来写正则表达式了: #1[385]\d-[\d]{4}-[\d]{4}#    ##的中间就是正则表达式。[]中是字符集\d，表示的是任意数字，而{4}则代表匹配前面的字符几次。下面系统地整理下正
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/11/09/regex/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/09/25/php-filePath/" itemprop="url">
                   PHP文件操作part1[文件路径]
                 </a>
@@ -288,13 +399,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/09/25/php-filePath/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/25/php-filePath/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
@@ -411,13 +515,6 @@ v
           
 
           
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/09/14/mysql-insertMoreThanOne/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/14/mysql-insertMoreThanOne/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
@@ -551,13 +648,6 @@ INSERT INTO `Article`(`name`,`title`)VALUES ('name1','title1');INSERT INTO `Arti
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/09/06/js-qrcode/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/06/js-qrcode/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -673,13 +763,6 @@ var qrCode = &#123;    //初始化属性    jsonData:
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/03/15/js-createElement/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/15/js-createElement/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -772,7 +855,7 @@ var qrCode = &#123;    //初始化属性    jsonData:
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -830,7 +913,7 @@ var qrCode = &#123;    //初始化属性    jsonData:
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
@@ -899,27 +982,16 @@ var qrCode = &#123;    //初始化属性    jsonData:
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"jceee"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-  
 
+
+
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142799"></script>
+    <!-- UY END -->
 
 
 
