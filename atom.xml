@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jcsama.com/"/>
-  <updated>2016-10-14T09:46:57.000Z</updated>
+  <updated>2018-11-20T16:39:03.236Z</updated>
   <id>http://www.jcsama.com/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GO语言IDE篇--Vscode (Mac)</title>
+    <link href="http://www.jcsama.com/2018/11/20/go-ide-vscode/"/>
+    <id>http://www.jcsama.com/2018/11/20/go-ide-vscode/</id>
+    <published>2018-11-20T15:26:46.000Z</published>
+    <updated>2018-11-20T16:39:03.236Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;工欲善其事，必先利其器&lt;br&gt;—-《论语·卫灵公》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;当我们开始学习一个编程语言时，第一步就是选择一款编码工具，我们使用工具的主要目的是提高我们的效率： &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;语法高亮(基本都有)&lt;/li&gt;
+&lt;li&gt;支持DEBUG&lt;/li&gt;
+&lt;li&gt;插件丰富&lt;/li&gt;
+&lt;li&gt;集成终端&lt;/li&gt;
+&lt;li&gt;颜值（这个也很重要啊喂！）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对比多款式工具后，jetbrains系列收费，LiteIDE略丑，Vim学习曲线高…最后我选择了满足了我的所有要求的Vscode，下面开始撸之～&lt;/p&gt;
+&lt;h2 id=&quot;u5B89_u88C5GO_u73AF_u5883&quot;&gt;&lt;a href=&quot;#u5B89_u88C5GO_u73AF_u5883&quot; class=&quot;headerlink&quot; title=&quot;安装GO环境&quot;&gt;&lt;/a&gt;安装GO环境&lt;/h2&gt;&lt;p&gt;这里假设我们已经安装完基础环境并配置好了环境变量，略过…&lt;/p&gt;
+&lt;h2 id=&quot;u5B89_u88C5vscode&quot;&gt;&lt;a href=&quot;#u5B89_u88C5vscode&quot; class=&quot;headerlink&quot; title=&quot;安装vscode&quot;&gt;&lt;/a&gt;安装vscode&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;vscode官网&lt;/a&gt;下之&lt;/p&gt;
+&lt;h2 id=&quot;u5B89_u88C5go_u63D2_u4EF6&quot;&gt;&lt;a href=&quot;#u5B89_u88C5go_u63D2_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;安装go插件&quot;&gt;&lt;/a&gt;安装go插件&lt;/h2&gt;&lt;h3 id=&quot;u57FA_u7840_u63D2_u4EF6&quot;&gt;&lt;a href=&quot;#u57FA_u7840_u63D2_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;基础插件&quot;&gt;&lt;/a&gt;基础插件&lt;/h3&gt;&lt;p&gt;打开vscode，打开插件搜索，输入go，安装之:&lt;br&gt;&lt;img src=&quot;/images/go-vscode/go-extend.png&quot; alt=&quot;插件安装&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u5B89_u88C5_u4F9D_u8D56_u5305_u652F_u6301&quot;&gt;&lt;a href=&quot;#u5B89_u88C5_u4F9D_u8D56_u5305_u652F_u6301&quot; class=&quot;headerlink&quot; title=&quot;安装依赖包支持&quot;&gt;&lt;/a&gt;安装依赖包支持&lt;/h3&gt;&lt;figure class=&quot;highlight vim&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;mkdir&lt;/span&gt; -&lt;span class=&quot;keyword&quot;&gt;p&lt;/span&gt; $GOPAH/src/golang.org/&lt;span class=&quot;keyword&quot;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;cd&lt;/span&gt; $GOPAH/src/golang.org/&lt;span class=&quot;keyword&quot;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git clone http&lt;span class=&quot;variable&quot;&gt;s:&lt;/span&gt;//github.&lt;span class=&quot;keyword&quot;&gt;com&lt;/span&gt;/golang/tools.git tools&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;get&lt;/span&gt; -&lt;span class=&quot;keyword&quot;&gt;u&lt;/span&gt;  github.&lt;span class=&quot;keyword&quot;&gt;com&lt;/span&gt;/ramya-rao-&lt;span class=&quot;keyword&quot;&gt;a&lt;/span&gt;/&lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt;-outline&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;get&lt;/span&gt; -&lt;span class=&quot;keyword&quot;&gt;u&lt;/span&gt;  github.&lt;span class=&quot;keyword&quot;&gt;com&lt;/span&gt;/acroca/&lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt;-symbols&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt; install golang.org/&lt;span class=&quot;keyword&quot;&gt;x&lt;/span&gt;/tools/cmd/guru&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt; install golang.org/&lt;span class=&quot;keyword&quot;&gt;x&lt;/span&gt;/tools/cmd/gorename&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;get&lt;/span&gt; -&lt;span class=&quot;keyword&quot;&gt;u&lt;/span&gt; github.&lt;span class=&quot;keyword&quot;&gt;com&lt;/span&gt;/rogpeppe/godef&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;get&lt;/span&gt; -&lt;span class=&quot;keyword&quot;&gt;u&lt;/span&gt; github.&lt;span class=&quot;keyword&quot;&gt;com&lt;/span&gt;/sqs/goreturns&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;get&lt;/span&gt; -&lt;span class=&quot;keyword&quot;&gt;u&lt;/span&gt; github.&lt;span class=&quot;keyword&quot;&gt;com&lt;/span&gt;/ramya-rao-&lt;span class=&quot;keyword&quot;&gt;a&lt;/span&gt;/&lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt;-outline&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;get&lt;/span&gt; -&lt;span class=&quot;keyword&quot;&gt;u&lt;/span&gt; github.&lt;span class=&quot;keyword&quot;&gt;com&lt;/span&gt;/josharian/impl&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;get&lt;/span&gt; -&lt;span class=&quot;keyword&quot;&gt;u&lt;/span&gt; golang.org/&lt;span class=&quot;keyword&quot;&gt;x&lt;/span&gt;/lint/golint&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;get&lt;/span&gt; -&lt;span class=&quot;keyword&quot;&gt;u&lt;/span&gt; github.&lt;span class=&quot;keyword&quot;&gt;com&lt;/span&gt;/cweill/gotests/gotests&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u5B89_u88C5dlv&quot;&gt;&lt;a href=&quot;#u5B89_u88C5dlv&quot; class=&quot;headerlink&quot; title=&quot;安装dlv&quot;&gt;&lt;/a&gt;安装dlv&lt;/h3&gt;&lt;p&gt;go的debug依赖于dlv&lt;/p&gt;
+&lt;p&gt;安装dlv有2种途径:&lt;/p&gt;
+&lt;h4 id=&quot;brew_u5B89_u88C5dlv&quot;&gt;&lt;a href=&quot;#brew_u5B89_u88C5dlv&quot; class=&quot;headerlink&quot; title=&quot;brew安装dlv&quot;&gt;&lt;/a&gt;brew安装dlv&lt;/h4&gt;&lt;p&gt;这个帮你解决了证书等问题&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ brew &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;go&lt;/span&gt;-delve/delve/delve&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;go_get_u5B89_u88C5dlv&quot;&gt;&lt;a href=&quot;#go_get_u5B89_u88C5dlv&quot; class=&quot;headerlink&quot; title=&quot;go get安装dlv&quot;&gt;&lt;/a&gt;go get安装dlv&lt;/h4&gt;&lt;p&gt;安装dlv&lt;/p&gt;
+&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ go get github.com/derekparker/delve/cmd/dlv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-- 查看是否安装成功&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;variable&quot;&gt;$GOPATH&lt;/span&gt;/bin/dlv version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;把dlv从&lt;code&gt;GOPATH&lt;/code&gt;移动到&lt;code&gt;GOROOT&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo mv &lt;span class=&quot;variable&quot;&gt;$GOPATH&lt;/span&gt;/bin/dlv &lt;span class=&quot;variable&quot;&gt;$GOROOT&lt;/span&gt;/bin/dlv&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;创建系统证书&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; 打开&lt;span class=&quot;string&quot;&gt;&quot;钥匙串访问&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; 打开菜单 钥匙串访问/证书助理/创建证书...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; 名称: dlv-cert 身份类型: 自签名证书 证书类型: 代码签名 并 选择&lt;span class=&quot;string&quot;&gt;&quot;让我覆盖这些默认值&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; 单击&lt;span class=&quot;string&quot;&gt;&quot;继续&quot;&lt;/span&gt;, 有效期(天数): &lt;span class=&quot;number&quot;&gt;365&lt;/span&gt; 这里你可以自己修改, 我改为&lt;span class=&quot;number&quot;&gt;3650&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; 一路继续下去, 直到看到&lt;span class=&quot;string&quot;&gt;&quot;指定用于该证书的位置&quot;&lt;/span&gt; 钥匙串 选择 &lt;span class=&quot;string&quot;&gt;&quot;系统&quot;&lt;/span&gt; 并单击&lt;span class=&quot;string&quot;&gt;&quot;创建&quot;&lt;/span&gt;按钮&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt; 重启系统之后, 再打开&lt;span class=&quot;string&quot;&gt;&quot;钥匙串访问&quot;&lt;/span&gt;, 选择&lt;span class=&quot;string&quot;&gt;&quot;系统&quot;&lt;/span&gt;, 就会看到创建好的&lt;span class=&quot;string&quot;&gt;&quot;dlv-cert&quot;&lt;/span&gt;证书.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;7&lt;/span&gt; 右键&lt;span class=&quot;string&quot;&gt;&quot;dlv-cert&quot;&lt;/span&gt;证书, 选择&lt;span class=&quot;string&quot;&gt;&quot;显示简介&quot;&lt;/span&gt;-&amp;gt;&lt;span class=&quot;string&quot;&gt;&quot;信任&quot;&lt;/span&gt;-&amp;gt;&lt;span class=&quot;string&quot;&gt;&quot;代码签名&quot;&lt;/span&gt; 修改为: 始终信任&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;分配证书&lt;/p&gt;
+&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo codesign -s &lt;span class=&quot;string&quot;&gt;&quot;dlv-cert&quot;&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$GOROOT&lt;/span&gt;/bin/dlv&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果调试时遇到下面问题：&lt;/p&gt;
+&lt;figure class=&quot;highlight vhdl&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;could &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; launch &lt;span class=&quot;keyword&quot;&gt;process&lt;/span&gt;: debugserver &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; lldb-server &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; found: install XCode&lt;span class=&quot;attribute&quot;&gt;&#39;s&lt;/span&gt; command line tools &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; lldb-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;可以安装一下xcode-select:&lt;/p&gt;
+&lt;figure class=&quot;highlight lua&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;xcode-&lt;span class=&quot;built_in&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;--install&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;u5F00_u59CB_u8C03_u8BD5&quot;&gt;&lt;a href=&quot;#u5F00_u59CB_u8C03_u8BD5&quot; class=&quot;headerlink&quot; title=&quot;开始调试&quot;&gt;&lt;/a&gt;开始调试&lt;/h2&gt;&lt;p&gt;创建个必写的hello world文件：&lt;/p&gt;
+&lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;package&lt;/span&gt; main&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; main() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; h &lt;span class=&quot;typename&quot;&gt;string&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&quot;こんにちは&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; w &lt;span class=&quot;typename&quot;&gt;string&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&quot;世界&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	fmt.Println(h, w)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后开始debug&lt;br&gt;&lt;img src=&quot;/images/go-vscode/start-debug.png&quot; alt=&quot;开始debug&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如果是第一次调试，会让你编辑launch.json文件&lt;/p&gt;
+&lt;p&gt;我们加一个配置：&lt;br&gt;&lt;figure class=&quot;highlight json&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &quot;&lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;&quot;: &lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;helloword&quot;&lt;/span&gt;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &quot;&lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;&quot;: &lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &quot;&lt;span class=&quot;attribute&quot;&gt;request&lt;/span&gt;&quot;: &lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;launch&quot;&lt;/span&gt;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &quot;&lt;span class=&quot;attribute&quot;&gt;mode&lt;/span&gt;&quot;: &lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;debug&quot;&lt;/span&gt;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &quot;&lt;span class=&quot;attribute&quot;&gt;env&lt;/span&gt;&quot;: &lt;span class=&quot;value&quot;&gt;&amp;#123;&amp;#125;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &quot;&lt;span class=&quot;attribute&quot;&gt;program&lt;/span&gt;&quot;: &lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;$&amp;#123;workspaceRoot&amp;#125;/hello/helloworld.go&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;program是调试文件的地址，${workspaceRoot}是项目的根目录，根据实际情况改&lt;/p&gt;
+&lt;p&gt;保存，再跑一下debug：&lt;br&gt;&lt;img src=&quot;/images/go-vscode/debug.png&quot; alt=&quot;开始debug&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这样就完成了～&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;工欲善其事，必先利其器&lt;br&gt;—-《论语·卫灵公》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言
+    
+    </summary>
+    
+    
+      <category term="go" scheme="http://www.jcsama.com/tags/go/"/>
+    
+      <category term="ide" scheme="http://www.jcsama.com/tags/ide/"/>
+    
+  </entry>
   
   <entry>
     <title>php-config</title>
@@ -1136,191 +1201,6 @@
     
     
       <category term="redis" scheme="http://www.jcsama.com/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mysql case的用法</title>
-    <link href="http://www.jcsama.com/2016/01/14/mysql-case/"/>
-    <id>http://www.jcsama.com/2016/01/14/mysql-case/</id>
-    <published>2016-01-14T15:15:47.000Z</published>
-    <updated>2016-02-28T14:48:40.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;mysql中的case是类似于if的功能，通过这功能我们的统计结果更灵活 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;现在我们先建一个公司职员表来试一下：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;id&lt;/th&gt;
-&lt;th&gt;department&lt;/th&gt;
-&lt;th&gt;name&lt;/th&gt;
-&lt;th&gt;wages&lt;/th&gt;
-&lt;th&gt;sex&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;人事部&lt;/td&gt;
-&lt;td&gt;aimer&lt;/td&gt;
-&lt;td&gt;8500&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;人事部&lt;/td&gt;
-&lt;td&gt;jack&lt;/td&gt;
-&lt;td&gt;6000&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;销售部&lt;/td&gt;
-&lt;td&gt;tom&lt;/td&gt;
-&lt;td&gt;15000&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;销售部&lt;/td&gt;
-&lt;td&gt;tony&lt;/td&gt;
-&lt;td&gt;9000&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;人事部&lt;/td&gt;
-&lt;td&gt;supercell&lt;/td&gt;
-&lt;td&gt;8500&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;销售部&lt;/td&gt;
-&lt;td&gt;lisa&lt;/td&gt;
-&lt;td&gt;18000&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&quot;u5728_u67E5_u8BE2_u7ED3_u679C_u4E2D_u7528case&quot;&gt;&lt;a href=&quot;#u5728_u67E5_u8BE2_u7ED3_u679C_u4E2D_u7528case&quot; class=&quot;headerlink&quot; title=&quot;在查询结果中用case&quot;&gt;&lt;/a&gt;在查询结果中用case&lt;/h2&gt;&lt;p&gt;sex字段中，1是女士，2是男士&lt;br&gt;wages字段中，薪酬的级别分布是这样：&lt;br&gt;t10: 5000 &amp;lt; wages &amp;lt;= 6500&lt;br&gt;t9: 6500 &amp;lt; wages &amp;lt;= 8500&lt;br&gt;t8: 8500 &amp;lt; wages &amp;lt;= 11000&lt;br&gt;t7: 11000 &amp;lt; wages &amp;lt;= 14000&lt;br&gt;t6: 14000 &amp;lt; wages &amp;lt;= 17500&lt;br&gt;t5: 17500 &amp;lt; wages &amp;lt;= 22000&lt;br&gt;t4: 22000 &amp;lt; wages &amp;lt;= 27000&lt;/p&gt;
-&lt;p&gt;如果我们要在查询结果中清析地表现出来可以这样：&lt;/p&gt;
-&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;SELECT&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	department,&lt;span class=&quot;keyword&quot;&gt;name&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt;&amp;lt;wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages&amp;lt;=&lt;span class=&quot;number&quot;&gt;6500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t10&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;6500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;8500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t9&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;8500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;11000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t8&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;11000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;14000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t7&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;14000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;17500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t6&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;22000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t5&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;22000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;27000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t6&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;未定义级别&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; wages&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; sex = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;女&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; sex = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;男&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;未知性别&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; sex&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;FROM&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;`cdb_member`&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;结果如下:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;department&lt;/th&gt;
-&lt;th&gt;name&lt;/th&gt;
-&lt;th&gt;wages&lt;/th&gt;
-&lt;th&gt;sex&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;人事部&lt;/td&gt;
-&lt;td&gt;aimer&lt;/td&gt;
-&lt;td&gt;t9&lt;/td&gt;
-&lt;td&gt;女&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;人事部&lt;/td&gt;
-&lt;td&gt;jack&lt;/td&gt;
-&lt;td&gt;t10&lt;/td&gt;
-&lt;td&gt;男&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;销售部&lt;/td&gt;
-&lt;td&gt;tom&lt;/td&gt;
-&lt;td&gt;t6&lt;/td&gt;
-&lt;td&gt;女&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;销售部&lt;/td&gt;
-&lt;td&gt;tony&lt;/td&gt;
-&lt;td&gt;t8&lt;/td&gt;
-&lt;td&gt;女&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;人事部&lt;/td&gt;
-&lt;td&gt;supercell&lt;/td&gt;
-&lt;td&gt;t9&lt;/td&gt;
-&lt;td&gt;男&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;销售部&lt;/td&gt;
-&lt;td&gt;lisa&lt;/td&gt;
-&lt;td&gt;t5&lt;/td&gt;
-&lt;td&gt;男&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&quot;u5728_u7EDF_u8BA1_u7ED3_u679C_u4E2D_u7528case&quot;&gt;&lt;a href=&quot;#u5728_u7EDF_u8BA1_u7ED3_u679C_u4E2D_u7528case&quot; class=&quot;headerlink&quot; title=&quot;在统计结果中用case&quot;&gt;&lt;/a&gt;在统计结果中用case&lt;/h2&gt;&lt;p&gt;如果我们要统计每个部门的男女分布情况，薪酬级别人数可以这么来写：&lt;/p&gt;
-&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;SELECT&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	department,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; sex = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;man&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; sex = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;woman&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;6500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t10&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;6500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;8500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t9&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;8500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;11000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t8&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;11000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;14000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t7&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;14000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;17500&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t6&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17500&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;22000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t5&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;SUM&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;22000&lt;/span&gt; &amp;lt; wages &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; wages &amp;lt;= &lt;span class=&quot;number&quot;&gt;27000&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;END&lt;/span&gt; ) &lt;span class=&quot;keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;t4&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;FROM&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;`cdb_member`&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;BY&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   department&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;department&lt;/th&gt;
-&lt;th&gt;man&lt;/th&gt;
-&lt;th&gt;woman&lt;/th&gt;
-&lt;th&gt;t10&lt;/th&gt;
-&lt;th&gt;t9&lt;/th&gt;
-&lt;th&gt;t8&lt;/th&gt;
-&lt;th&gt;t7&lt;/th&gt;
-&lt;th&gt;t6&lt;/th&gt;
-&lt;th&gt;t5&lt;/th&gt;
-&lt;th&gt;t4&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;人事部&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;销售部&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;mysql中的case是类似于if的功能，通过这功能我们的统计结果更灵活 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;现在我们先建一个公司职员表来试一下：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;id&lt;/th&gt;
-&lt;th&gt;depar
-    
-    </summary>
-    
-      <category term="mysql" scheme="http://www.jcsama.com/categories/mysql/"/>
-    
-    
-      <category term="mysql" scheme="http://www.jcsama.com/tags/mysql/"/>
     
   </entry>
   
