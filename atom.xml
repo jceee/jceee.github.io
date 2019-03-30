@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jcsama.com/"/>
-  <updated>2018-11-20T16:39:03.236Z</updated>
+  <updated>2018-11-20T16:39:04.318Z</updated>
   <id>http://www.jcsama.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.jcsama.com/2018/11/20/go-ide-vscode/"/>
     <id>http://www.jcsama.com/2018/11/20/go-ide-vscode/</id>
     <published>2018-11-20T15:26:46.000Z</published>
-    <updated>2018-11-20T16:39:03.236Z</updated>
+    <updated>2018-11-20T16:39:04.318Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;工欲善其事，必先利其器&lt;br&gt;—-《论语·卫灵公》&lt;/p&gt;
@@ -77,6 +77,88 @@
       <category term="go" scheme="http://www.jcsama.com/tags/go/"/>
     
       <category term="ide" scheme="http://www.jcsama.com/tags/ide/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java bean注解</title>
+    <link href="http://www.jcsama.com/2018/03/30/java-bean/"/>
+    <id>http://www.jcsama.com/2018/03/30/java-bean/</id>
+    <published>2018-03-30T14:22:53.000Z</published>
+    <updated>2019-03-30T14:29:38.935Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Bean_u7684_u58F0_u660E&quot;&gt;&lt;a href=&quot;#Bean_u7684_u58F0_u660E&quot; class=&quot;headerlink&quot; title=&quot;Bean的声明&quot;&gt;&lt;/a&gt;Bean的声明&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;@Component 通用，无明确角色&lt;/li&gt;
+&lt;li&gt;@Repository. 数据访问层（Dao）层注解&lt;/li&gt;
+&lt;li&gt;@Controller  Controller层&lt;/li&gt;
+&lt;li&gt;@Service  业务逻辑Service层&lt;/li&gt;
+&lt;li&gt;@Configuration 配置文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;Scope&quot;&gt;&lt;a href=&quot;#Scope&quot; class=&quot;headerlink&quot; title=&quot;Scope&quot;&gt;&lt;/a&gt;Scope&lt;/h1&gt;&lt;h2 id=&quot;u4F5C_u7528_u57DF_u7C7B_u578B&quot;&gt;&lt;a href=&quot;#u4F5C_u7528_u57DF_u7C7B_u578B&quot; class=&quot;headerlink&quot; title=&quot;作用域类型&quot;&gt;&lt;/a&gt;作用域类型&lt;/h2&gt;&lt;p&gt;@Scope(“single”)    &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;single          每个IOC容器对一个bean定义创建唯一实例 &lt;/li&gt;
+&lt;li&gt;prototype    对一个bean定义，每次请求容器都会创建新的实例 &lt;/li&gt;
+&lt;li&gt;session         对一个bean定义，一次web会话创建一个实例 &lt;/li&gt;
+&lt;li&gt;request            对一个bean定义，一次web请求会创建一个实例 &lt;/li&gt;
+&lt;li&gt;global session    对一个bean定义，一次porlet会话创建一个实例 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;u4EE3_u7406&quot;&gt;&lt;a href=&quot;#u4EE3_u7406&quot; class=&quot;headerlink&quot; title=&quot;代理&quot;&gt;&lt;/a&gt;代理&lt;/h2&gt;&lt;p&gt;scoped-proxy的意义在关联bean之间的依赖&lt;br&gt;proxy，它代理的工作就是——暴露这个bean时令其符合其作用域的特性。&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;@&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;Scope&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(proxyMode = ScopedProxyMode.TARGET_CLASS)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;能够在HTTP request或者Session（甚至自定义）作用域中定义bean固然很好，但是Spring IoC容器除了管理对象（bean）的实例化，同时还负责协作者（或者叫依赖）的实例化。&lt;br&gt;如果你打算将一个Http request范围的bean注入到另一个bean中，那么需要注入一个AOP代理来替代被注入的作用域bean。&lt;br&gt;也就是说，你需要注入一个代理对象，该对象具有与被代理对象一样的公共接口，而容器则可以足够智能的从相关作用域中（比如一个HTTP request）获取到真实的目标对象，并把方法调用委派给实际的对象。&lt;/p&gt;
+&lt;p&gt;proxyMode：代理方式&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;取值说明：  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ScopedProxyMode&lt;span class=&quot;class&quot;&gt;.DEFAULT&lt;/span&gt;:           默认  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ScopedProxyMode&lt;span class=&quot;class&quot;&gt;.NO&lt;/span&gt;:                不使用代理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ScopedProxyMode&lt;span class=&quot;class&quot;&gt;.INTERFACES&lt;/span&gt;:        接口    ---jdk动态代理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ScopedProxyMode&lt;span class=&quot;class&quot;&gt;.TARGET_CLASS&lt;/span&gt;:      类      ---cglib&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;Configuration&quot;&gt;&lt;a href=&quot;#Configuration&quot; class=&quot;headerlink&quot; title=&quot;Configuration&quot;&gt;&lt;/a&gt;Configuration&lt;/h1&gt;&lt;p&gt;@Bean&lt;br&gt;配置Bean&lt;/p&gt;
+&lt;h1 id=&quot;Bean_u7684_u6CE8_u5165&quot;&gt;&lt;a href=&quot;#Bean_u7684_u6CE8_u5165&quot; class=&quot;headerlink&quot; title=&quot;Bean的注入&quot;&gt;&lt;/a&gt;Bean的注入&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;@Autowired          Spring 提供的注解 .    (required=false)非必要注入，找不到不会报错&lt;/li&gt;
+&lt;li&gt;@Resource           JSR-250提供的注解.    &lt;/li&gt;
+&lt;li&gt;@Inject                JSR-330提供的注解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;u533A_u522B&quot;&gt;&lt;a href=&quot;#u533A_u522B&quot; class=&quot;headerlink&quot; title=&quot;区别&quot;&gt;&lt;/a&gt;区别&lt;/h2&gt;&lt;p&gt;‘@Autowired’和‘@Inject’这两个注解行为完全相同，都是通过AutowiredAnnotation的BeanPostProcessor来实现依赖注入。也就是说，在注入Spring bean的时候‘Autowired’和‘@Inject’可以互换。&lt;/p&gt;
+&lt;p&gt;而‘@Resource’使用CommonAnnotationBeanPostProcessor来实现注入。虽然它使用的注入处理类不一样，但是其实所有这三个注解行为几乎一样。&lt;/p&gt;
+&lt;p&gt;下面是它们执行逻辑顺序的总结：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@Autowired和@Inject&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;按照类型匹配&lt;br&gt;使用限定符进行类型限定&lt;br&gt;按照名称匹配&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@Resource&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;按照名称匹配&lt;br&gt;按照类型匹配&lt;br&gt;使用限定符进行类型限定（但如果名称匹配成功的话这条会被忽略）&lt;/p&gt;
+&lt;p&gt;Ps: 使用@Inject需要Jsr-303的支持，添加依赖&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;javax.inject&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;javax.inject&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;List_2CMap_u7684_u6CE8_u5165&quot;&gt;&lt;a href=&quot;#List_2CMap_u7684_u6CE8_u5165&quot; class=&quot;headerlink&quot; title=&quot;List,Map的注入&quot;&gt;&lt;/a&gt;List,Map的注入&lt;/h1&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Example&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @Autowired&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;List&lt;/span&gt;&amp;lt;Bean&amp;gt; &lt;span class=&quot;keyword&quot;&gt;list&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Qualifier&quot;&gt;&lt;a href=&quot;#Qualifier&quot; class=&quot;headerlink&quot; title=&quot;Qualifier&quot;&gt;&lt;/a&gt;Qualifier&lt;/h2&gt;&lt;p&gt;限定符&lt;/p&gt;
+&lt;h1 id=&quot;Required&quot;&gt;&lt;a href=&quot;#Required&quot; class=&quot;headerlink&quot; title=&quot;Required&quot;&gt;&lt;/a&gt;Required&lt;/h1&gt;&lt;p&gt;@Required注解适用于bean属性的setter方法并且它指示，受影响的bean属性必须在配置时被填充在XML配置文件中，否则容器将抛出BeanInitializationException例外。&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Demo&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; String name;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;annotation&quot;&gt;@Required&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;setName&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String name)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.name = name;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Class Demo2 &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;annotation&quot;&gt;@Autowired&lt;/span&gt;(value=&lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; Demo demo;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;Meta-annotations_u5143_u6CE8_u89E3&quot;&gt;&lt;a href=&quot;#Meta-annotations_u5143_u6CE8_u89E3&quot; class=&quot;headerlink&quot; title=&quot;Meta-annotations元注解&quot;&gt;&lt;/a&gt;Meta-annotations元注解&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;@Retention：&lt;/p&gt;
+&lt;p&gt;可以设置三种值RetentionPolicy.CLASS、RentionPolicy.RUNTIME、RentionPolicy.SOURCE，表明描述注解的生命周期，即注解的生效范围，分别是：&lt;br&gt; 1.SOURCE：在源文件中生效，仅存在java文件中，class文件将会去除注解。&lt;/p&gt;
+&lt;p&gt; 2.CLASS：在class文件中生效，仅保留在class文件中，运行时无法获取注解。&lt;/p&gt;
+&lt;p&gt; 3.RUNTIME:在运行时生效，保留在class文件中且运行时可通过反射机制获取。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;@Target：&lt;/p&gt;
+&lt;p&gt;表示该新定义Annotation的作用目标，具体可参考API文档。&lt;br&gt;  1.CONSTRUCTOR:用于描述构造器&lt;/p&gt;
+&lt;p&gt;  2.FIELD:用于描述域（成员变量）&lt;/p&gt;
+&lt;p&gt;  3.LOCAL_VARIABLE:用于描述局部变量&lt;/p&gt;
+&lt;p&gt;  4.METHOD:用于描述方法&lt;/p&gt;
+&lt;p&gt;  5.PACKAGE:用于描述包&lt;/p&gt;
+&lt;p&gt;  6.PARAMETER:用于描述参数&lt;/p&gt;
+&lt;p&gt;  7.TYPE:用于描述类、接口(包括注解类型) 或enum声明&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;@Documented&lt;/p&gt;
+&lt;p&gt;表示该新定义Annotation是否保留在Java Docs中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;@Inherited&lt;/p&gt;
+&lt;p&gt;表示使用该新定义Annotation可以继承。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Bean_u7684_u58F0_u660E&quot;&gt;&lt;a href=&quot;#Bean_u7684_u58F0_u660E&quot; class=&quot;headerlink&quot; title=&quot;Bean的声明&quot;&gt;&lt;/a&gt;Bean的声明&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;@Component 通用，
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://www.jcsama.com/tags/java/"/>
     
   </entry>
   
@@ -1108,99 +1190,6 @@
     
     
       <category term="http" scheme="http://www.jcsama.com/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis有序集合做订阅列表</title>
-    <link href="http://www.jcsama.com/2016/01/18/redis-sortedSet/"/>
-    <id>http://www.jcsama.com/2016/01/18/redis-sortedSet/</id>
-    <published>2016-01-18T14:33:00.000Z</published>
-    <updated>2016-02-28T14:48:40.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Redis 的有序集合和集合一样，成员(member)的值是string类型，而且成员是唯一的，并不重复,重复地保存同一个成员只会重置成员的分数，以最后一次保存为主。每一个成员有对应的分数(score)，分数可相同，通过分数来对成员进行排序。&lt;/p&gt;
-&lt;p&gt;以有序集合的特性，可以用来做订阅列表的存储&lt;/p&gt;
-&lt;h2 id=&quot;u8BA2_u9605_u529F_u80FD&quot;&gt;&lt;a href=&quot;#u8BA2_u9605_u529F_u80FD&quot; class=&quot;headerlink&quot; title=&quot;订阅功能&quot;&gt;&lt;/a&gt;订阅功能&lt;/h2&gt;&lt;p&gt;订阅的基本数据我存储在mysql中，redis用于缓存读取，当然直接用redis存储数据也是可以的。  &lt;/p&gt;
-&lt;p&gt;设计订阅表subscriber,以mysql为例 &lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;field&lt;/th&gt;
-&lt;th&gt;type&lt;/th&gt;
-&lt;th&gt;comment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;uid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;用户id&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;rUid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;订阅目标id&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;createTime&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;创建时间&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;updateTime&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;修改时间&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;status&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;状态 枚举:&lt;code&gt;-1&lt;/code&gt;删除&lt;code&gt;0&lt;/code&gt;正常&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;订阅表的基本功能需要满足：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;通过&lt;code&gt;uid&lt;/code&gt;查出所有已经订阅的&lt;code&gt;rUid&lt;/code&gt;的信息，并按&lt;code&gt;createTime&lt;/code&gt;排序&lt;/li&gt;
-&lt;li&gt;通过订阅目标&lt;code&gt;rUid&lt;/code&gt;查出所有&lt;code&gt;uid&lt;/code&gt;，并按&lt;code&gt;createTime&lt;/code&gt;排序&lt;/li&gt;
-&lt;li&gt;查找是否已经订阅&lt;/li&gt;
-&lt;li&gt;取消订阅&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;u6DFB_u52A0_u8BA2_u9605&quot;&gt;&lt;a href=&quot;#u6DFB_u52A0_u8BA2_u9605&quot; class=&quot;headerlink&quot; title=&quot;添加订阅&quot;&gt;&lt;/a&gt;添加订阅&lt;/h2&gt;&lt;p&gt;按照基本功能的1和2，我们需要保持2个集合&lt;br&gt;一个集合以用户为中心:&lt;/p&gt;
-&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;以用户为中心的key统一一个前缀，后面加上用户的uid:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;exampleKey&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(uid为&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;: subscriberUid1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;一个集合以订阅目标为中心:&lt;/p&gt;
-&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;以订阅目录为中心的key统一一个前缀，后面加上目标用户的rUid:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;exampleKey&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(rUid为&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;: subscriberRUid100&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;添加的命令是&lt;/p&gt;
-&lt;figure class=&quot;highlight vala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# 增加1条数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ZADD score member&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# 增加多条数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ZADD score1 member1 [score2 member2]...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;为了以时间排序，我们可以以时间戳为分数，保存订阅信息&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt;ZADD subscriberUid1 &lt;span class=&quot;number&quot;&gt;1453129638&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt;ZADD subscriberRUid100 &lt;span class=&quot;number&quot;&gt;1453129638&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZADD subscriberUid1 &lt;span class=&quot;number&quot;&gt;1453129639&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129640&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129640&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;400&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129641&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;500&lt;/span&gt;	&lt;span class=&quot;number&quot;&gt;1453129638&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;10000&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZADD subscriberRUid100 &lt;span class=&quot;number&quot;&gt;1453129639&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129640&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129640&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129641&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1453129611&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;u83B7_u53D6_u8BA2_u9605_u5217_u8868&quot;&gt;&lt;a href=&quot;#u83B7_u53D6_u8BA2_u9605_u5217_u8868&quot; class=&quot;headerlink&quot; title=&quot;获取订阅列表&quot;&gt;&lt;/a&gt;获取订阅列表&lt;/h2&gt;&lt;p&gt;获取集合的命令是&lt;/p&gt;
-&lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 按分数正序排列 withscore 是指附带分数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ZRANGE key &lt;span class=&quot;literal&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;stop&lt;/span&gt; [WITHSCORE]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 按分数倒序排列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ZREVRANGE key &lt;span class=&quot;literal&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;stop&lt;/span&gt; [WITHSCORE]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;我们现在来获取用户1的订阅列表：&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;preprocessor&quot;&gt;# 正序获取，从&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;开始，-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;指取到尽头，相当于limit&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZRANGE subscriberUid1 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; -&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; WITHSCORES&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;preprocessor&quot;&gt;# 结果如下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;100&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129638&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;10000&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129638&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129639&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;300&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129640&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;400&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129640&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;500&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;1453129641&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这正是对应了分数的顺序，接下来试试倒序，并隐藏分数输出:&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# 倒序获取，从&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;开始，-&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;指取到尽头&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZREVRANGE subscriberUid1 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; -&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;preprocessor&quot;&gt;# 结果如下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;500&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;400&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;300&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;10000&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;100&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;u67E5_u627E_u662F_u5426_u5DF2_u8BA2_u9605&quot;&gt;&lt;a href=&quot;#u67E5_u627E_u662F_u5426_u5DF2_u8BA2_u9605&quot; class=&quot;headerlink&quot; title=&quot;查找是否已订阅&quot;&gt;&lt;/a&gt;查找是否已订阅&lt;/h2&gt;&lt;p&gt;查找可以用一个方法来确认，查找对应成员的分数：&lt;/p&gt;
-&lt;figure class=&quot;highlight fsharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ZSCORE key &lt;span class=&quot;keyword&quot;&gt;member&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZSCORE subscriberUid1 &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;1453129638&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZSCORE subscriberUid1 &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(nil)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;每个成员我们都会分配对应的分数，通过获取分数，判断是否有分数，我们就可以判断这成员是否在集合中。&lt;/p&gt;
-&lt;h2 id=&quot;u53D6_u6D88_u8BA2_u9605&quot;&gt;&lt;a href=&quot;#u53D6_u6D88_u8BA2_u9605&quot; class=&quot;headerlink&quot; title=&quot;取消订阅&quot;&gt;&lt;/a&gt;取消订阅&lt;/h2&gt;&lt;p&gt;删除成员操作&lt;/p&gt;
-&lt;figure class=&quot;highlight dos&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 删除&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;个成员&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Z&lt;span class=&quot;comment&quot;&gt;REM key member&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 删除&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;个或多个成员&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Z&lt;span class=&quot;comment&quot;&gt;REM key member [member ...]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;因为我们的订阅数据需要同时维护2个集合，所以我们的删除是同时删除2个集合中的对应数据：&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# 删除用户为中心的集合&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZREM subscriberUid1 &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(integer) &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt; ZRANGE subscriberUid1 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; -&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;10000&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;300&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;400&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;500&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;# 删除订阅目录为中心的集合&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt;  ZREM subscriberRUid100 &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(integer) &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;6379&lt;/span&gt;&amp;gt;  ZRANGE subscriberRUid100 &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; -&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;6&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;3&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;4&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;) &lt;span class=&quot;string&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;到此，我们的订阅功能就完成了。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Redis 的有序集合和集合一样，成员(member)的值是string类型，而且成员是唯一的，并不重复,重复地保存同一个成员只会重置成员的分数，以最后一次保存为主。每一个成员有对应的分数(score)，分数可相同，通过分数来对成员进行排序。&lt;/p&gt;
-&lt;p&gt;以有序集合的特性
-    
-    </summary>
-    
-      <category term="redis" scheme="http://www.jcsama.com/categories/redis/"/>
-    
-    
-      <category term="redis" scheme="http://www.jcsama.com/tags/redis/"/>
     
   </entry>
   
