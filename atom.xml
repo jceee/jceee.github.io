@@ -81,13 +81,16 @@
   </entry>
   
   <entry>
-    <title>java bean注解</title>
+    <title>java学习笔记[bean注解]</title>
     <link href="http://www.jcsama.com/2018/03/30/java-bean/"/>
     <id>http://www.jcsama.com/2018/03/30/java-bean/</id>
     <published>2018-03-30T14:22:53.000Z</published>
-    <updated>2019-03-30T14:29:38.935Z</updated>
+    <updated>2019-04-03T15:54:50.227Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;Bean_u7684_u58F0_u660E&quot;&gt;&lt;a href=&quot;#Bean_u7684_u58F0_u660E&quot; class=&quot;headerlink&quot; title=&quot;Bean的声明&quot;&gt;&lt;/a&gt;Bean的声明&lt;/h1&gt;&lt;ul&gt;
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;java的注解可以实现很多功能，如类的声明，属性声明，注入声明，配置…等等，这里对其作用做了笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Bean_u7684_u58F0_u660E&quot;&gt;&lt;a href=&quot;#Bean_u7684_u58F0_u660E&quot; class=&quot;headerlink&quot; title=&quot;Bean的声明&quot;&gt;&lt;/a&gt;Bean的声明&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;@Component 通用，无明确角色&lt;/li&gt;
 &lt;li&gt;@Repository. 数据访问层（Dao）层注解&lt;/li&gt;
 &lt;li&gt;@Controller  Controller层&lt;/li&gt;
@@ -152,10 +155,14 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Bean_u7684_u58F0_u660E&quot;&gt;&lt;a href=&quot;#Bean_u7684_u58F0_u660E&quot; class=&quot;headerlink&quot; title=&quot;Bean的声明&quot;&gt;&lt;/a&gt;Bean的声明&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;@Component 通用，
+      &lt;blockquote&gt;
+&lt;p&gt;java的注解可以实现很多功能，如类的声明，属性声明，注入声明，配置…等等，这里对其作用做了笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Bean_u7684_u58F0_u660E&quot;&gt;&lt;a href=&quot;#Bean_u7684_u58F
     
     </summary>
+    
+      <category term="java" scheme="http://www.jcsama.com/categories/java/"/>
     
     
       <category term="java" scheme="http://www.jcsama.com/tags/java/"/>
