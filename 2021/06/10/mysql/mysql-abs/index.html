@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="sublime," />
+  <meta name="keywords" content="mysql," />
 
 
 
@@ -59,28 +59,34 @@
 
 
 
-<meta name="description" content="编辑器打开代码时乱码基本都是字符编码不一致所造成的。
-sublime Text编辑器可以通过安装2个扩展来解决乱码问题：
-【ConvertToUTF8】 和 【GBK Encoding Support】
-安装扩展包管理工具【Package Control】使用快捷键【control + ~】 打开控制台，参考package control，根据版本不同选择输入以下代码：
-sublime Text2">
+<meta name="description" content="ABS(number)
+Return the absolute value of a number
+
+基本用法返回数字参数的绝对值
+SELECT ABS(-243.5);     ===&amp;gt; 243.5
+无符号数字相减计算异常问题例子：创建用户表，年龄字段为非负
+CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sublime text中文乱码解决">
-<meta property="og:url" content="http://www.jcsama.com/2015/10/14/IDE/sublime/sublime-Encode/index.html">
+<meta property="og:title" content="mysql abs func">
+<meta property="og:url" content="http://www.jcsama.com/2021/06/10/mysql/mysql-abs/index.html">
 <meta property="og:site_name" content="This way up">
-<meta property="og:description" content="编辑器打开代码时乱码基本都是字符编码不一致所造成的。
-sublime Text编辑器可以通过安装2个扩展来解决乱码问题：
-【ConvertToUTF8】 和 【GBK Encoding Support】
-安装扩展包管理工具【Package Control】使用快捷键【control + ~】 打开控制台，参考package control，根据版本不同选择输入以下代码：
-sublime Text2">
-<meta property="og:updated_time" content="2016-02-28T14:48:40.000Z">
+<meta property="og:description" content="ABS(number)
+Return the absolute value of a number
+
+基本用法返回数字参数的绝对值
+SELECT ABS(-243.5);     ===&amp;gt; 243.5
+无符号数字相减计算异常问题例子：创建用户表，年龄字段为非负
+CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREM">
+<meta property="og:updated_time" content="2021-07-11T13:44:25.542Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sublime text中文乱码解决">
-<meta name="twitter:description" content="编辑器打开代码时乱码基本都是字符编码不一致所造成的。
-sublime Text编辑器可以通过安装2个扩展来解决乱码问题：
-【ConvertToUTF8】 和 【GBK Encoding Support】
-安装扩展包管理工具【Package Control】使用快捷键【control + ~】 打开控制台，参考package control，根据版本不同选择输入以下代码：
-sublime Text2">
+<meta name="twitter:title" content="mysql abs func">
+<meta name="twitter:description" content="ABS(number)
+Return the absolute value of a number
+
+基本用法返回数字参数的绝对值
+SELECT ABS(-243.5);     ===&amp;gt; 243.5
+无符号数字相减计算异常问题例子：创建用户表，年龄字段为非负
+CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREM">
 
 
 
@@ -98,7 +104,7 @@ sublime Text2">
   };
 </script>
 
-  <title> sublime text中文乱码解决 | This way up </title>
+  <title> mysql abs func | This way up </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -246,7 +252,7 @@ sublime Text2">
             
             
               
-                sublime text中文乱码解决
+                mysql abs func
               
             
           </h1>
@@ -258,8 +264,8 @@ sublime Text2">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-14T23:08:00+08:00" content="2015-10-14">
-              2015-10-14
+            <time itemprop="dateCreated" datetime="2021-06-10T23:15:47+08:00" content="2021-06-10">
+              2021-06-10
             </time>
           </span>
 
@@ -272,8 +278,8 @@ sublime Text2">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/工作记录/" itemprop="url" rel="index">
-                    <span itemprop="name">工作记录</span>
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
                   </a>
                 </span>
 
@@ -303,16 +309,20 @@ sublime Text2">
       
 
       
-        <p>编辑器打开代码时乱码基本都是字符编码不一致所造成的。</p>
-<p>sublime Text编辑器可以通过安装2个扩展来解决乱码问题：</p>
-<p>【ConvertToUTF8】 和 【GBK Encoding Support】</p>
-<h2 id="u5B89_u88C5_u6269_u5C55_u5305_u7BA1_u7406_u5DE5_u5177_u3010Package_Control_u3011"><a href="#u5B89_u88C5_u6269_u5C55_u5305_u7BA1_u7406_u5DE5_u5177_u3010Package_Control_u3011" class="headerlink" title="安装扩展包管理工具【Package Control】"></a>安装扩展包管理工具【Package Control】</h2><p>使用快捷键【control + ~】 打开控制台，参考<a href="https://packagecontrol.io/installation" target="_blank" rel="external">package control</a>，根据版本不同选择输入以下代码：</p>
-<p>sublime Text2:</p>
-<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">import urllib2,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) <span class="keyword">if</span> <span class="operator">not</span> os.path.exists(ipp) <span class="keyword">else</span> None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); <span class="keyword">by</span> = urllib2.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.<span class="built_in">replace</span>(<span class="string">' '</span>, <span class="string">'%20'</span>)).<span class="built_in">read</span>(); dh = hashlib.sha256(<span class="keyword">by</span>).hexdigest(); <span class="built_in">open</span>( os.path.join( ipp, pf), <span class="string">'wb'</span> ).<span class="built_in">write</span>(<span class="keyword">by</span>) <span class="keyword">if</span> dh == h <span class="keyword">else</span> None; print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)</span><br></pre></td></tr></table></figure>
-<p>sublime Text3:</p>
-<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); <span class="keyword">by</span> = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.<span class="built_in">replace</span>(<span class="string">' '</span>, <span class="string">'%20'</span>)).<span class="built_in">read</span>(); dh = hashlib.sha256(<span class="keyword">by</span>).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="built_in">open</span>(os.path.join( ipp, pf), <span class="string">'wb'</span> ).<span class="built_in">write</span>(<span class="keyword">by</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="u5B89_u88C5_u6269_u5C55_u5305"><a href="#u5B89_u88C5_u6269_u5C55_u5305" class="headerlink" title="安装扩展包"></a>安装扩展包</h2><p> 扩展包控制安装好了之后就可以开始安装扩展了：</p>
-<p> 使用【control + shift + p】 打开扩展控制窗口，输入Install Package后回车，等待扩展窗口重新打开，分别输入包名【ConvertToUTF8】 和 【GBK Encoding Support】，然后选择对应的扩展，回车就可以开始安装了,包名一次输入一个。</p>
+        <blockquote>
+<p>ABS(<em>number</em>)</p>
+<p>Return the absolute value of a number</p>
+</blockquote>
+<h2 id="u57FA_u672C_u7528_u6CD5"><a href="#u57FA_u672C_u7528_u6CD5" class="headerlink" title="基本用法"></a>基本用法</h2><p>返回数字参数的绝对值</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">SELECT <span class="title">ABS</span><span class="params">(-<span class="number">243.5</span>)</span></span>;     ===&gt; <span class="number">243.5</span></span><br></pre></td></tr></table></figure>
+<h2 id="u65E0_u7B26_u53F7_u6570_u5B57_u76F8_u51CF_u8BA1_u7B97_u5F02_u5E38_u95EE_u9898"><a href="#u65E0_u7B26_u53F7_u6570_u5B57_u76F8_u51CF_u8BA1_u7B97_u5F02_u5E38_u95EE_u9898" class="headerlink" title="无符号数字相减计算异常问题"></a>无符号数字相减计算异常问题</h2><p>例子：创建用户表，年龄字段为非负</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`user`</span> (</span><br><span class="line">  <span class="string">`uid`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT <span class="keyword">COMMENT</span> <span class="string">'uid'</span>,</span><br><span class="line">  <span class="string">`age`</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'年龄'</span>,</span><br><span class="line">  <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'用户名'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`uid`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">1</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8mb4 <span class="keyword">COMMENT</span> <span class="string">'用户表'</span>;</span></span><br></pre></td></tr></table></figure>
+<p>写入几条测试数据</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`user`</span> ( <span class="string">`age`</span>, <span class="string">`name`</span>)</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">	( <span class="number">11</span>, <span class="string">'张小明'</span>),</span><br><span class="line">	( <span class="number">26</span>, <span class="string">'林小红'</span>),</span><br><span class="line">	( <span class="number">21</span>, <span class="string">'李小狼'</span>),</span><br><span class="line">	( <span class="number">18</span>, <span class="string">'陈小洋'</span>);</span></span><br></pre></td></tr></table></figure>
+<p>当我们想找出年龄最接近25岁的用户时，会出现Mysql错误：</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> *,ABS(age - <span class="number">25</span>) <span class="keyword">as</span> age_sort <span class="keyword">from</span> user <span class="keyword">order</span> <span class="keyword">by</span> age_sort asc limit <span class="number">1</span>;</span><br><span class="line">===&gt;BIGINT UNSIGNED value <span class="keyword">is</span> out <span class="keyword">of</span> range <span class="keyword">in</span> <span class="comment">'(`user`.`age` - 25)'</span></span><br></pre></td></tr></table></figure>
+<p>解决方法：使用cast把无符号age转为带符号的number</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">select</span> *,<span class="keyword">ABS</span>(<span class="keyword">CAST</span>(age <span class="keyword">AS</span> SIGNED) - <span class="number">25</span>) <span class="keyword">as</span> age_sort </span><br><span class="line"><span class="keyword">from</span> <span class="string">`user`</span> <span class="keyword">order</span> <span class="keyword">by</span> age_sort <span class="keyword">asc</span> <span class="keyword">limit</span> <span class="number">1</span>;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -321,7 +331,7 @@ sublime Text2">
       
         <div class="post-tags">
           
-            <a href="/tags/sublime/" rel="tag">#sublime</a>
+            <a href="/tags/mysql/" rel="tag">#mysql</a>
           
         </div>
       
@@ -330,16 +340,16 @@ sublime Text2">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/11/js/hexo/hexo-2-theme/" rel="next" title="使用hexo搭建个人博客 part2">
-                <i class="fa fa-chevron-left"></i> 使用hexo搭建个人博客 part2
+              <a href="/2019/04/23/golang/defer/" rel="next" title="GO学习笔记--defer篇">
+                <i class="fa fa-chevron-left"></i> GO学习笔记--defer篇
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/18/mysql/brew-mysql/" rel="prev" title="修改用brew安装的mysql配置">
-                修改用brew安装的mysql配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/06/26/git/split-git-repository/" rel="prev" title="拆分Git仓库并保存提交记录">
+                拆分Git仓库并保存提交记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -467,7 +477,7 @@ sublime Text2">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5_u6269_u5C55_u5305_u7BA1_u7406_u5DE5_u5177_u3010Package_Control_u3011"><span class="nav-number">1.</span> <span class="nav-text">安装扩展包管理工具【Package Control】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5_u6269_u5C55_u5305"><span class="nav-number">2.</span> <span class="nav-text">安装扩展包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u57FA_u672C_u7528_u6CD5"><span class="nav-number">1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u65E0_u7B26_u53F7_u6570_u5B57_u76F8_u51CF_u8BA1_u7B97_u5F02_u5E38_u95EE_u9898"><span class="nav-number">2.</span> <span class="nav-text">无符号数字相减计算异常问题</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
