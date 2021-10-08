@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="This way up" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="分分合合是常态，大项目有时会有拆分的需求，当想拆分git项目，又想保留提交记录时，可以按下面流程操作  基本设定父项目为 https://github.com/xxx/demo.git 父仓库目录：/demo 当前子仓库目录：/demo/target_child 目标是把target_child拆到新项目：https://github.com/xxx/target_child.git step1">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拆分Git仓库并保存提交记录">
+<meta property="og:url" content="http://www.jcsama.com/2021/06/26/git/split-git-repository/index.html">
+<meta property="og:site_name" content="This way up">
+<meta property="og:description" content="分分合合是常态，大项目有时会有拆分的需求，当想拆分git项目，又想保留提交记录时，可以按下面流程操作  基本设定父项目为 https://github.com/xxx/demo.git 父仓库目录：/demo 当前子仓库目录：/demo/target_child 目标是把target_child拆到新项目：https://github.com/xxx/target_child.git step1">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-08-09T06:15:05.367Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="拆分Git仓库并保存提交记录">
+<meta name="twitter:description" content="分分合合是常态，大项目有时会有拆分的需求，当想拆分git项目，又想保留提交记录时，可以按下面流程操作  基本设定父项目为 https://github.com/xxx/demo.git 父仓库目录：/demo 当前子仓库目录：/demo/target_child 目标是把target_child拆到新项目：https://github.com/xxx/target_child.git step1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.jcsama.com/2021/06/26/git/split-git-repository/">
+
+
+
+
+
+  <title>拆分Git仓库并保存提交记录 | This way up</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">This way up</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">I am not perfect but I keep trying</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2021/06/26/git/split-git-repository/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jceee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This way up">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">拆分Git仓库并保存提交记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-06-26T22:48:38+08:00">
+                2021-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>分分合合是常态，大项目有时会有拆分的需求，当想拆分git项目，又想保留提交记录时，可以按下面流程操作</p>
+</blockquote>
+<h2 id="u57FA_u672C_u8BBE_u5B9A"><a href="#u57FA_u672C_u8BBE_u5B9A" class="headerlink" title="基本设定"></a>基本设定</h2><p>父项目为 <code>https://github.com/xxx/demo.git</code></p>
+<p>父仓库目录：/demo</p>
+<p>当前子仓库目录：/demo/target_child</p>
+<p>目标是把target_child拆到新项目：<code>https://github.com/xxx/target_child.git</code></p>
+<h2 id="step1_clone__u4E00_u4EFD_u539F_u4ED3_u5E93_u6587_u4EF6_u5230_u672C_u5730_uFF0C_u76EE_u5F55_u4E3A_u76EE_u6807_u6587_u4EF6_u5939"><a href="#step1_clone__u4E00_u4EFD_u539F_u4ED3_u5E93_u6587_u4EF6_u5230_u672C_u5730_uFF0C_u76EE_u5F55_u4E3A_u76EE_u6807_u6587_u4EF6_u5939" class="headerlink" title="step1 clone 一份原仓库文件到本地，目录为目标文件夹"></a>step1 clone 一份原仓库文件到本地，目录为目标文件夹</h2><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">​cd ~/git/code/</span><br><span class="line">​</span><br><span class="line">​git <span class="keyword">clone</span> <span class="title">https</span>://github.com/xxx/demo.git target_child</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+<h2 id="step2__u5220_u6389_u539F_u4ED3_u5E93_u7684remote"><a href="#step2__u5220_u6389_u539F_u4ED3_u5E93_u7684remote" class="headerlink" title="step2 删掉原仓库的remote"></a>step2 删掉原仓库的remote</h2><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">cd</span> target_child</span><br><span class="line"></span><br><span class="line">git remote <span class="keyword">rm</span> origin</span><br></pre></td></tr></table></figure>
+<h2 id="step3__u8FC7_u6EE4_u65E0_u7528_u7684_u5386_u53F2_u8BB0_u5F55"><a href="#step3__u8FC7_u6EE4_u65E0_u7528_u7684_u5386_u53F2_u8BB0_u5F55" class="headerlink" title="step3 过滤无用的历史记录"></a>step3 过滤无用的历史记录</h2><p>过滤所有历史提交，只保留对指定子目录有影响的提交. 命令执行完毕后，就可以看到本地的新仓库已经是原仓库子目录中的内容了，且保留了关于该子目录所有的提交历史。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">git filter-branch --tag-name-filter cat --prune-empty --subdirectory-filter ./target_child -- --all</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–tag-name-filter</td>
+<td>该参数控制我们要如何处理旧的 tag，cat 即表示原样输出</td>
+</tr>
+<tr>
+<td>–prune-empty</td>
+<td>删除空的（对子目录没有影响的）提交</td>
+</tr>
+<tr>
+<td>–subdirectory-filter</td>
+<td>指定子目录路径, 如<code>./target_child</code></td>
+</tr>
+<tr>
+<td>– –all</td>
+<td>该参数必须跟在<code>--</code>后面，表示对所有分支进行操作。如果你只想保存当前分支，也可以不添加此参数。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="step_4__u6E05_u7406-git_u7684object"><a href="#step_4__u6E05_u7406-git_u7684object" class="headerlink" title="step 4 清理.git的object"></a>step 4 清理.git的object</h2><p><code>.git</code> 目录里还是保存有不少无用的object，我们需要将其清除掉以减小新仓库的体积.</p>
+<p>PS: <code>git gc</code>操作耗时比较久,请耐心等待.</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">git reset --hard</span><br><span class="line"></span><br><span class="line">git for-each-ref --format="%(refname)" refs/original/ |xargs -n 1 git update-ref -d</span><br><span class="line"></span><br><span class="line">git reflog expire --expire=now --all</span><br><span class="line"></span><br><span class="line">git gc --aggressive --prune=now</span><br></pre></td></tr></table></figure>
+<h2 id="step_5__u5C06_u65B0_u7684_u672C_u5730_u4ED3_u5E93_u63A8_u9001_u5230_u8FDC_u7AEF"><a href="#step_5__u5C06_u65B0_u7684_u672C_u5730_u4ED3_u5E93_u63A8_u9001_u5230_u8FDC_u7AEF" class="headerlink" title="step 5 将新的本地仓库推送到远端"></a>step 5 将新的本地仓库推送到远端</h2><p>先创建新的仓库：<code>https://github.com/xxx/target_child.git</code></p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">//添加远端分支</span><br><span class="line"></span><br><span class="line">git remote add origin https://github.com/xxx/target_child.git</span><br><span class="line"></span><br><span class="line">//强制推送到远端</span><br><span class="line"></span><br><span class="line">git push --fore origin master</span><br></pre></td></tr></table></figure>
+<p>PS:</p>
+<p>若master分支为保护状态，强制推送时会遇到如下错误：</p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">remote: GitLab: You are not allowed to force push code to a protected branch on this project.</span></span><br></pre></td></tr></table></figure>
+<p>须解除master分支的保护状态，推完之后再改回来</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/06/10/mysql/mysql-abs/" rel="next" title="mysql abs func">
+                <i class="fa fa-chevron-left"></i> mysql abs func
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/09/11/php/php_mysql_charset/" rel="prev" title="一个环境引发的乱码问题">
+                一个环境引发的乱码问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">jceee</p>
+              <p class="site-description motion-element" itemprop="description">be better</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u57FA_u672C_u8BBE_u5B9A"><span class="nav-number">1.</span> <span class="nav-text">基本设定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step1_clone__u4E00_u4EFD_u539F_u4ED3_u5E93_u6587_u4EF6_u5230_u672C_u5730_uFF0C_u76EE_u5F55_u4E3A_u76EE_u6807_u6587_u4EF6_u5939"><span class="nav-number">2.</span> <span class="nav-text">step1 clone 一份原仓库文件到本地，目录为目标文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step2__u5220_u6389_u539F_u4ED3_u5E93_u7684remote"><span class="nav-number">3.</span> <span class="nav-text">step2 删掉原仓库的remote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step3__u8FC7_u6EE4_u65E0_u7528_u7684_u5386_u53F2_u8BB0_u5F55"><span class="nav-number">4.</span> <span class="nav-text">step3 过滤无用的历史记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step_4__u6E05_u7406-git_u7684object"><span class="nav-number">5.</span> <span class="nav-text">step 4 清理.git的object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step_5__u5C06_u65B0_u7684_u672C_u5730_u4ED3_u5E93_u63A8_u9001_u5230_u8FDC_u7AEF"><span class="nav-number">6.</span> <span class="nav-text">step 5 将新的本地仓库推送到远端</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jceee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
