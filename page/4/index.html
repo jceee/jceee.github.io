@@ -234,6 +234,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2016/02/29/php/php-stream/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jceee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This way up">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/02/29/php/php-stream/" itemprop="url">stream_context_create</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-29T21:06:35+08:00">
+                2016-02-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="u6D41"><a href="#u6D41" class="headerlink" title="流"></a>流</h2><p>流是PHP4.3.0中引入的特性，作用是使用统一方式处理文件、网络和数据压缩等共同一套函数和用法的操作。</p>
+<p>每一个流都有一个协议和一个目标。指定协议和目标的方法是使用流标识符：</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">&lt;scheme&gt;<span class="symbol">://&lt;target&gt;</span></span><br></pre></td></tr></table></figure>
+<p><scheme>是流的封装协议，<target>是流的数据源</target></scheme></p>
+<p>如：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//api.jceee.com/services/api.php?action=test</span></span><br><span class="line"><span class="symbol">php:</span><span class="comment">//stdout</span></span><br><span class="line"><span class="symbol">file:</span><span class="comment">///etc/data.txt</span></span><br></pre></td></tr></table></figure>
+<h2 id="stream_context_create"><a href="#stream_context_create" class="headerlink" title="stream_context_create"></a><code>stream_context_create</code></h2><p>stream_context_create用于创建流的上下文，也就是php流能接受的一系列可选参数，通过这些参数来定义流的行为，不同流的封装协议使用的上下文参数有所不同。</p>
+<h3 id="file_get_content"><a href="#file_get_content" class="headerlink" title="file_get_content"></a>file_get_content</h3><p>我们定义一个流的参数对象，使<code>file_get_content</code>发送<code>HTTP</code>的<code>POST</code>请求。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$requestBody = json_encode(<span class="keyword">array</span>(<span class="string">'user'</span>=&gt;<span class="string">'jceee'</span>));</span><br><span class="line">$context = stream_context_create(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'http'</span> =&gt; <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'method'</span> =&gt; <span class="string">'POST'</span>,</span><br><span class="line">        <span class="string">'header'</span> =&gt; <span class="string">"Content-Type: application/json;charset=utf-8;\r\n"</span> . </span><br><span class="line">                    <span class="string">"Content-Length: "</span> . mb_strlen($requestBody),</span><br><span class="line">        <span class="string">'content'</span> =&gt; $requestBody</span><br><span class="line">        )</span><br><span class="line">    ));</span><br><span class="line"></span><br><span class="line">$response = file_get_contents(<span class="string">'http://api.jceee.com/api.php'</span>, <span class="keyword">false</span>, $context);</span><br></pre></td></tr></table></figure>
+<p>最外层的键<code>http</code>定义了流封装协议，值是协议的具体内容。通过定义<code>http</code>协议，我们就创建了一个<code>file_get_content</code>可接收的流上下文对象。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2016/02/16/php/php-bccomp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -997,271 +1148,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2016/02/04/linux/linux-lsof/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="jceee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This way up">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/02/04/linux/linux-lsof/" itemprop="url">linux-lsof</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-04T22:18:46+08:00">
-                2016-02-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。</p>
-</blockquote>
-<h2 id="lsof_u663E_u793A_u793A_u4F8B"><a href="#lsof_u663E_u793A_u793A_u4F8B" class="headerlink" title="lsof显示示例"></a>lsof显示示例</h2><p>example:以查看mongod进程为例子</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ lsof <span class="regexp">/usr/</span>local<span class="regexp">/bin/m</span>ongod</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">COMMAND   PID      <span class="built_in"> USER </span>  FD  <span class="built_in"> TYPE </span>DEVICE SIZE/OFF     NODE NAME  </span><br><span class="line">mongod  50995 jceee  txt    REG    1,4 27409336 17133981 /usr/local/bin/<span class="built_in">..</span>/Cellar/mongodb/3.0.7/bin/mongod</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>COMMAND</th>
-<th>PID</th>
-<th>USER</th>
-<th>FD</th>
-<th>TYPE</th>
-<th>DEVICE</th>
-<th>SIZE</th>
-<th>NODE</th>
-<th>NAME</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>进程名称</td>
-<td>进程标识符</td>
-<td>进程所有者</td>
-<td>文件描述符</td>
-<td>文件类型</td>
-<td>指定磁盘名</td>
-<td>文件大小</td>
-<td>索引节点</td>
-<td>打开文件的确切名称</td>
-</tr>
-<tr>
-<td>mongod</td>
-<td>50995</td>
-<td>jceee</td>
-<td>txt</td>
-<td>REG</td>
-<td>1,4</td>
-<td>27409336</td>
-<td>17133981</td>
-<td>/usr/local/bin/../Cellar/mongodb/3.0.7/bin/mongod</td>
-</tr>
-</tbody>
-</table>
-<h2 id="lsof_u53C2_u6570"><a href="#lsof_u53C2_u6570" class="headerlink" title="lsof参数"></a>lsof参数</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>lsof filename</td>
-<td>显示打开指定文件的所有进程</td>
-</tr>
-<tr>
-<td>lsof -a</td>
-<td>表示两个参数都必须满足时才显示结果</td>
-</tr>
-<tr>
-<td>lsof -c string</td>
-<td>显示COMMAND列中包含指定字符的进程所有打开的文件</td>
-</tr>
-<tr>
-<td>lsof -u username</td>
-<td>显示所属user进程打开的文件</td>
-</tr>
-<tr>
-<td>lsof -g gid</td>
-<td>显示归属gid的进程情况</td>
-</tr>
-<tr>
-<td>lsof +d /DIR/</td>
-<td>显示目录下被进程打开的文件</td>
-</tr>
-<tr>
-<td>lsof +D /DIR/</td>
-<td>同上，但是会搜索目录下的所有目录，时间相对较长</td>
-</tr>
-<tr>
-<td>lsof -d FD</td>
-<td>显示指定文件描述符的进程</td>
-</tr>
-<tr>
-<td>lsof -n</td>
-<td>不将IP转换为hostname，缺省是不加上-n参数</td>
-</tr>
-<tr>
-<td>lsof -i</td>
-<td>用以显示符合条件的进程情况</td>
-</tr>
-<tr>
-<td>lsof -i[46] [protocol][@hostname / hostaddr][:service / port]</td>
-<td>参数功能在下面</td>
-</tr>
-<tr>
-<td></td>
-<td>46 –&gt; IPv4 or IPv6</td>
-</tr>
-<tr>
-<td></td>
-<td>protocol –&gt; TCP or UDP</td>
-</tr>
-<tr>
-<td></td>
-<td>hostname –&gt; Internet host name</td>
-</tr>
-<tr>
-<td></td>
-<td>hostaddr –&gt; IPv4地址</td>
-</tr>
-<tr>
-<td></td>
-<td>service –&gt; /etc/service中的 service name (可以不只一个)</td>
-</tr>
-<tr>
-<td></td>
-<td>port –&gt; 端口号 (可以不只一个)</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1312,7 +1198,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

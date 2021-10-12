@@ -234,6 +234,217 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2016/01/18/redis/redis-sortedSet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jceee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This way up">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/01/18/redis/redis-sortedSet/" itemprop="url">Redis有序集合做订阅列表</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-18T22:33:00+08:00">
+                2016-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Redis 的有序集合和集合一样，成员(member)的值是string类型，而且成员是唯一的，并不重复,重复地保存同一个成员只会重置成员的分数，以最后一次保存为主。每一个成员有对应的分数(score)，分数可相同，通过分数来对成员进行排序。</p>
+<p>以有序集合的特性，可以用来做订阅列表的存储</p>
+<h2 id="u8BA2_u9605_u529F_u80FD"><a href="#u8BA2_u9605_u529F_u80FD" class="headerlink" title="订阅功能"></a>订阅功能</h2><p>订阅的基本数据我存储在mysql中，redis用于缓存读取，当然直接用redis存储数据也是可以的。  </p>
+<p>设计订阅表subscriber,以mysql为例 </p>
+<table>
+<thead>
+<tr>
+<th>field</th>
+<th>type</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uid</td>
+<td>int</td>
+<td>用户id</td>
+</tr>
+<tr>
+<td>rUid</td>
+<td>int</td>
+<td>订阅目标id</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>int</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td>int</td>
+<td>修改时间</td>
+</tr>
+<tr>
+<td>status</td>
+<td>int</td>
+<td>状态 枚举:<code>-1</code>删除<code>0</code>正常</td>
+</tr>
+</tbody>
+</table>
+<p>订阅表的基本功能需要满足：</p>
+<ul>
+<li>通过<code>uid</code>查出所有已经订阅的<code>rUid</code>的信息，并按<code>createTime</code>排序</li>
+<li>通过订阅目标<code>rUid</code>查出所有<code>uid</code>，并按<code>createTime</code>排序</li>
+<li>查找是否已经订阅</li>
+<li>取消订阅</li>
+</ul>
+<h2 id="u6DFB_u52A0_u8BA2_u9605"><a href="#u6DFB_u52A0_u8BA2_u9605" class="headerlink" title="添加订阅"></a>添加订阅</h2><p>按照基本功能的1和2，我们需要保持2个集合<br>一个集合以用户为中心:</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">以用户为中心的key统一一个前缀，后面加上用户的uid:</span><br><span class="line"><span class="function"><span class="title">exampleKey</span><span class="params">(uid为<span class="number">1</span>)</span></span>: subscriberUid1</span><br></pre></td></tr></table></figure>
+<p>一个集合以订阅目标为中心:</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">以订阅目录为中心的key统一一个前缀，后面加上目标用户的rUid:</span><br><span class="line"><span class="function"><span class="title">exampleKey</span><span class="params">(rUid为<span class="number">100</span>)</span></span>: subscriberRUid100</span><br></pre></td></tr></table></figure>
+<p>添加的命令是</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 增加1条数据</span></span><br><span class="line">ZADD <span class="keyword">score </span>member</span><br><span class="line"><span class="comment"># 增加多条数据</span></span><br><span class="line">ZADD <span class="keyword">score1 </span>member1 [<span class="keyword">score2 </span>member2]...</span><br></pre></td></tr></table></figure>
+<p>为了以时间排序，我们可以以时间戳为分数，保存订阅信息</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:6379&gt;ZADD</span> <span class="string">subscriberUid1</span> <span class="number">1453129638</span> <span class="number">100</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:6379&gt;ZADD</span> <span class="string">subscriberRUid100</span> <span class="number">1453129638</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:6379&gt;</span> <span class="string">ZADD</span> <span class="string">subscriberUid1</span> <span class="number">1453129639</span> <span class="number">200</span> <span class="number">1453129640</span> <span class="number">300</span> <span class="number">1453129640</span> <span class="number">400</span> <span class="number">1453129641</span> <span class="number">500</span>	<span class="number">1453129638</span> <span class="number">10000</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:6379&gt;</span> <span class="string">ZADD</span> <span class="string">subscriberRUid100</span> <span class="number">1453129639</span> <span class="number">2</span> <span class="number">1453129640</span> <span class="number">3</span> <span class="number">1453129640</span> <span class="number">4</span> <span class="number">1453129641</span> <span class="number">5</span> <span class="number">1453129611</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="u83B7_u53D6_u8BA2_u9605_u5217_u8868"><a href="#u83B7_u53D6_u8BA2_u9605_u5217_u8868" class="headerlink" title="获取订阅列表"></a>获取订阅列表</h2><p>获取集合的命令是</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 按分数正序排列 withscore 是指附带分数</span></span><br><span class="line">ZRANGE key <span class="keyword">start</span> <span class="keyword">stop</span> [WITHSCORE]</span><br><span class="line"><span class="comment"># 按分数倒序排列</span></span><br><span class="line">ZREVRANGE <span class="keyword">key</span> <span class="keyword">start</span> <span class="keyword">stop</span> [WITHSCORE]</span><br></pre></td></tr></table></figure>
+<p>我们现在来获取用户1的订阅列表：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">  <span class="comment"># 正序获取，从0开始，-1指取到尽头，相当于limit</span></span><br><span class="line">  <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:6379&gt;</span> <span class="string">ZRANGE</span> <span class="string">subscriberUid1</span> <span class="number">0</span> <span class="number">-1</span> <span class="string">WITHSCORES</span></span><br><span class="line">  <span class="comment"># 结果如下</span></span><br><span class="line"> <span class="number">1</span><span class="string">)</span> <span class="string">"100"</span></span><br><span class="line"> <span class="number">2</span><span class="string">)</span> <span class="string">"1453129638"</span></span><br><span class="line"> <span class="number">3</span><span class="string">)</span> <span class="string">"10000"</span></span><br><span class="line"> <span class="number">4</span><span class="string">)</span> <span class="string">"1453129638"</span></span><br><span class="line"> <span class="number">5</span><span class="string">)</span> <span class="string">"200"</span></span><br><span class="line"> <span class="number">6</span><span class="string">)</span> <span class="string">"1453129639"</span></span><br><span class="line"> <span class="number">7</span><span class="string">)</span> <span class="string">"300"</span></span><br><span class="line"> <span class="number">8</span><span class="string">)</span> <span class="string">"1453129640"</span></span><br><span class="line"> <span class="number">9</span><span class="string">)</span> <span class="string">"400"</span></span><br><span class="line"><span class="number">10</span><span class="string">)</span> <span class="string">"1453129640"</span></span><br><span class="line"><span class="number">11</span><span class="string">)</span> <span class="string">"500"</span></span><br><span class="line"><span class="number">12</span><span class="string">)</span> <span class="string">"1453129641"</span></span><br></pre></td></tr></table></figure>
+<p>这正是对应了分数的顺序，接下来试试倒序，并隐藏分数输出:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 倒序获取，从0开始，-1指取到尽头</span></span><br><span class="line">  <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:6379&gt;</span> <span class="string">ZREVRANGE</span> <span class="string">subscriberUid1</span> <span class="number">0</span> <span class="number">-1</span></span><br><span class="line">  <span class="comment"># 结果如下</span></span><br><span class="line"><span class="number">1</span><span class="string">)</span> <span class="string">"500"</span></span><br><span class="line"><span class="number">2</span><span class="string">)</span> <span class="string">"400"</span></span><br><span class="line"><span class="number">3</span><span class="string">)</span> <span class="string">"300"</span></span><br><span class="line"><span class="number">4</span><span class="string">)</span> <span class="string">"200"</span></span><br><span class="line"><span class="number">5</span><span class="string">)</span> <span class="string">"10000"</span></span><br><span class="line"><span class="number">6</span><span class="string">)</span> <span class="string">"100"</span></span><br></pre></td></tr></table></figure>
+<h2 id="u67E5_u627E_u662F_u5426_u5DF2_u8BA2_u9605"><a href="#u67E5_u627E_u662F_u5426_u5DF2_u8BA2_u9605" class="headerlink" title="查找是否已订阅"></a>查找是否已订阅</h2><p>查找可以用一个方法来确认，查找对应成员的分数：</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">ZSCORE <span class="built_in">key</span> <span class="built_in">member</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; ZSCORE subscriberUid1 <span class="number">100</span></span><br><span class="line"><span class="string">"1453129638"</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; ZSCORE subscriberUid1 <span class="number">1000</span></span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+<p>每个成员我们都会分配对应的分数，通过获取分数，判断是否有分数，我们就可以判断这成员是否在集合中。</p>
+<h2 id="u53D6_u6D88_u8BA2_u9605"><a href="#u53D6_u6D88_u8BA2_u9605" class="headerlink" title="取消订阅"></a>取消订阅</h2><p>删除成员操作</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line"># 删除<span class="number">1</span>个成员</span><br><span class="line">ZREM <span class="built_in">key</span> <span class="built_in">member</span></span><br><span class="line"># 删除<span class="number">1</span>个或多个成员</span><br><span class="line">ZREM <span class="built_in">key</span> <span class="built_in">member</span> [<span class="built_in">member</span> ...]</span><br></pre></td></tr></table></figure>
+<p>因为我们的订阅数据需要同时维护2个集合，所以我们的删除是同时删除2个集合中的对应数据：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除用户为中心的集合</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:6379&gt;</span> <span class="string">ZREM</span> <span class="string">subscriberUid1</span> <span class="number">100</span></span><br><span class="line"><span class="string">(integer)</span> <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:6379&gt;</span> <span class="string">ZRANGE</span> <span class="string">subscriberUid1</span> <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span><span class="string">)</span> <span class="string">"10000"</span></span><br><span class="line"><span class="number">2</span><span class="string">)</span> <span class="string">"200"</span></span><br><span class="line"><span class="number">3</span><span class="string">)</span> <span class="string">"300"</span></span><br><span class="line"><span class="number">4</span><span class="string">)</span> <span class="string">"400"</span></span><br><span class="line"><span class="number">5</span><span class="string">)</span> <span class="string">"500"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除订阅目录为中心的集合</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:6379&gt;</span>  <span class="string">ZREM</span> <span class="string">subscriberRUid100</span> <span class="number">1</span></span><br><span class="line"><span class="string">(integer)</span> <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:6379&gt;</span>  <span class="string">ZRANGE</span> <span class="string">subscriberRUid100</span> <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span><span class="string">)</span> <span class="string">"6"</span></span><br><span class="line"><span class="number">2</span><span class="string">)</span> <span class="string">"2"</span></span><br><span class="line"><span class="number">3</span><span class="string">)</span> <span class="string">"3"</span></span><br><span class="line"><span class="number">4</span><span class="string">)</span> <span class="string">"4"</span></span><br><span class="line"><span class="number">5</span><span class="string">)</span> <span class="string">"5"</span></span><br></pre></td></tr></table></figure>
+<p>到此，我们的订阅功能就完成了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2016/01/14/mysql/mysql-case/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -991,155 +1202,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2015/10/01/macos/brew-token/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="jceee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This way up">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/10/01/macos/brew-token/" itemprop="url">设置HOMEBREW_GITHUB_API_TOKEN</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-01T20:50:00+08:00">
-                2015-10-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作记录/" itemprop="url" rel="index">
-                    <span itemprop="name">工作记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在使用brew工具时，报了以下错误,github API 访问的权限限制:</p>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Error</span>:GitHub API rate limit exceeded <span class="keyword">for</span> [xxxx]. (But here's the good <span class="keyword">news</span>: Authenticated requests get a higher rate limit. Check <span class="keyword">out</span> the documentation <span class="keyword">for</span> <span class="keyword">more</span> details.)</span><br><span class="line">Try again <span class="keyword">in</span> 5 minutes 54 seconds, or create <span class="keyword">an</span> <span class="keyword">personal</span> access <span class="keyword">token</span>:</span><br><span class="line">  https:<span class="comment">//github.com/settings/tokens</span></span><br><span class="line">and then <span class="keyword">set</span> the <span class="keyword">token</span> <span class="keyword">as</span>: HOMEBREW_GITHUB_API_TOKEN</span><br></pre></td></tr></table></figure>
-<p>解决：</p>
-<p>按照报错说明</p>
-<p>首先打开  <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener">https://github.com/settings/tokens/new</a></p>
-<p>登陆后，输入Homebrew，生成token</p>
-<p>设置环境变量HOMEBREW_GITHUB_API_TOKEN：</p>
-<p>将HOMEBREW_GITHUB_API_TOKEN变量设置为获取到的token就可正常使用brew的api了:</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ <span class="builtin-name">export</span> <span class="attribute">HOMEBREW_GITHUB_API_TOKEN</span>=XXXXXXXXXX</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1190,7 +1252,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

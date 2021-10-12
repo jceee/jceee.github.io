@@ -234,6 +234,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2018/11/20/IDE/vscode/go-ide-vscode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jceee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This way up">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/20/IDE/vscode/go-ide-vscode/" itemprop="url">GO语言IDE篇--Vscode (Mac)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-20T23:26:46+08:00">
+                2018-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>工欲善其事，必先利其器<br>—-《论语·卫灵公》</p>
+</blockquote>
+<h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>当我们开始学习一个编程语言时，第一步就是选择一款编码工具，我们使用工具的主要目的是提高我们的效率： </p>
+<ul>
+<li>语法高亮(基本都有)</li>
+<li>支持DEBUG</li>
+<li>插件丰富</li>
+<li>集成终端</li>
+<li>颜值（这个也很重要啊喂！）</li>
+</ul>
+<p>对比多款式工具后，jetbrains系列收费，LiteIDE略丑，Vim学习曲线高…最后我选择了满足了我的所有要求的Vscode，下面开始撸之～</p>
+<h2 id="u5B89_u88C5GO_u73AF_u5883"><a href="#u5B89_u88C5GO_u73AF_u5883" class="headerlink" title="安装GO环境"></a>安装GO环境</h2><p>这里假设我们已经安装完基础环境并配置好了环境变量，略过…</p>
+<h2 id="u5B89_u88C5vscode"><a href="#u5B89_u88C5vscode" class="headerlink" title="安装vscode"></a>安装vscode</h2><p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">vscode官网</a>下之</p>
+<h2 id="u5B89_u88C5go_u63D2_u4EF6"><a href="#u5B89_u88C5go_u63D2_u4EF6" class="headerlink" title="安装go插件"></a>安装go插件</h2><h3 id="u57FA_u7840_u63D2_u4EF6"><a href="#u57FA_u7840_u63D2_u4EF6" class="headerlink" title="基础插件"></a>基础插件</h3><p>打开vscode，打开插件搜索，输入go，安装之:<br><img src="/images/go-vscode/go-extend.png" alt="插件安装"></p>
+<h3 id="u5B89_u88C5_u4F9D_u8D56_u5305_u652F_u6301"><a href="#u5B89_u88C5_u4F9D_u8D56_u5305_u652F_u6301" class="headerlink" title="安装依赖包支持"></a>安装依赖包支持</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> -<span class="keyword">p</span> $GOPAH/src/golang.org/<span class="keyword">x</span></span><br><span class="line">$ <span class="keyword">cd</span> $GOPAH/src/golang.org/<span class="keyword">x</span></span><br><span class="line">$ git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/golang/tools.git tools</span><br><span class="line"></span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span>  github.<span class="keyword">com</span>/ramya-rao-<span class="keyword">a</span>/<span class="keyword">go</span>-outline</span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span>  github.<span class="keyword">com</span>/acroca/<span class="keyword">go</span>-symbols</span><br><span class="line">$ <span class="keyword">go</span> install golang.org/<span class="keyword">x</span>/tools/cmd/guru</span><br><span class="line">$ <span class="keyword">go</span> install golang.org/<span class="keyword">x</span>/tools/cmd/gorename</span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/rogpeppe/godef</span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/sqs/goreturns</span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/ramya-rao-<span class="keyword">a</span>/<span class="keyword">go</span>-outline</span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/josharian/impl</span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> golang.org/<span class="keyword">x</span>/lint/golint</span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/cweill/gotests/gotests</span><br></pre></td></tr></table></figure>
+<h3 id="u5B89_u88C5dlv"><a href="#u5B89_u88C5dlv" class="headerlink" title="安装dlv"></a>安装dlv</h3><p>go的debug依赖于dlv</p>
+<p>安装dlv有2种途径:</p>
+<h4 id="brew_u5B89_u88C5dlv"><a href="#brew_u5B89_u88C5dlv" class="headerlink" title="brew安装dlv"></a>brew安装dlv</h4><p>这个帮你解决了证书等问题</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">$ brew <span class="keyword">install</span> <span class="keyword">go</span>-delve/delve/delve</span><br></pre></td></tr></table></figure>
+<h4 id="go_get_u5B89_u88C5dlv"><a href="#go_get_u5B89_u88C5dlv" class="headerlink" title="go get安装dlv"></a>go get安装dlv</h4><p>安装dlv</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ go get github.com<span class="regexp">/derekparker/</span>delve<span class="regexp">/cmd/</span>dlv</span><br><span class="line"></span><br><span class="line">-- 查看是否安装成功</span><br><span class="line">$ <span class="variable">$GOPATH</span><span class="regexp">/bin/</span>dlv version</span><br></pre></td></tr></table></figure>
+<p>把dlv从<code>GOPATH</code>移动到<code>GOROOT</code></p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ sudo mv <span class="variable">$GOPATH</span><span class="regexp">/bin/</span>dlv <span class="variable">$GOROOT</span><span class="regexp">/bin/</span>dlv</span><br></pre></td></tr></table></figure>
+<p>创建系统证书</p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">1 </span>打开<span class="string">"钥匙串访问"</span></span><br><span class="line"><span class="symbol">2 </span>打开菜单 钥匙串访问/证书助理/创建证书...</span><br><span class="line"><span class="symbol">3 </span>名称: dlv-cert 身份类型: 自签名证书 证书类型: 代码签名 并 选择<span class="string">"让我覆盖这些默认值"</span></span><br><span class="line"><span class="symbol">4 </span>单击<span class="string">"继续"</span>, 有效期(天数): <span class="number">365</span> 这里你可以自己修改, 我改为<span class="number">3650</span></span><br><span class="line"><span class="symbol">5 </span>一路继续下去, 直到看到<span class="string">"指定用于该证书的位置"</span> 钥匙串 选择 <span class="string">"系统"</span> 并单击<span class="string">"创建"</span>按钮</span><br><span class="line"><span class="symbol">6 </span>重启系统之后, 再打开<span class="string">"钥匙串访问"</span>, 选择<span class="string">"系统"</span>, 就会看到创建好的<span class="string">"dlv-cert"</span>证书.</span><br><span class="line"><span class="symbol">7 </span>右键<span class="string">"dlv-cert"</span>证书, 选择<span class="string">"显示简介"</span>-&gt;<span class="string">"信任"</span>-&gt;<span class="string">"代码签名"</span> 修改为: 始终信任</span><br></pre></td></tr></table></figure>
+<p>分配证书</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ sudo codesign -s <span class="string">"dlv-cert"</span> <span class="variable">$GOROOT</span><span class="regexp">/bin/</span>dlv</span><br></pre></td></tr></table></figure>
+<p>如果调试时遇到下面问题：</p>
+<figure class="highlight smali"><table><tr><td class="code"><pre><span class="line">could<span class="built_in"> not </span>launch process: debugserver<span class="built_in"> or </span>lldb-server<span class="built_in"> not </span>found: install XCode's command line tools<span class="built_in"> or </span>lldb-server</span><br></pre></td></tr></table></figure>
+<p>可以安装一下xcode-select:</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">xcode-<span class="keyword">select</span> <span class="comment">--install</span></span><br></pre></td></tr></table></figure>
+<h2 id="u5F00_u59CB_u8C03_u8BD5"><a href="#u5F00_u59CB_u8C03_u8BD5" class="headerlink" title="开始调试"></a>开始调试</h2><p>创建个必写的hello world文件：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> h <span class="keyword">string</span> = <span class="string">"こんにちは"</span></span><br><span class="line">	<span class="keyword">var</span> w <span class="keyword">string</span> = <span class="string">"世界"</span></span><br><span class="line">	fmt.Println(h, w)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后开始debug<br><img src="/images/go-vscode/start-debug.png" alt="开始debug"></p>
+<p>如果是第一次调试，会让你编辑launch.json文件</p>
+<p>我们加一个配置：<br><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"helloword"</span>,</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"go"</span>,</span><br><span class="line">    <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">    <span class="attr">"mode"</span>: <span class="string">"debug"</span>,</span><br><span class="line">    <span class="attr">"env"</span>: &#123;&#125;,</span><br><span class="line">    <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceRoot&#125;/hello/helloworld.go"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>program是调试文件的地址，${workspaceRoot}是项目的根目录，根据实际情况改</p>
+<p>保存，再跑一下debug：<br><img src="/images/go-vscode/debug.png" alt="开始debug"></p>
+<p>这样就完成了～</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2018/03/30/java/java-bean/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -949,180 +1108,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2016/06/19/linux/linux-lnmp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="jceee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This way up">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/06/19/linux/linux-lnmp/" itemprop="url">Ubuntu下配置lnmp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-19T22:10:25+08:00">
-                2016-06-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>环境：Ubuntu Linux 14.04</p>
-</blockquote>
-<h1 id="u5B89_u88C5_u8F6F_u4EF6_u4ED3_u5E93_u7BA1_u7406_u5668"><a href="#u5B89_u88C5_u8F6F_u4EF6_u4ED3_u5E93_u7BA1_u7406_u5668" class="headerlink" title="安装软件仓库管理器"></a>安装软件仓库管理器</h1><figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">$ sudo apt-<span class="built_in">get</span> install python-software-<span class="built_in">properties</span>;</span><br></pre></td></tr></table></figure>
-<h1 id="u5B89_u88C5PHP"><a href="#u5B89_u88C5PHP" class="headerlink" title="安装PHP"></a>安装PHP</h1><h2 id="u5B89_u88C5php_u53CA_u6269_u5C55"><a href="#u5B89_u88C5php_u53CA_u6269_u5C55" class="headerlink" title="安装php及扩展"></a>安装php及扩展</h2><figure class="highlight smali"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install python-software-properties;</span><br><span class="line">$ sudo<span class="built_in"> add-apt-repository </span>ppa:ondrej/php5-5.6;</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install php5-fpm php5-cli php5-curl php5-gd php5-json php5-mcrypt php5-mysqlnd php5-memcache php5-redis php5-xdebug;</span><br></pre></td></tr></table></figure>
-<p>查看版本信息</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">   $ php5-fpm -vPHP <span class="number">5.6</span><span class="number">.22</span><span class="number">-1</span>+donate.sury.org~trusty+<span class="number">1</span> (fpm-fcgi)Copyright (c) <span class="number">1997</span><span class="number">-2016</span> The PHP GroupZend Engine v2<span class="number">.6</span><span class="number">.0</span>, Copyright (c) <span class="number">1998</span><span class="number">-2016</span> Zend Technologies    with Zend OPcache v7<span class="number">.0</span><span class="number">.6</span>-dev, Copyright (c) <span class="number">1999</span><span class="number">-2016</span>, by Zend Technologies    with Xdebug v2<span class="number">.3</span><span class="number">.3</span>, Copyright (c) <span class="number">2002</span><span class="number">-2015</span>, by Derick Rethans</span><br></pre></td></tr></table></figure>
-<h2 id="u5E38_u7528_u547D_u4EE4"><a href="#u5E38_u7528_u547D_u4EE4" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="u5173_u95ED_uFF0C_u5F00_u542F_uFF0C_u91CD_u542F"><a href="#u5173_u95ED_uFF0C_u5F00_u542F_uFF0C_u91CD_u542F" class="headerlink" title="关闭，开启，重启"></a>关闭，开启，重启</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ sudo<span class="built_in"> service </span>php5-fpm stop </span><br><span class="line">$ sudo<span class="built_in"> service </span>php5-fpm start</span><br><span class="line">$ sudo<span class="built_in"> service </span>php5-fpm restart</span><br></pre></td></tr></table></figure>
-<h2 id="u5B89_u88C5composer"><a href="#u5B89_u88C5composer" class="headerlink" title="安装composer"></a>安装composer</h2><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo apt-get install curl</span><br><span class="line"><span class="variable">$ </span>sudo curl -sS <span class="symbol">https:</span>/<span class="regexp">/getcomposer.org/installer</span> | php</span><br><span class="line"><span class="variable">$ </span>sudo mv composer.phar /usr/local/bin/composer</span><br></pre></td></tr></table></figure>
-<h1 id="u5B89_u88C5Nginx"><a href="#u5B89_u88C5Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h1><h2 id="u5B89_u88C5Nginx-1"><a href="#u5B89_u88C5Nginx-1" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><figure class="highlight smali"><table><tr><td class="code"><pre><span class="line">$ sudo<span class="built_in"> add-apt-repository </span>ppa:nginx/stable;</span><br><span class="line">$ sudo apt-get update;</span><br><span class="line">$ sudo apt-get install nginx;</span><br></pre></td></tr></table></figure>
-<p>查看版本信息</p>
-<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo nginx -v</span><br></pre></td></tr></table></figure>
-<h2 id="u5E38_u7528_u547D_u4EE4-1"><a href="#u5E38_u7528_u547D_u4EE4-1" class="headerlink" title="常用命令"></a>常用命令</h2><p>启动 ，关闭，重启，配置重载</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ sudo<span class="built_in"> service </span>nginx start</span><br><span class="line">$ sudo<span class="built_in"> service </span>nginx stop</span><br><span class="line">$ sudo<span class="built_in"> service </span>nginx restart</span><br><span class="line">$ sudo<span class="built_in"> service </span>nginx reload</span><br></pre></td></tr></table></figure>
-<h1 id="u5B89_u88C5mysql"><a href="#u5B89_u88C5mysql" class="headerlink" title="安装mysql"></a>安装mysql</h1><figure class="highlight smali"><table><tr><td class="code"><pre><span class="line">$ sudo<span class="built_in"> add-apt-repository </span>-y ppa:ondrej/mysql-5.6</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get -y install mysql-server</span><br></pre></td></tr></table></figure>
-<p>登陆mysql创建账号</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ mysql -u root </span><br><span class="line">mysql&gt;create database wordpress;</span><br><span class="line">mysql&gt;grant all privileges on *.* to jceee identified by <span class="string">'123456'</span>;</span><br><span class="line">mysql&gt;flush privileges;</span><br><span class="line">mysql&gt;<span class="keyword">exit</span>;</span><br></pre></td></tr></table></figure>
-<h1 id="u4F7F_u7528wordpress_u6D4B_u8BD5_u73AF_u5883"><a href="#u4F7F_u7528wordpress_u6D4B_u8BD5_u73AF_u5883" class="headerlink" title="使用wordpress测试环境"></a>使用wordpress测试环境</h1><h2 id="u5B89_u88C5git"><a href="#u5B89_u88C5git" class="headerlink" title="安装git"></a>安装git</h2><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ apt-<span class="builtin-name">get</span> install git</span><br></pre></td></tr></table></figure>
-<h2 id="u521B_u5EFA_u9879_u76EE_u6587_u4EF6_u5939"><a href="#u521B_u5EFA_u9879_u76EE_u6587_u4EF6_u5939" class="headerlink" title="创建项目文件夹"></a>创建项目文件夹</h2><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="built_in">mkdir</span> -<span class="keyword">p</span> /<span class="keyword">opt</span>/htdocs/</span><br></pre></td></tr></table></figure>
-<h2 id="u4E0B_u8F7Dwordpress"><a href="#u4E0B_u8F7Dwordpress" class="headerlink" title="下载wordpress"></a>下载wordpress</h2><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ sudo git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/WordPress/WordPress /<span class="keyword">opt</span>/htdocs/wordpress</span><br><span class="line">$ sudo chown -R www-data /<span class="keyword">opt</span>/htdocs</span><br></pre></td></tr></table></figure>
-<h2 id="u589E_u52A0Nginx_u914D_u7F6E"><a href="#u589E_u52A0Nginx_u914D_u7F6E" class="headerlink" title="增加Nginx配置"></a>增加Nginx配置</h2><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ sudo <span class="keyword">vi</span> /etc/nginx/<span class="keyword">conf</span>.d/wordpress.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
-<p>写入以下内容，保存并重载Nginx配置</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;    <span class="attribute">listen</span> <span class="number">80</span>;    <span class="attribute">server_name</span> www.wordpress.com;    <span class="attribute">root</span> /opt/htdocs/wordpress;    <span class="attribute">index</span> index.html index.php;    <span class="attribute">location</span> / &#123;        <span class="attribute">index</span> index.html index.php;    &#125;    <span class="attribute">location</span> <span class="regexp">~ \.php$</span> &#123;</span><br><span class="line">            <span class="attribute">include</span> fastcgi.conf;                  </span><br><span class="line">            <span class="attribute">fastcgi_pass</span> unix:/var/run/php5-fpm.sock;    &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>如果php-fpm是以TPC/IP    方式监听,如127.0.0.1:9000，则把上方</p>
-<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">fastcgi_pass unix:/var/<span class="keyword">run</span><span class="bash">/php5-fpm.sock;</span></span><br></pre></td></tr></table></figure>
-<p>改为</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">fastcgi_pass</span> 127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span><span class="selector-pseudo">:9000</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="u4FEE_u6539hosts"><a href="#u4FEE_u6539hosts" class="headerlink" title="修改hosts"></a>修改hosts</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ sudo vi <span class="regexp">/etc/</span>hosts</span><br></pre></td></tr></table></figure>
-<p>增加以下内容并保存退出</p>
-<figure class="highlight accesslog"><table><tr><td class="code"><pre><span class="line"><span class="number">127.0.0.1</span> www.wordpress.com</span><br></pre></td></tr></table></figure>
-<h2 id="u6D4B_u8BD5"><a href="#u6D4B_u8BD5" class="headerlink" title="测试"></a>测试</h2><p>在浏览器输入</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//www.wordpress.com</span></span><br></pre></td></tr></table></figure>
-<p>看访问结果</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1173,7 +1158,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

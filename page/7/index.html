@@ -234,6 +234,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2015/10/01/macos/brew-token/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jceee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="This way up">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/10/01/macos/brew-token/" itemprop="url">设置HOMEBREW_GITHUB_API_TOKEN</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-01T20:50:00+08:00">
+                2015-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作记录/" itemprop="url" rel="index">
+                    <span itemprop="name">工作记录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在使用brew工具时，报了以下错误,github API 访问的权限限制:</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Error</span>:GitHub API rate limit exceeded <span class="keyword">for</span> [xxxx]. (But here's the good <span class="keyword">news</span>: Authenticated requests get a higher rate limit. Check <span class="keyword">out</span> the documentation <span class="keyword">for</span> <span class="keyword">more</span> details.)</span><br><span class="line">Try again <span class="keyword">in</span> 5 minutes 54 seconds, or create <span class="keyword">an</span> <span class="keyword">personal</span> access <span class="keyword">token</span>:</span><br><span class="line">  https:<span class="comment">//github.com/settings/tokens</span></span><br><span class="line">and then <span class="keyword">set</span> the <span class="keyword">token</span> <span class="keyword">as</span>: HOMEBREW_GITHUB_API_TOKEN</span><br></pre></td></tr></table></figure>
+<p>解决：</p>
+<p>按照报错说明</p>
+<p>首先打开  <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener">https://github.com/settings/tokens/new</a></p>
+<p>登陆后，输入Homebrew，生成token</p>
+<p>设置环境变量HOMEBREW_GITHUB_API_TOKEN：</p>
+<p>将HOMEBREW_GITHUB_API_TOKEN变量设置为获取到的token就可正常使用brew的api了:</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ <span class="builtin-name">export</span> <span class="attribute">HOMEBREW_GITHUB_API_TOKEN</span>=XXXXXXXXXX</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2015/09/24/mysql/mysql-modifySql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -880,159 +1029,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.jcsama.com/2015/07/05/mysql/mysql-timeMethod/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="jceee">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="This way up">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/07/05/mysql/mysql-timeMethod/" itemprop="url">mysql的时间转换函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-07-05T21:42:00+08:00">
-                2015-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="u683C_u5F0F_u5316_u65F6_u95F4_u6233FROM_UNIXTIME"><a href="#u683C_u5F0F_u5316_u65F6_u95F4_u6233FROM_UNIXTIME" class="headerlink" title="格式化时间戳FROM_UNIXTIME"></a>格式化时间戳FROM_UNIXTIME</h2><p><code>FROM_UNIXTIME(unix_timestamp, format)</code>第一个参数是时间戳格式。 第二个是最终想转换的格式，如</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> FROM_UNIXTIME(<span class="number">1436102304</span>,<span class="string">'%Y年%m月%d日'</span>) <span class="keyword">as</span> <span class="built_in">date</span>;</span><br></pre></td></tr></table></figure>
-<p>结果:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">date     :</span>       <span class="number">2015</span><span class="string">年07月05日</span></span><br></pre></td></tr></table></figure>
-<h2 id="u5B57_u7B26_u4E32_u8F6C_u6362unix_u65F6_u95F4_u6233UNIX_TIMESTAMP"><a href="#u5B57_u7B26_u4E32_u8F6C_u6362unix_u65F6_u95F4_u6233UNIX_TIMESTAMP" class="headerlink" title="字符串转换unix时间戳UNIX_TIMESTAMP"></a>字符串转换unix时间戳UNIX_TIMESTAMP</h2><p><code>UNIX_TIMESTAMP(date)</code> 是将时间转化为时间戳，如 </p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UNIX_TIMESTAMP</span>(<span class="string">'2015-07-05'</span>);</span><br></pre></td></tr></table></figure>
-<p>结果是：</p>
-<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line"><span class="number">1436068800</span></span><br></pre></td></tr></table></figure>
-<p>示例：找出2015-05到2015-07 log表中的记录:</p>
-<pre><code>SELECT id, FROM_UNIXTIME(time,&apos;%Y-%m-%d&apos;) as date 
-FROM log 
-WHERE  time BETWEEN UNIX_TIMESTAMP(&apos;2015-05-01&apos;) AND UNIX_TIMESTAMP(&apos;2015-07-01&apos;);
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1083,7 +1079,7 @@ WHERE  time BETWEEN UNIX_TIMESTAMP(&apos;2015-05-01&apos;) AND UNIX_TIMESTAMP(&a
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

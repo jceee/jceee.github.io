@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jcsama.com/"/>
-  <updated>2021-10-08T06:00:05.616Z</updated>
+  <updated>2021-10-12T10:31:02.553Z</updated>
   <id>http://www.jcsama.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo gitpage 404</title>
+    <link href="http://www.jcsama.com/2021/10/03/js/hexo/hexo-gitpage-404/"/>
+    <id>http://www.jcsama.com/2021/10/03/js/hexo/hexo-gitpage-404/</id>
+    <published>2021-10-03T13:30:20.000Z</published>
+    <updated>2021-10-12T10:31:02.553Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="u4E00_u4E2A_u5947_u602A_u7684_u95EE_u9898"><a href="#u4E00_u4E2A_u5947_u602A_u7684_u95EE_u9898" class="headerlink" title="一个奇怪的问题"></a>一个奇怪的问题</h2><ul><li><p>Step 1 更新了一篇新的post;</p></li><li><p>Step 2 使用<code>hexo s</code>本地页面显示正常 ;</p></li><li><p>Step 3 使用<code>hexo g -d</code>命令执行正确;</p></li><li><p>Step 4 打开对应的Git page，发现404</p></li></ul><h2 id="u4E3A_u4EC0_u4E48_u4F1A_u51FA_u73B0"><a href="#u4E3A_u4EC0_u4E48_u4F1A_u51FA_u73B0" class="headerlink" title="为什么会出现"></a>为什么会出现</h2><ul><li>首先从最后环节开始排查，使用<code>hexo d --debug</code>查看部署是否有问题，没看到报错，把<code>.deploy_git</code>下的文件清理掉，重新跑几次也没解决</li><li>接着看部署问题，<code>hexo g --debug</code>，文件生成也正常，无报错</li><li>继续看生成的入口文件，发现<code>index.html</code>是空的，问题可能在这</li><li>搜索<code>hexo index.html empty</code> 这回找到别人也有一样的问题，找到问题：</li></ul><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">版本太高了，hexo</span> 还不支持</span><br></pre></td></tr></table></figure><h2 id="u89E3_u51B3"><a href="#u89E3_u51B3" class="headerlink" title="解决"></a>解决</h2><p>查看<code>hexo</code>版本：</p><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">-v</span>                                                                            </span><br><span class="line"><span class="attr">hexo:</span> <span class="number">3.9</span><span class="number">.0</span></span><br><span class="line"><span class="attr">hexo-cli:</span> <span class="number">4.3</span><span class="number">.0</span></span><br><span class="line"><span class="attr">os:</span> <span class="string">darwin</span> <span class="number">20.5</span><span class="number">.0</span> <span class="number">11.4</span></span><br></pre></td></tr></table></figure><p>参考<a href="https://hexo.io/news/2021/07/09/hexo-renderer-pug-2-0-0-hexo-cli-4-3-0-hexo-paginaiton-2-0-0-hexo-clean-css-2-0-0/" target="_blank" rel="noopener">hexo官网</a>推荐，支持的node版本是<code>8</code>以上或者<code>12</code></p><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">drop <span class="keyword">node</span> <span class="title">8</span> <span class="keyword">and</span> add <span class="keyword">node</span> <span class="title">12</span></span><br></pre></td></tr></table></figure><p>查看本地<code>node -v</code>:<code>v16.6.1</code>确实不符合，重新下载了<code>node12</code>，再部署解决～</p><h2 id="u540E_u8BB0"><a href="#u540E_u8BB0" class="headerlink" title="后记"></a>后记</h2><p>版本不兼容也没有提示，对使用者还是有些不友好，把错误都吞掉了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;u4E00_u4E2A_u5947_u602A_u7684_u95EE_u9898&quot;&gt;&lt;a href=&quot;#u4E00_u4E2A_u5947_u602A_u7684_u95EE_u9898&quot; class=&quot;headerlink&quot; title=&quot;一个奇怪的问题&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="node" scheme="http://www.jcsama.com/categories/node/"/>
+    
+    
+      <category term="hexo" scheme="http://www.jcsama.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>一个环境引发的乱码问题</title>
@@ -530,34 +555,6 @@
 &lt;p&gt;ps(Process Status)，顾名思义，是在Linux中是查看进程状态的命令。ps查看正处于Running的进程，ps aux查看所有的进程。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;ps_u8FDB_u7A0B_u72B6_u
-      
-    
-    </summary>
-    
-      <category term="linux" scheme="http://www.jcsama.com/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="http://www.jcsama.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux-lsof</title>
-    <link href="http://www.jcsama.com/2016/02/04/linux/linux-lsof/"/>
-    <id>http://www.jcsama.com/2016/02/04/linux/linux-lsof/</id>
-    <published>2016-02-04T14:18:46.000Z</published>
-    <updated>2021-08-09T06:15:05.368Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。</p></blockquote><h2 id="lsof_u663E_u793A_u793A_u4F8B"><a href="#lsof_u663E_u793A_u793A_u4F8B" class="headerlink" title="lsof显示示例"></a>lsof显示示例</h2><p>example:以查看mongod进程为例子</p><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ lsof <span class="regexp">/usr/</span>local<span class="regexp">/bin/m</span>ongod</span><br></pre></td></tr></table></figure><p>结果：</p><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">COMMAND   PID      <span class="built_in"> USER </span>  FD  <span class="built_in"> TYPE </span>DEVICE SIZE/OFF     NODE NAME  </span><br><span class="line">mongod  50995 jceee  txt    REG    1,4 27409336 17133981 /usr/local/bin/<span class="built_in">..</span>/Cellar/mongodb/3.0.7/bin/mongod</span><br></pre></td></tr></table></figure><table><thead><tr><th>COMMAND</th><th>PID</th><th>USER</th><th>FD</th><th>TYPE</th><th>DEVICE</th><th>SIZE</th><th>NODE</th><th>NAME</th></tr></thead><tbody><tr><td>进程名称</td><td>进程标识符</td><td>进程所有者</td><td>文件描述符</td><td>文件类型</td><td>指定磁盘名</td><td>文件大小</td><td>索引节点</td><td>打开文件的确切名称</td></tr><tr><td>mongod</td><td>50995</td><td>jceee</td><td>txt</td><td>REG</td><td>1,4</td><td>27409336</td><td>17133981</td><td>/usr/local/bin/../Cellar/mongodb/3.0.7/bin/mongod</td></tr></tbody></table><h2 id="lsof_u53C2_u6570"><a href="#lsof_u53C2_u6570" class="headerlink" title="lsof参数"></a>lsof参数</h2><table><thead><tr><th>命令</th><th>功能</th></tr></thead><tbody><tr><td>lsof filename</td><td>显示打开指定文件的所有进程</td></tr><tr><td>lsof -a</td><td>表示两个参数都必须满足时才显示结果</td></tr><tr><td>lsof -c string</td><td>显示COMMAND列中包含指定字符的进程所有打开的文件</td></tr><tr><td>lsof -u username</td><td>显示所属user进程打开的文件</td></tr><tr><td>lsof -g gid</td><td>显示归属gid的进程情况</td></tr><tr><td>lsof +d /DIR/</td><td>显示目录下被进程打开的文件</td></tr><tr><td>lsof +D /DIR/</td><td>同上，但是会搜索目录下的所有目录，时间相对较长</td></tr><tr><td>lsof -d FD</td><td>显示指定文件描述符的进程</td></tr><tr><td>lsof -n</td><td>不将IP转换为hostname，缺省是不加上-n参数</td></tr><tr><td>lsof -i</td><td>用以显示符合条件的进程情况</td></tr><tr><td>lsof -i[46] [protocol][@hostname / hostaddr][:service / port]</td><td>参数功能在下面</td></tr><tr><td></td><td>46 –&gt; IPv4 or IPv6</td></tr><tr><td></td><td>protocol –&gt; TCP or UDP</td></tr><tr><td></td><td>hostname –&gt; Internet host name</td></tr><tr><td></td><td>hostaddr –&gt; IPv4地址</td></tr><tr><td></td><td>service –&gt; /etc/service中的 service name (可以不只一个)</td></tr><tr><td></td><td>port –&gt; 端口号 (可以不只一个)</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;lsof_u
       
     
     </summary>
