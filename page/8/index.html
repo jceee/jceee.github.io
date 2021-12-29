@@ -248,6 +248,116 @@
             
               
                 
+                <a class="post-title-link" href="/2015/08/14/js/js-ajaxJsonToString/" itemprop="url">
+                  ajax请求时json对象数据变成字段串[object object]
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-08-14T22:41:00+08:00" content="2015-08-14">
+              2015-08-14
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          在对一个旧项目修改时，遇到一个jquery版本引发的ajax问题。
+ajax很普通地如下：
+   ...$.ajax(&#123;     type: "POST",     url: _url     dataType: "json",     data: _data,     error: function()&#123;         console.log('error');     &#125;,     success: function(data)&#123;         c
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/14/js/js-ajaxJsonToString/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/07/29/php/php-HTTP-RAW-POST-DATA/" itemprop="url">
                   $GLOBALS ["HTTP_RAW_POST_DATA"]为空
                 </a>
@@ -732,115 +842,6 @@ alen
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/01/09/php/php-sortArrByfield/" itemprop="url">
-                  根据某字段对多维数组进行排序
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-01-09T21:06:35+08:00" content="2015-01-09">
-              2015-01-09
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index">
-                    <span itemprop="name">code</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          根据某字段对多维数组进行排序，在看到array_multisort方法的作用时突然想到，可以用来做这个方法
-function sortArrByField(&amp;$array, $field, $isDesc = false)&#123;     $fieldArr = array();    foreach ($array as $k =&gt; $v) &#123;        $fieldArr[$k] = $v[$field];    &#125;    $sort = $isDe
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/01/09/php/php-sortArrByfield/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -885,7 +886,7 @@ function sortArrByField(&amp;$array, $field, $isDesc = false)&#123;     $fieldAr
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

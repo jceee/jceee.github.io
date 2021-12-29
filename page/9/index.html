@@ -248,6 +248,115 @@
             
               
                 
+                <a class="post-title-link" href="/2015/01/09/php/php-sortArrByfield/" itemprop="url">
+                  根据某字段对多维数组进行排序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-01-09T21:06:35+08:00" content="2015-01-09">
+              2015-01-09
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index">
+                    <span itemprop="name">code</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          根据某字段对多维数组进行排序，在看到array_multisort方法的作用时突然想到，可以用来做这个方法
+function sortArrByField(&amp;$array, $field, $isDesc = false)&#123;     $fieldArr = array();    foreach ($array as $k =&gt; $v) &#123;        $fieldArr[$k] = $v[$field];    &#125;    $sort = $isDe
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/01/09/php/php-sortArrByfield/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/12/28/php/php-authoload/" itemprop="url">
                   PHP的自动加载
                 </a>
@@ -674,122 +783,6 @@ var_dump(intval('13800138000'));//  int 2147483647
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/25/php/php-filePath/" itemprop="url">
-                  PHP文件操作part1[文件路径]
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-09-25T22:07:00+08:00" content="2014-09-25">
-              2014-09-25
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          绝对路径与相对路径
-文件函数最常用的参数是什么？路径。而路径参数大致分两种：绝对路径和相对路径。
-
-绝对路径 : 从盘开始的路径example:
-/Users/jceee/code/app/www/index.php（app项目中的index.php文件）
-相对路径 : 以当前文件为基准所组成的路径example:
-./index.php(相对当前目录)../index.php(相对上级目录)
-获取绝对路径realpathphp中有通过相对路径获得绝对路径的方法realpath($path)
-v
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/25/php/php-filePath/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -834,7 +827,7 @@ v
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
