@@ -248,6 +248,119 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/18/mysql/brew-mysql/" itemprop="url">
+                  修改用brew安装的mysql配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-18T15:35:33+08:00" content="2015-10-18">
+              2015-10-18
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          用brew安装mysqlbrew是OS X上的包管理工具，类型linux上的apt-get, yum等
+首先，需要先装好brew$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+mysql install安装：
+$ brew install mysql
+设置开机启动:
+$ ln -sfv /usr/local/opt/mysql/*.plist ~/Library
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/18/mysql/brew-mysql/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/14/IDE/sublime/sublime-Encode/" itemprop="url">
                   sublime text中文乱码解决
                 </a>
@@ -672,130 +785,6 @@ ALTER TABLE tableA ADD id IN
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/18/js/hexo/hexo-1-install/" itemprop="url">
-                  使用hexo搭建个人博客 part1
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-09-18T21:06:35+08:00" content="2015-09-18">
-              2015-09-18
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-代码段中的”$ “指在命令行下执行
-
-
-安装hexo安装首先环境中要装好：
-
-node.js
-npm
-
-这2个的安装这里不详细介绍，在安装完的情况下：
-$ npm install -g hexo
-初始化项目初始化blog项目
-$ hexo init blog
-或者创建一个项目blog,在项目中初始化
-$ mkdir blog$ cd blog$ hexo init
-安装依赖$ npm install
-开启服务hexo中3.0版本，在第一次开启服务的时候需要先安装一下hexo的server工具：
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/18/js/hexo/hexo-1-install/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -840,7 +829,7 @@ $ mkdir blog$ cd blog$ hexo init
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -854,7 +843,7 @@ $ mkdir blog$ cd blog$ hexo init
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -898,7 +887,7 @@ $ mkdir blog$ cd blog$ hexo init
         <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

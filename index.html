@@ -252,6 +252,120 @@
             
               
                 
+                <a class="post-title-link" href="/2022/03/13/golang/learn/error/" itemprop="url">
+                  Golang错误处理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2022-03-13T16:31:16+08:00" content="2022-03-13">
+              2022-03-13
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index">
+                    <span itemprop="name">golang</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+golang编程中，错误处理估计是写得最多的代码，我们总结一下使用上的问题
+
+标准库 vs 第三方包pkg/errorserror是一个接口，实现了Error()方法，返回字符串
+type error interface &#123;	Error() string&#125;
+标准库errors标准库提供了简单的错误创建与处理，我们使用官方包errors简单新建一个错误
+package main import (	"errors"	"fmt")func main() &#123;	err :=
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2022/03/13/golang/learn/error/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2021/12/20/mysql/mysql-proxy/" itemprop="url">
                   使用mysql中间件：mysql proxy
                 </a>
@@ -693,121 +807,6 @@ $sql = "SELECT * from m_user limit 10";$db = new MySQLi($host, $user, $pwd, $d
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2021/06/26/git/split-git-repository/" itemprop="url">
-                  拆分Git仓库并保存提交记录
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2021-06-26T22:48:38+08:00" content="2021-06-26">
-              2021-06-26
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-分分合合是常态，大项目有时会有拆分的需求，当想拆分git项目，又想保留提交记录时，可以按下面流程操作
-
-基本设定父项目为 https://github.com/xxx/demo.git
-父仓库目录：/demo
-当前子仓库目录：/demo/target_child
-目标是把target_child拆到新项目：https://github.com/xxx/target_child.git
-step1 clone 一份原仓库文件到本地，目录为目标文件夹​cd ~/git/code/​​git clo
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2021/06/26/git/split-git-repository/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -852,7 +851,7 @@ step1 clone 一份原仓库文件到本地，目录为目标文件夹​cd ~/git
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -866,7 +865,7 @@ step1 clone 一份原仓库文件到本地，目录为目标文件夹​cd ~/git
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -910,7 +909,7 @@ step1 clone 一份原仓库文件到本地，目录为目标文件夹​cd ~/git
         <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
