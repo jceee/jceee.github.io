@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jcsama.com/"/>
-  <updated>2022-03-13T08:05:56.459Z</updated>
+  <updated>2022-03-17T11:09:26.209Z</updated>
   <id>http://www.jcsama.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP-FPM 子进程不断重启exited on signal 11</title>
+    <link href="http://www.jcsama.com/2022/03/16/php/php-fpm-signal-exited/"/>
+    <id>http://www.jcsama.com/2022/03/16/php/php-fpm-signal-exited/</id>
+    <published>2022-03-16T12:07:01.000Z</published>
+    <updated>2022-03-17T11:09:26.209Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="u73B0_u8C61"><a href="#u73B0_u8C61" class="headerlink" title="现象"></a>现象</h1><p>某台服务器请求状态码出现大量502，看所有php-fpm master进程不断重启</p><h1 id="u5B9A_u4F4D_u6392_u67E5"><a href="#u5B9A_u4F4D_u6392_u67E5" class="headerlink" title="定位排查"></a>定位排查</h1><h2 id="u68C0_u67E5_u53D1_u7248"><a href="#u68C0_u67E5_u53D1_u7248" class="headerlink" title="检查发版"></a>检查发版</h2><p>检查对应时间是否有发版，检查了之后确实与发版时间吻合，但检查代码没看出问题，但多台服务器一起发布，只有一台出现问题，跟代码有关的概率很低，可以先排除代码问题</p><h2 id="u770Bphp-fpm__u9519_u8BEF_u65E5_u5FD7"><a href="#u770Bphp-fpm__u9519_u8BEF_u65E5_u5FD7" class="headerlink" title="看php-fpm 错误日志"></a>看php-fpm 错误日志</h2><p>首先从配置文件找到错误日志路径：</p><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">$ <span class="keyword">cat</span> /usr/<span class="keyword">local</span>/php/etc/php-fpm.<span class="keyword">conf</span> | grep error_log</span><br><span class="line"></span><br><span class="line">error_log = /data1/logs/php-fpm.<span class="keyword">log</span></span><br></pre></td></tr></table></figure><p>从错误日志中可以看到子进程反复通过<code>signal 11 (SIGSEGV)</code>信号退出</p><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="symbol">WARNING: </span>[pool www] child 25406 exited on signal 11 (SIGSEGV) after 47.465595 seconds from start</span><br><span class="line">.......</span><br></pre></td></tr></table></figure><h2 id="u8FFD_u8E2A_u8FDB_u7A0B"><a href="#u8FFD_u8E2A_u8FDB_u7A0B" class="headerlink" title="追踪进程"></a>追踪进程</h2><p>查了<code>SIGSEGV</code>定义：</p><blockquote><ol><li>SIGSEGV是在访问内存时发生的错误，它属于内存管理的范畴</li><li>SIGSEGV是一个用户态的概念，是操作系统在用户态程序错误访问内存时所做出的处理。</li><li>当用户态程序访问（访问表示读、写或执行）不允许访问的内存时，产生SIGSEGV。 </li><li>当用户态程序以错误的方式访问允许访问的内存时，产生SIGSEGV</li></ol></blockquote><p>也就是进程访问到异常内存导致异常退出，这时我们来追踪进程执行遇到什么问题</p><h3 id="strace"><a href="#strace" class="headerlink" title="strace"></a>strace</h3><p>我们通过strace追踪某个子进程，看结束前是跑了什么逻辑，这里排除master进程，head出一个子进程来追踪，因为子进程重启很快，不一定能捕获到，要多跑几次</p><figure class="highlight coq"><table><tr><td class="code"><pre><span class="line">ps aux | <span class="type">grep</span> php-fpm | <span class="type">grep</span> -v master |<span class="type">head</span> <span class="number">-1</span> | <span class="type">awk</span> '&#123;print <span class="string">" -p "</span> $<span class="number">2</span><span class="string">" -s 10000 -o /tmp/strace_"</span>$<span class="number">2</span><span class="string">".log"</span>&#125;'|<span class="type">xargs</span> sudo strace</span><br></pre></td></tr></table></figure><p>看strace日志：</p><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">....</span></span><br><span class="line">stat<span class="params">("xxx.php", &#123;<span class="attr">st_mode</span>=S_IFREG|0644, <span class="attr">st_size</span>=142755, ...&#125;)</span> = 0</span><br><span class="line">open<span class="params">("/data/eaccelerator_cache/1/5/eaccelerator-48746.27075141", O_RDONLY)</span> = 4</span><br><span class="line">flock<span class="params">(4, LOCK_SH)</span>                       = 0</span><br><span class="line">read<span class="params">(4, "EACCELER\..........</span></span><br><span class="line"><span class="params">843496)</span> = 843496</span><br><span class="line">flock<span class="params">(4, LOCK_UN)</span>                       = 0</span><br><span class="line">close<span class="params">(4)</span>                                = 0</span><br><span class="line">stat<span class="params">("xxx.php", &#123;<span class="attr">st_mode</span>=S_IFREG|0644, <span class="attr">st_size</span>=142755, ...&#125;)</span> = 0</span><br><span class="line"><span class="params">---</span> SIGSEGV &#123;si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=0xd21f4a20c8&#125; </span><br><span class="line">rt_sigaction<span class="params">(SIGSEGV, &#123;<span class="attr">sa_handler</span>=SIG_DFL, <span class="attr">sa_mask</span>=[SEGV], <span class="attr">sa_flags</span>=SA_RESTORER|SA_RESTART, <span class="attr">sa_restorer</span>=0x7ff5c002c400&#125;, &#123;<span class="attr">sa_handler</span>=0x7ff5b59caa30, <span class="attr">sa_mask</span>=[SEGV], <span class="attr">sa_flags</span>=SA_RESTORER|SA_RESTART, <span class="attr">sa_restorer</span>=0x7ff5c002c400&#125;, 8)</span> = 0</span><br><span class="line">kill<span class="params">(300, SIGSEGV)</span>                      = 0</span><br><span class="line">rt_sigreturn<span class="params">(&#123;<span class="attr">mask</span>=[]&#125;)</span>                 = 140693241590544</span><br><span class="line"><span class="params">---</span> SIGSEGV &#123;si_signo=SIGSEGV, si_code=SI_USER, si_pid=300, si_uid=1007&#125; <span class="params">---</span></span><br><span class="line">+++ killed by SIGSEGV +++</span><br></pre></td></tr></table></figure><p>看到发生<code>SIGSEGV</code>之前是执行了xxx.php，再之前有个动作是加载了编译缓存<code>open(&quot;/data/eaccelerator_cache/1/5/eaccelerator-48746.27075141&quot;, O_RDONLY)</code>，代码每台机都一样，可能是编译缓存出现问题，我们把缓存删除试试，502消失了，确实是缓存问题</p><h1 id="u5206_u6790"><a href="#u5206_u6790" class="headerlink" title="分析"></a>分析</h1><p>原因：根据触发的时间点与发版吻合，猜测有可能是服务器请求量大，在热更的时候编译缓存生成出现问题，导致进程异常，偶然现象<br>优化：把服务容器化，发版时断开流量，更新完代码重启容器，重新生成缓存</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;u73B0_u8C61&quot;&gt;&lt;a href=&quot;#u73B0_u8C61&quot; class=&quot;headerlink&quot; title=&quot;现象&quot;&gt;&lt;/a&gt;现象&lt;/h1&gt;&lt;p&gt;某台服务器请求状态码出现大量502，看所有php-fpm master进程不断重启&lt;/p&gt;
+&lt;h1 id
+      
+    
+    </summary>
+    
+      <category term="php" scheme="http://www.jcsama.com/categories/php/"/>
+    
+    
+      <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
+    
+  </entry>
   
   <entry>
     <title>Golang错误处理</title>
@@ -507,9 +533,9 @@
       <category term="pattern" scheme="http://www.jcsama.com/categories/pattern/"/>
     
     
-      <category term="pattern" scheme="http://www.jcsama.com/tags/pattern/"/>
-    
       <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
+    
+      <category term="pattern" scheme="http://www.jcsama.com/tags/pattern/"/>
     
   </entry>
   
@@ -528,31 +554,6 @@
       
         &lt;h2 id=&quot;u6D41&quot;&gt;&lt;a href=&quot;#u6D41&quot; class=&quot;headerlink&quot; title=&quot;流&quot;&gt;&lt;/a&gt;流&lt;/h2&gt;&lt;p&gt;流是PHP4.3.0中引入的特性，作用是使用统一方式处理文件、网络和数据压缩等共同一套函数和用法的操作。&lt;/p&gt;
 &lt;p&gt;每一个流都有
-      
-    
-    </summary>
-    
-      <category term="php" scheme="http://www.jcsama.com/categories/php/"/>
-    
-    
-      <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php高精确度数值比较-bccomp</title>
-    <link href="http://www.jcsama.com/2016/02/16/php/php-bccomp/"/>
-    <id>http://www.jcsama.com/2016/02/16/php/php-bccomp/</id>
-    <published>2016-02-16T15:26:30.000Z</published>
-    <updated>2021-08-09T06:15:05.369Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="bccomp"><a href="#bccomp" class="headerlink" title="bccomp"></a>bccomp</h2><p>bccomp是php的bcmath库中的方法，使用前先用phpinfo()确认一下有没有开启bcmatch库,没有则需要进行对应的编译操作。</p><p><code>bccomp($left_operand, $right_operand [, $scale = 0]);</code></p><p>参数</p><table><thead><tr><th>参数</th><th>参数描述</th><th>属性</th></tr></thead><tbody><tr><td>$left_operand</td><td>左边字符串</td><td>string</td></tr><tr><td>$right_operand</td><td>右边字符串</td><td>string</td></tr><tr><td>$scale(可不填，默认0)</td><td>返回值小数点后所需的位数</td><td>int</td></tr></tbody></table><p><code>bccomp</code>函数用于比较二个高精确度的数字。输入二个字符串，若二个字符串一样大则返回 0；若左边的数字字符串 (left operand) 比右边 (right operand) 的大则返回 +1；若左边的数字字符串比右边的小则返回 -1。scale 是一个可有可无的选项，表示返回值小数点后所需的位数:</p><figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">echo '&lt;pre&gt;';</span><br><span class="line">var_dump(bccomp('1', '2'));   <span class="comment">// int(-1)</span></span><br><span class="line">var_dump(bccomp('1.<span class="number">0000</span>1', '1', <span class="number">3</span>)); <span class="comment">// int(0)</span></span><br><span class="line">var_dump(bccomp('1.<span class="number">0000</span>1', '1', <span class="number">5</span>)); <span class="comment">// int(1)</span></span><br></pre></td></tr></table></figure><h2 id="u6574_u6570_u4E0E_u6D6E_u70B9_u6570_u5BF9_u6BD4"><a href="#u6574_u6570_u4E0E_u6D6E_u70B9_u6570_u5BF9_u6BD4" class="headerlink" title="整数与浮点数对比"></a>整数与浮点数对比</h2><p>举个例子：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">var_dump(8160 == <span class="string">'81.6'</span> * 100);          //<span class="literal">false</span></span><br><span class="line">var_dump(<span class="string">'81.6'</span> * 100);                  //<span class="built_in">float</span>(8160)</span><br><span class="line">var_dump(<span class="string">'81.6'</span> * 100 - 8160);           //<span class="built_in">float</span>(-9.0949470177293E-13)</span><br></pre></td></tr></table></figure><p>第一个值是整数8160，第二个值是浮点81.6 跟 100相乘，虽然都是8160，但并不相等，减下来有差。这时，我们可以用bccomp来做判断：</p><figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">var_dump(bccomp(<span class="number">8160</span>, '<span class="number">81.60</span>' * <span class="number">100</span>) === <span class="number">0</span>);  <span class="comment">//bool(true)</span></span><br></pre></td></tr></table></figure><p>如果没有bcmath库，也可以把第一个整数除以100，得到浮点数再进行对比</p><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">var_dump(<span class="number">8160</span> / <span class="number">100</span> == <span class="string">'81.6'</span>);               <span class="regexp">//bool</span>(<span class="keyword">true</span>)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;bccomp&quot;&gt;&lt;a href=&quot;#bccomp&quot; class=&quot;headerlink&quot; title=&quot;bccomp&quot;&gt;&lt;/a&gt;bccomp&lt;/h2&gt;&lt;p&gt;bccomp是php的bcmath库中的方法，使用前先用phpinfo()确认一下有没有开启bcmatch库
       
     
     </summary>
