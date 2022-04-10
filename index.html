@@ -220,15 +220,124 @@
 
     
     
+
+    
       
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2022/04/09/mysql/mysqlslap/" itemprop="url">
+                  使用mysqlslap回放Mysql流量
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2022-04-09T17:40:00+08:00" content="2022-04-09">
+              2022-04-09
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-        
-        
-        
       
 
       
-    
+        
+          
+          背景mysqlslap简介mysqlslap 是 MySQL 从 5.1.4 版开始官方自带的一个压力测试工具。
+功能：它通过模拟多个并发客户端访问 MySQL 来执行压力测试，我们通过结果信息可以了解数据库的性能状况。
+适用场景
+优化了操作系统的内核参数后，是否提升了性能
+优化了Mysql参数，性能变化
+服务器的硬件资源能够支持多大的访问压力
+
+压测流程流量录制打开原Mysql服务的general log，录制一定时间的流量
+注意：
+
+general log的开启会增加Mysql的io压力，造
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2022/04/09/mysql/mysqlslap/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -685,127 +794,6 @@ step2 把清单编写出来FROM centosRUN yum install binutils -y \    &amp;&amp
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2021/10/03/js/hexo/hexo-gitpage-404/" itemprop="url">
-                  hexo gitpage 404
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2021-10-03T21:30:20+08:00" content="2021-10-03">
-              2021-10-03
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          一个奇怪的问题
-Step 1 更新了一篇新的post;
-
-Step 2 使用hexo s本地页面显示正常 ;
-
-Step 3 使用hexo g -d命令执行正确;
-
-Step 4 打开对应的Git page，发现404
-
-
-为什么会出现
-首先从最后环节开始排查，使用hexo d --debug查看部署是否有问题，没看到报错，把.deploy_git下的文件清理掉，重新跑几次也没解决
-接着看部署问题，hexo g --debug，文件生成也正常，无报错
-继续看生成的入口文件，发现index.htm
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2021/10/03/js/hexo/hexo-gitpage-404/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -850,21 +838,21 @@ Step 4 打开对应的Git page，发现404
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">52</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

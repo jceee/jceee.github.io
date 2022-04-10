@@ -220,11 +220,119 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/07/05/mysql/mysql-timeMethod/" itemprop="url">
+                  mysql的时间转换函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-07-05T21:42:00+08:00" content="2015-07-05">
+              2015-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
-    
+        
+          
+          格式化时间戳FROM_UNIXTIMEFROM_UNIXTIME(unix_timestamp, format)第一个参数是时间戳格式。 第二个是最终想转换的格式，如
+SELECT FROM_UNIXTIME(1436102304,'%Y年%m月%d日') as date;
+结果:
+date     :       2015年07月05日
+字符串转换unix时间戳UNIX_TIMESTAMPUNIX_TIMESTAMP(date) 是将时间转化为时间戳，如 
+SELECT UNIX_TIMEST
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/05/mysql/mysql-timeMethod/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -730,118 +838,6 @@ function __autoload($classname)&#123;	$classpath = './
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/12/28/js/js-ajax/" itemprop="url">
-                  Ajax中的2个需要注意的地方
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-12-28T16:49:00+08:00" content="2014-12-28">
-              2014-12-28
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-Ajax在WEB程序中调用api的利器，这儿记录下在使用过程中发现2个容易忽略而导致错误的地方，这两个地方也是一些javascript的基础知识，也可以当作重温一下javascript的基础
-
-异步获取数据异步是指，在ajax发送请求后，会继续执行下面的方法，直到请求返回时，再回过头来执行ajax中的回调方法。这也是ajax异步的强大之处，不会因为请求而影响程序其他任务的执行时间。但如果你下面执行的代码中，有需要请求返回的数据，那就会发生错误了，因为请求还没回来，你的代码就执行了。如下:
- $
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/12/28/js/js-ajax/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -886,21 +882,21 @@ Ajax在WEB程序中调用api的利器，这儿记录下在使用过程中发现2
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">52</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

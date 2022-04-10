@@ -220,11 +220,118 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/12/28/js/js-ajax/" itemprop="url">
+                  Ajax中的2个需要注意的地方
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-12-28T16:49:00+08:00" content="2014-12-28">
+              2014-12-28
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
-    
+        
+          
+          
+Ajax在WEB程序中调用api的利器，这儿记录下在使用过程中发现2个容易忽略而导致错误的地方，这两个地方也是一些javascript的基础知识，也可以当作重温一下javascript的基础
+
+异步获取数据异步是指，在ajax发送请求后，会继续执行下面的方法，直到请求返回时，再回过头来执行ajax中的回调方法。这也是ajax异步的强大之处，不会因为请求而影响程序其他任务的执行时间。但如果你下面执行的代码中，有需要请求返回的数据，那就会发生错误了，因为请求还没回来，你的代码就执行了。如下:
+ $
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/12/28/js/js-ajax/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -700,121 +807,6 @@ INSERT INTO `Article`(`name`,`title`)VALUES ('name1','title1');INSERT INTO `Arti
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/06/js/js-qrcode/" itemprop="url">
-                  通过二维码开放平台的API快速生成二维码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-09-06T17:06:00+08:00" content="2014-09-06">
-              2014-09-06
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-二维码能快速地提高手机访问网站的速度，而不用麻烦地手动敲打地址。这次给大家分享一个很方便的快速生成二维码的方法。
-
-现在很多网站都有通过扫二维码用手机连接的功能，联图网的二维码开放平台开放了一个生成二维码图片的Api,挺方便使用的。闲着无聊，写了个前台快速生成二维码的方法。
-html代码如下:(二维码将生成在这div下)
-&lt;div id='qrcode'&gt;&lt;/div&gt;
-js代码如下：
-var qrCode = &#123;    //初始化属性    jsonData:
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/06/js/js-qrcode/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -859,21 +851,21 @@ var qrCode = &#123;    //初始化属性    jsonData:
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">52</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jcsama.com/"/>
-  <updated>2022-03-17T11:09:26.209Z</updated>
+  <updated>2022-04-10T10:40:48.171Z</updated>
   <id>http://www.jcsama.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用mysqlslap回放Mysql流量</title>
+    <link href="http://www.jcsama.com/2022/04/09/mysql/mysqlslap/"/>
+    <id>http://www.jcsama.com/2022/04/09/mysql/mysqlslap/</id>
+    <published>2022-04-09T09:40:00.000Z</published>
+    <updated>2022-04-10T10:40:48.171Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="u80CC_u666F"><a href="#u80CC_u666F" class="headerlink" title="背景"></a>背景</h1><h2 id="mysqlslap_u7B80_u4ECB"><a href="#mysqlslap_u7B80_u4ECB" class="headerlink" title="mysqlslap简介"></a>mysqlslap简介</h2><p><code>mysqlslap</code> 是 MySQL 从 5.1.4 版开始官方自带的一个压力测试工具。</p><p>功能：它通过模拟多个并发客户端访问 MySQL 来执行压力测试，我们通过结果信息可以了解数据库的性能状况。</p><h2 id="u9002_u7528_u573A_u666F"><a href="#u9002_u7528_u573A_u666F" class="headerlink" title="适用场景"></a>适用场景</h2><ul><li>优化了操作系统的内核参数后，是否提升了性能</li><li>优化了Mysql参数，性能变化</li><li>服务器的硬件资源能够支持多大的访问压力</li></ul><h1 id="u538B_u6D4B_u6D41_u7A0B"><a href="#u538B_u6D4B_u6D41_u7A0B" class="headerlink" title="压测流程"></a>压测流程</h1><h2 id="u6D41_u91CF_u5F55_u5236"><a href="#u6D41_u91CF_u5F55_u5236" class="headerlink" title="流量录制"></a>流量录制</h2><p>打开原Mysql服务的<code>general log</code>，录制一定时间的流量</p><p>注意：</p><ul><li><code>general log</code>的开启会增加Mysql的io压力，造成一定的性能下降，请选择适当的时间，且注意观察服务器压力</li></ul><h2 id="u56DE_u653E_u6587_u4EF6_u68B3_u7406"><a href="#u56DE_u653E_u6587_u4EF6_u68B3_u7406" class="headerlink" title="回放文件梳理"></a>回放文件梳理</h2><h3 id="u7B5B_u9009_u51FASQL_u90E8_u5206_u7684_u5185_u5BB9"><a href="#u7B5B_u9009_u51FASQL_u90E8_u5206_u7684_u5185_u5BB9" class="headerlink" title="筛选出SQL部分的内容"></a>筛选出SQL部分的内容</h3><p>回放需要的文件是一行一个sql，而<code>general log</code>里我们只需要Query部分的内容，如：</p><figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line">220408 14:35:13 1150499963 Query        <span class="keyword">UPDATE</span> <span class="symbol">`m_user`</span> <span class="keyword">SET</span> <span class="symbol">`status`</span> = <span class="string">'1'</span> <span class="keyword">WHERE</span> uid = <span class="number">3</span></span><br><span class="line">                <span class="number">1781571137</span> Quit</span><br><span class="line">                <span class="number">1781571146</span> <span class="keyword">Connect</span>      root@<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="keyword">on</span> db_test</span><br><span class="line">                <span class="number">1781571120</span> Init DB      db_test</span><br></pre></td></tr></table></figure><h3 id="u53BB_u6389_u6362_u884C_u3001_u6CE8_u91CA_u7B49_u5B57_u7B26"><a href="#u53BB_u6389_u6362_u884C_u3001_u6CE8_u91CA_u7B49_u5B57_u7B26" class="headerlink" title="去掉换行、注释等字符"></a>去掉换行、注释等字符</h3><p>筛选完Query，还可能有换行的SQL，或带注释的SQL，这种需要拼接回一行，并去掉注释</p><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">1792900537 Query        <span class="keyword">SELECT</span> uid,user_name  <span class="comment">--field注释部分</span></span><br><span class="line">                        <span class="keyword">FROM</span> m_user</span><br><span class="line">                        <span class="keyword">WHERE</span> uid = <span class="number">2</span> </span><br><span class="line">                        <span class="keyword">LIMIT</span> <span class="number">1</span></span><br></pre></td></tr></table></figure><h3 id="u8865_u5145_u5E93_u540D"><a href="#u8865_u5145_u5E93_u540D" class="headerlink" title="补充库名"></a>补充库名</h3><p>如果测试的实例有多个库，会更加麻烦一些，需要在梳理的时候可以根据表名补充回sql</p><h2 id="u6D41_u91CF_u56DE_u653E"><a href="#u6D41_u91CF_u56DE_u653E" class="headerlink" title="流量回放"></a>流量回放</h2><h3 id="u547D_u4EE4_u4E0E_u53C2_u6570"><a href="#u547D_u4EE4_u4E0E_u53C2_u6570" class="headerlink" title="命令与参数"></a>命令与参数</h3><p>我们最终得到一个sql文件，接着我们就可以开始压测了</p><p>具体命令如下：<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo /usr/local/mysql/bin/mysqlslap --no-defaults -h127.0.0.1 -P3306 -utest_mysqlslap -p<span class="string">'123456'</span>  <span class="attribute">--concurrency</span>=600 <span class="attribute">--iterations</span>=2 <span class="attribute">--create-schema</span>=test_db <span class="attribute">--query</span>=/data/general_out.log <span class="attribute">--number-of-queries</span>=80000000 -T</span><br></pre></td></tr></table></figure></p><p>参数含义</p><ul><li>–no-defaults   必须加在参数第一位，不然会报<code>unknown variable &#39;default-character-set=utf8</code></li><li>-h 待测试实例host</li><li>-P 待测试实例端口</li><li>-u 待测试实例账号</li><li>-p 待测试实例密码</li><li>–concurrency 并发线程数</li><li>–iterations 重复次数，按多次计算平均数</li><li>–create-schema  指定测试的库</li><li>–query 可以是sql语句，也可以是个sql文件，我们这里用的是文件模式</li><li>–number-of-queries 请求次数，所有sql请求的次数，比如sql文件里有200个sql，<code>number-of-queries</code>指定100时，会只执行到一半就停止，指定300时，会执行完200个再重新跑100</li></ul><h3 id="u7ED3_u679C"><a href="#u7ED3_u679C" class="headerlink" title="结果"></a>结果</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">Benchmark</span><br><span class="line">        Average number of seconds <span class="keyword">to</span> <span class="builtin-name">run</span> all queries: 672.956 seconds</span><br><span class="line">        Minimum number of seconds <span class="keyword">to</span> <span class="builtin-name">run</span> all queries: 672.341 seconds</span><br><span class="line">        Maximum number of seconds <span class="keyword">to</span> <span class="builtin-name">run</span> all queries: 673.571 seconds</span><br><span class="line">        Number of clients running queries: 600</span><br><span class="line">        Average number of queries per client: 133333</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">User time 1503.60,<span class="built_in"> System </span>time 3036.06</span><br><span class="line">Maximum resident <span class="builtin-name">set</span> size 9077056, Integral resident <span class="builtin-name">set</span> size 0</span><br><span class="line">Non-physical pagefaults 4343854, Physical pagefaults 19, Swaps 0</span><br><span class="line">Blocks <span class="keyword">in</span> 4262400 out 8, Messages <span class="keyword">in</span> 0 out 0, Signals 0</span><br><span class="line">Voluntary context switches 161188899, Involuntary context switches 5020</span><br></pre></td></tr></table></figure><p>从结果看，执行80000000 个sql的平均时间是672.956秒，得出qps差不多119047.6，具体的硬件cpu、io、负载，可以看对应实例的监控</p><h3 id="u5E76_u53D1_u5199_u9501"><a href="#u5E76_u53D1_u5199_u9501" class="headerlink" title="并发写锁"></a>并发写锁</h3><p>因为我们设置了600个<code>concurrency</code>并发数，所以一些原本串行更新可能变为并发更新，导致产生并发锁：</p><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">/usr/local/mysql/bin/mysqlslap: Cannot run query <span class="keyword">UPDATE</span> <span class="string">`m_user`</span> <span class="keyword">SET</span> <span class="string">`status`</span>=<span class="number">1</span> <span class="keyword">WHERE</span> <span class="string">`uid`</span>=<span class="number">235</span> <span class="keyword">ERROR</span> : <span class="keyword">Lock</span> <span class="keyword">wait</span> <span class="keyword">timeout</span> exceeded; try restarting transaction</span><br></pre></td></tr></table></figure><p>这时可以按sql类型拆分sql文件，把<code>select</code>和<code>update</code>、<code>insert</code>、<code>delete</code>分出不同文件。通过开多个mysqlslap进程来压测</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;u80CC_u666F&quot;&gt;&lt;a href=&quot;#u80CC_u666F&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;h2 id=&quot;mysqlslap_u7B80_u4ECB&quot;&gt;&lt;a href=&quot;#mysqlslap_u7B8
+      
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://www.jcsama.com/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://www.jcsama.com/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP-FPM 子进程不断重启exited on signal 11</title>
@@ -158,7 +183,7 @@
     <link href="http://www.jcsama.com/2021/09/11/php/php_mysql_charset/"/>
     <id>http://www.jcsama.com/2021/09/11/php/php_mysql_charset/</id>
     <published>2021-09-11T10:13:00.000Z</published>
-    <updated>2021-10-08T06:00:05.616Z</updated>
+    <updated>2022-03-18T08:30:32.836Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p> 每个程序员多少都遇到过一些祖传代码，当代码能跑起来的时候并不可怕，可怕的是换了个环境，代码跑不起来了，这时脑里离不开这2个问题：”it can works ,why ?”  or  “it can`t works , why?”</p></blockquote><h2 id="u53D1_u73B0_u95EE_u9898"><a href="#u53D1_u73B0_u95EE_u9898" class="headerlink" title="发现问题"></a>发现问题</h2><p>有这一段代码，在服务器A中，从Mysql查出来的中文字段是正常显示的，从服务器B中显示的却是<code>???</code></p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$sql = <span class="string">"SELECT * from m_user limit 10"</span>;</span><br><span class="line">$db = <span class="keyword">new</span> MySQLi($host, $user, $pwd, $dbname, $port);</span><br><span class="line">$result = $db-&gt;query($sql);</span><br><span class="line">$output = $result-&gt;fetch_assoc();</span><br><span class="line">$result-&gt;free();</span><br><span class="line">var_dump($output);</span><br></pre></td></tr></table></figure><h2 id="u4FEE_u590D_u95EE_u9898"><a href="#u4FEE_u590D_u95EE_u9898" class="headerlink" title="修复问题"></a>修复问题</h2><p><code>MySQLi</code>很少用，现在基本都是用<code>PDO</code>了，遇到这问题第一反应是查函数文档，是不是有些奇怪的环境设置。</p><p>查到<code>MySQLi</code>编码相关有<code>set_charset</code>函数，而mysql连接也有<code></code>SET NAMES {charset}`可以指定编码，在使用代码指定编码后服务器B也可以正常使用：</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$db = <span class="keyword">new</span> MySQLi($host, $user, $pwd, $dbname, $port);</span><br><span class="line">$db-&gt;set_charset(<span class="string">"utf8"</span>);</span><br><span class="line"><span class="comment">// or $db-&gt;query("set names utf8");</span></span><br><span class="line">$result = $db-&gt;query($sql);</span><br></pre></td></tr></table></figure><p>指定编码是可以正常查询，那么我们再通过<code>get_charset</code>，看看各自连接默认使用的编码：</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$db = <span class="keyword">new</span> MySQLi($host, $user, $pwd, $dbname, $port);</span><br><span class="line">var_dump($db-&gt;get_charset());</span><br></pre></td></tr></table></figure><p>发现正常的机器上使用的是<code>utf8</code>，乱码机器上的是<code>latin1</code></p><h2 id="u6392_u67E5_u95EE_u9898"><a href="#u6392_u67E5_u95EE_u9898" class="headerlink" title="排查问题"></a>排查问题</h2><p>我们发现问题在于php与mysql连接时，默认编码不一致，我们排查一下php与mysql的连接扩展有没有问题</p><p>通过<code>php -i</code> 命令查看mysql client使用的版本</p><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//默认utf8的机器:</span></span><br><span class="line">mysqli</span><br><span class="line">Client API library version =&gt; 5.5.19</span><br><span class="line">---------------------</span><br><span class="line"><span class="comment">//默认latin1的机器：</span></span><br><span class="line">mysqli</span><br><span class="line">Client API library version =&gt; 5.5.68-MariaDB</span><br></pre></td></tr></table></figure><p>通过对比，我们发现两者的版本并不一致，有问题的机器使用的是<code>MariaDB</code>，通过wifi百科发现这是个社区开发的，兼容mysql协议的开源数据库管理系统。</p><p><code>MariaDB</code>的API和协议兼容MySQL，使用是没有问题的，但<code>MariaDB</code>的默认编码是<code>latin1</code>，那这很可能就是问题根源。</p><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">In</span> MariaDB, the<span class="built_in"> default </span>character <span class="builtin-name">set</span> is latin1, <span class="keyword">and</span> the<span class="built_in"> default </span>collation is latin1_swedish_ci</span><br></pre></td></tr></table></figure><p>尝试修改php连接mysql的 Client API library，安装mysqlmysql_5.5.19 lib包，改原来使用包的软链，发现代码正常运行，问题解决～</p><h2 id="u540E_u8BB0"><a href="#u540E_u8BB0" class="headerlink" title="后记"></a>后记</h2><p>我们可以通过docker之类的工具，保持统一的环境，但从开发的解决还是尽量维护代码健壮性，通过代码指定连接使用的编码，这样换一个差不多的环境也能正常运行，可以少折腾一些环境</p><h2 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="/MariaDB">MariaDB</a></li><li><a href="https://mariadb.com/kb/en/setting-character-sets-and-collations/" target="_blank" rel="noopener">MariaDb Default Charset</a></li></ul>]]></content>
     
@@ -176,7 +201,9 @@
       <category term="php" scheme="http://www.jcsama.com/categories/php/"/>
     
     
-      <category term="php mysql" scheme="http://www.jcsama.com/tags/php-mysql/"/>
+      <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
+    
+      <category term="mysql" scheme="http://www.jcsama.com/tags/mysql/"/>
     
   </entry>
   
@@ -533,33 +560,7 @@
       <category term="pattern" scheme="http://www.jcsama.com/categories/pattern/"/>
     
     
-      <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
-    
       <category term="pattern" scheme="http://www.jcsama.com/tags/pattern/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>stream_context_create</title>
-    <link href="http://www.jcsama.com/2016/02/29/php/php-stream/"/>
-    <id>http://www.jcsama.com/2016/02/29/php/php-stream/</id>
-    <published>2016-02-29T13:06:35.000Z</published>
-    <updated>2021-08-09T06:15:05.369Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="u6D41"><a href="#u6D41" class="headerlink" title="流"></a>流</h2><p>流是PHP4.3.0中引入的特性，作用是使用统一方式处理文件、网络和数据压缩等共同一套函数和用法的操作。</p><p>每一个流都有一个协议和一个目标。指定协议和目标的方法是使用流标识符：</p><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">&lt;scheme&gt;<span class="symbol">://&lt;target&gt;</span></span><br></pre></td></tr></table></figure><p><scheme>是流的封装协议，<target>是流的数据源</target></scheme></p><p>如：</p><figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//api.jceee.com/services/api.php?action=test</span></span><br><span class="line"><span class="symbol">php:</span><span class="comment">//stdout</span></span><br><span class="line"><span class="symbol">file:</span><span class="comment">///etc/data.txt</span></span><br></pre></td></tr></table></figure><h2 id="stream_context_create"><a href="#stream_context_create" class="headerlink" title="stream_context_create"></a><code>stream_context_create</code></h2><p>stream_context_create用于创建流的上下文，也就是php流能接受的一系列可选参数，通过这些参数来定义流的行为，不同流的封装协议使用的上下文参数有所不同。</p><h3 id="file_get_content"><a href="#file_get_content" class="headerlink" title="file_get_content"></a>file_get_content</h3><p>我们定义一个流的参数对象，使<code>file_get_content</code>发送<code>HTTP</code>的<code>POST</code>请求。</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$requestBody = json_encode(<span class="keyword">array</span>(<span class="string">'user'</span>=&gt;<span class="string">'jceee'</span>));</span><br><span class="line">$context = stream_context_create(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'http'</span> =&gt; <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'method'</span> =&gt; <span class="string">'POST'</span>,</span><br><span class="line">        <span class="string">'header'</span> =&gt; <span class="string">"Content-Type: application/json;charset=utf-8;\r\n"</span> . </span><br><span class="line">                    <span class="string">"Content-Length: "</span> . mb_strlen($requestBody),</span><br><span class="line">        <span class="string">'content'</span> =&gt; $requestBody</span><br><span class="line">        )</span><br><span class="line">    ));</span><br><span class="line"></span><br><span class="line">$response = file_get_contents(<span class="string">'http://api.jceee.com/api.php'</span>, <span class="keyword">false</span>, $context);</span><br></pre></td></tr></table></figure><p>最外层的键<code>http</code>定义了流封装协议，值是协议的具体内容。通过定义<code>http</code>协议，我们就创建了一个<code>file_get_content</code>可接收的流上下文对象。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;u6D41&quot;&gt;&lt;a href=&quot;#u6D41&quot; class=&quot;headerlink&quot; title=&quot;流&quot;&gt;&lt;/a&gt;流&lt;/h2&gt;&lt;p&gt;流是PHP4.3.0中引入的特性，作用是使用统一方式处理文件、网络和数据压缩等共同一套函数和用法的操作。&lt;/p&gt;
-&lt;p&gt;每一个流都有
-      
-    
-    </summary>
-    
-      <category term="php" scheme="http://www.jcsama.com/categories/php/"/>
-    
     
       <category term="php" scheme="http://www.jcsama.com/tags/php/"/>
     

@@ -220,11 +220,127 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2021/10/03/js/hexo/hexo-gitpage-404/" itemprop="url">
+                  hexo gitpage 404
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2021-10-03T21:30:20+08:00" content="2021-10-03">
+              2021-10-03
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
-    
+        
+          
+          一个奇怪的问题
+Step 1 更新了一篇新的post;
+
+Step 2 使用hexo s本地页面显示正常 ;
+
+Step 3 使用hexo g -d命令执行正确;
+
+Step 4 打开对应的Git page，发现404
+
+
+为什么会出现
+首先从最后环节开始排查，使用hexo d --debug查看部署是否有问题，没看到报错，把.deploy_git下的文件清理掉，重新跑几次也没解决
+接着看部署问题，hexo g --debug，文件生成也正常，无报错
+继续看生成的入口文件，发现index.htm
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2021/10/03/js/hexo/hexo-gitpage-404/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -679,109 +795,6 @@ func main ()&#123;	f,err := os.Open("test.txt")	if err != nil &#123;		fmt.Print(
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/11/20/IDE/vscode/go-ide-vscode/" itemprop="url">
-                  GO语言IDE篇--Vscode (Mac)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-11-20T23:26:46+08:00" content="2018-11-20">
-              2018-11-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-工欲善其事，必先利其器—-《论语·卫灵公》
-
-前言当我们开始学习一个编程语言时，第一步就是选择一款编码工具，我们使用工具的主要目的是提高我们的效率： 
-
-语法高亮(基本都有)
-支持DEBUG
-插件丰富
-集成终端
-颜值（这个也很重要啊喂！）
-
-对比多款式工具后，jetbrains系列收费，LiteIDE略丑，Vim学习曲线高…最后我选择了满足了我的所有要求的Vscode，下面开始撸之～
-安装GO环境这里假设我们已经安装完基础环境并配置好了环境变量，略过…
-安装vscodevscode官网下之
-安
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/11/20/IDE/vscode/go-ide-vscode/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -826,21 +839,21 @@ func main ()&#123;	f,err := os.Open("test.txt")	if err != nil &#123;		fmt.Print(
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">52</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
