@@ -220,11 +220,6 @@
 
     
     
-      
-      
-
-      
-    
 
     
       
@@ -711,8 +706,8 @@ CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'u
             
               
                 
-                <a class="post-title-link" href="/2019/04/23/golang/defer/" itemprop="url">
-                  GO学习笔记--defer篇
+                <a class="post-title-link" href="/2020/02/11/php/php_thinkphp3.1_db_bug/" itemprop="url">
+                  ThinkPHP3.1 事务BUG
                 </a>
               
             
@@ -725,8 +720,8 @@ CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'u
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2019-04-23T22:33:16+08:00" content="2019-04-23">
-              2019-04-23
+            <time itemprop="dateCreated" datetime="2020-02-11T18:13:00+08:00" content="2020-02-11">
+              2020-02-11
             </time>
           </span>
 
@@ -739,8 +734,8 @@ CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'u
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index">
-                    <span itemprop="name">golang</span>
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
                   </a>
                 </span>
 
@@ -772,13 +767,15 @@ CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'u
       
         
           
-          什么是deferdefer特别栈，后进先出
-什么场景下用defer程序员在编程的时候，经常需要打开一些资源，比如数据库连接、文件、锁等，这些资源需要在用完之后释放掉，否则会造成内存泄漏。
-func main ()&#123;	f,err := os.Open("test.txt")	if err != nil &#123;		fmt.Print(err, "\n")		return	&#125;	defer func() &#123;		fmt.Print("do close \n")		clo
+          
+ 久远的框架不一定就安全，可能有一些隐藏的BUG
+
+发现问题影响：开启事务，rollback后，再执行update/delete/insert等写操作，数据没有发生变化
+$UserModel = new UserModel();$UserModel-&gt;startTrans();$uid = 1;try &#123;  //dosomething.....  $UserModel-&gt;where(array("uid"=&gt;$uid))-&gt;save(array("status
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2019/04/23/golang/defer/#more" rel="contents">
+            <a class="btn" href="/2020/02/11/php/php_thinkphp3.1_db_bug/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -844,7 +841,7 @@ func main ()&#123;	f,err := os.Open("test.txt")	if err != nil &#123;		fmt.Print(
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
